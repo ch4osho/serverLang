@@ -1,0 +1,18 @@
+.tool-image-stroke {
+    position: relative;
+
+    .tool-image-stroke-popup {
+        width: 220px;
+        left: -2px;
+
+        .tool-color {
+            margin: 4px 0 15px;
+        }
+
+        &.reverseX {}
+
+        &.reverseY {
+            top: -172px;
+        }
+    }
+}

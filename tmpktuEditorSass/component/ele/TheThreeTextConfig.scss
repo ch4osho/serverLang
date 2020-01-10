@@ -1,0 +1,105 @@
+.three-config-container {
+    overflow-y: scroll;
+    max-height: 100%;
+    padding-bottom: 30px;
+
+    .a-container {
+        margin-top: 20px;
+        .title {
+            font-size: 14px;
+            color: #222222;
+            margin-left: 10px;
+            @include flex(space-between);
+        }
+        .ktu-switch {
+            margin-right: 10px;
+        }
+
+        button {
+            margin-right: 10px;
+            background: $theme-color;
+            padding: 6px 8px;
+            border-radius: 3px;
+            color: #fff;
+            font-size: 12px;
+            cursor: pointer;
+        }
+
+        .input-tab {
+            @include flex;
+            flex-wrap: wrap;
+        }
+
+        .item-tab {
+            @include flex;
+            margin-left: 10px;
+            width: 46%;
+            margin-top: 10px;
+
+            label {
+                width: 100%;
+                @include flex(space-between);
+            }
+
+            input {
+                display: block;
+                height: 30px;
+                border-radius: 4px;
+                background-color: #fff;
+                padding-left: 5px;
+            }
+        }
+    }
+
+    .export-container {
+        margin-top: 30px;
+        box-sizing: border-box;
+        padding: 0 10px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .list-container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-height: 100px;
+        overflow: auto;
+        margin-top: 10px;
+        background: #fff;
+        color: #222222;
+        padding-bottom: 5px;
+
+        .list-item {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            height: 20px;
+            padding: 0 10px;
+            margin-top: 5px;
+            box-sizing: border-box;
+
+            span {
+                max-width: 250px;
+                overflow: hidden;
+                word-wrap: none;
+                text-overflow: ellipsis;
+                display: block;
+            }
+
+            button {
+                background: $theme-color;
+                border-radius: 3px;
+                color: #fff;
+                font-size: 12px;
+                cursor: pointer;
+                height: 20px;
+                line-height: 20px;
+                width: 60px;
+                text-align: center;
+            }
+
+        }
+    }
+}

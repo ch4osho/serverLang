@@ -1,0 +1,110 @@
+.ktu-tooltip {
+    display: inline-block;
+
+    &-rel {
+        display: inline-block;
+        position: relative;
+    }
+
+    &-popper {
+        display: block;
+        visibility: visible;
+        font-size: 12px;
+        line-height: 1.5;
+        position: absolute;
+        z-index: 1060;
+    }
+
+    &-inner {
+        max-width: 250px;
+        min-height: 34px;
+        padding: 8px 12px;
+        color: #fff;
+        text-align: left;
+        text-decoration: none;
+        background-color: rgba(70, 76, 91, 0.9);
+        border-radius: 4px;
+        box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
+        white-space: nowrap;
+    }
+
+    &-arrow {
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-color: transparent;
+        border-style: solid;
+    }
+}
+.ktu-tooltip-popper[x-placement^="top"] {
+    padding: 5px 0 8px 0;
+}
+.ktu-tooltip-popper[x-placement^="right"] {
+    padding: 0 5px 0 8px;
+}
+.ktu-tooltip-popper[x-placement^="bottom"] {
+    padding: 8px 0 5px 0;
+}
+.ktu-tooltip-popper[x-placement^="left"] {
+    padding: 0 8px 0 5px;
+}
+.ktu-tooltip-popper[x-placement^="top"] .ktu-tooltip-arrow {
+    bottom: 3px;
+    border-width: 5px 5px 0;
+    border-top-color: rgba(70, 76, 91, 0.9);
+}
+.ktu-tooltip-popper[x-placement="top"] .ktu-tooltip-arrow {
+    left: 50%;
+    margin-left: -5px;
+}
+.ktu-tooltip-popper[x-placement="top-start"] .ktu-tooltip-arrow {
+    left: 16px;
+}
+.ktu-tooltip-popper[x-placement="top-end"] .ktu-tooltip-arrow {
+    right: 16px;
+}
+.ktu-tooltip-popper[x-placement^="right"] .ktu-tooltip-arrow {
+    left: 3px;
+    border-width: 5px 5px 5px 0;
+    border-right-color: rgba(70, 76, 91, 0.9);
+}
+.ktu-tooltip-popper[x-placement="right"] .ktu-tooltip-arrow {
+    top: 50%;
+    margin-top: -5px;
+}
+.ktu-tooltip-popper[x-placement="right-start"] .ktu-tooltip-arrow {
+    top: 8px;
+}
+.ktu-tooltip-popper[x-placement="right-end"] .ktu-tooltip-arrow {
+    bottom: 8px;
+}
+.ktu-tooltip-popper[x-placement^="left"] .ktu-tooltip-arrow {
+    right: 3px;
+    border-width: 5px 0 5px 5px;
+    border-left-color: rgba(70, 76, 91, 0.9);
+}
+.ktu-tooltip-popper[x-placement="left"] .ktu-tooltip-arrow {
+    top: 50%;
+    margin-top: -5px;
+}
+.ktu-tooltip-popper[x-placement="left-start"] .ktu-tooltip-arrow {
+    top: 8px;
+}
+.ktu-tooltip-popper[x-placement="left-end"] .ktu-tooltip-arrow {
+    bottom: 8px;
+}
+.ktu-tooltip-popper[x-placement^="bottom"] .ktu-tooltip-arrow {
+    top: 3px;
+    border-width: 0 5px 5px;
+    border-bottom-color: rgba(70, 76, 91, 0.9);
+}
+.ktu-tooltip-popper[x-placement="bottom"] .ktu-tooltip-arrow {
+    left: 50%;
+    margin-left: -5px;
+}
+.ktu-tooltip-popper[x-placement="bottom-start"] .ktu-tooltip-arrow {
+    left: 16px;
+}
+.ktu-tooltip-popper[x-placement="bottom-end"] .ktu-tooltip-arrow {
+    right: 16px;
+}

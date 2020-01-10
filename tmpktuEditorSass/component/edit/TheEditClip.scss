@@ -1,0 +1,121 @@
+.img-clip{
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    .box-controls{
+        overflow: visible;
+        .box-control{
+            fill: #666;
+            stroke: #fff;
+            stroke-width: 2;
+            &:hover, &.pressed {
+                fill: $theme-color;
+            }
+            &.shape-box-control {
+                fill: #fff;
+                &:hover, &.pressed {
+                    fill: $theme-color;
+                    stroke: $theme-color;
+                }
+            }
+        }
+        .box-line{
+            fill: none;
+            stroke: #fff;
+            stroke-width: 2px;
+            stroke-dasharray: 6,6;
+            mix-blend-mode: difference;
+        }
+    }
+    .viewPort{
+        z-index: 2;
+        .box-controls{
+            .box-control{
+                stroke: #e9e9e9;
+                stroke-width: 1;
+            }
+        }
+        .inner {
+            pointer-events: none;
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 999;
+            overflow: hidden;
+        }
+        svg{
+            position: absolute;
+            z-index:1000;
+        }
+        cursor: move;
+        .border-box .border-line {
+            stroke: #fff;
+            stroke-dasharray: 0, 0;
+        }
+    }
+    .imageBox{
+        z-index: 1;
+        cursor: move;
+        .mask{
+            background: rgba(0, 0, 0, 0.5);
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            z-index: 99;
+            opacity: 1;
+        }
+        img{
+            width: 100%;
+            height: 100%;
+        }
+        svg{
+            position: absolute;
+            z-index:1000;
+            left:0;
+            top:0;
+        }
+    }
+    .containerMask{
+        position:absolute;
+        background: rgba(0, 0, 0, 0.5);
+    }
+
+    .crop-bar {
+        @include flex-center;
+        position: absolute;
+        width: 62px;
+        height: 32px;
+        z-index: 999;
+        border-radius: 2px;
+        background-color: #fff;
+    
+        .crop-btn {
+            width: 26px;
+            height: 26px;
+            border-radius: 2px;
+            border:1px solid transparent;
+            cursor: pointer;
+    
+            svg {
+                width: 100%;
+                height: 100%;
+                fill: #93959d;
+            }
+            &.sure svg {fill : $theme-color;}
+    
+            &:hover {
+                border-color: $theme-color;
+                background-color: $icon-bgcolor-hover;
+    
+                svg {
+                    fill : $theme-color;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,50 @@
+.ktu-page {
+    @include flex-center;
+    margin: 24px 0;
+
+    .ktu-page-prev,
+    .ktu-page-next,
+    .ktu-page-item,
+    .ktu-page-item-jump-prev,
+    .ktu-page-item-jump-next {
+        @include flex-center;
+        width: 23px;
+        height: 23px;
+        margin-right: 8px;
+        color: #333;
+        font-size: 12px;
+        border-radius: 2px;
+        border: 1px solid #e6e4e4;
+
+        &:hover:not(.ktu-page-disabled),
+        &.ktu-page-item-active {
+            color : #fff;
+            border-color: $theme-color;
+            background-color: $theme-color;
+            cursor: pointer;
+        }
+
+        &:last-child {margin-right: 0;}
+
+        svg {
+            width: 11px;
+            height: 12px;
+            fill: currentColor;
+        }
+    }
+
+    .ktu-page-item-jump-prev,
+    .ktu-page-item-jump-next {
+        .more {display: block;}
+        .show {display: none;}
+        &:hover {
+            .more {display: none;}
+            .show {display: block;}
+        }
+    }
+
+    .ktu-page-disabled {
+        color: #E6E4E4;
+        cursor: not-allowed;
+    }
+}

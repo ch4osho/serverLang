@@ -1,0 +1,101 @@
+$theme: light !default;
+
+$theme-color: #ff7733;
+$assist-color : #ff884d;
+$add-text : #999999;
+$add-icon : #999999;
+
+$modal-btn-font-size: 14px;
+$modal-cancel-btn-hover-border: #666;
+
+$theme-config: (
+	light: (
+		font-color: #222,
+		second-font-color : #666,
+        material-topic-bg : #fff,
+        material-topic-color : #000,
+		background-color: rgba(220, 220, 220,.9),
+		nav-background-color: #fff,
+		aside-background-color: #f4f4f8,
+		icon-color: #222,
+		border-color: #ddd,
+		ele-icon-border-color: #333,
+		ele-icon-content-color: $theme-color,
+		tool-icon-color: #9D9D9D,
+		icon-bgcolor-hover: #feefe4,
+		font-color-disabled: #ccc,
+		icon-color-disabled: #ccc,
+		tool-icon-color-disabled: #dadada,
+		// edit-scale-bgcolor: #35384b,
+		// edit-scale-hover: #4a4c5d,
+		split-line-color: #d8d8db,
+		text-template-color: #666,
+		canvas-bg-color : rgba(220, 220, 220,.9)
+	),
+	dark: (
+		font-color: #e3e3e3,
+        second-font-color : #969697,
+		material-topic-bg : #363639,
+        material-topic-color : #e3e3e3,
+        background-color: rgba(0,0,0,.9),
+		nav-background-color: #303033,
+		aside-background-color: #272729,
+		icon-color: #e3e3e3,
+		border-color: #525252,
+		ele-icon-border-color: #999,
+		ele-icon-content-color: #999,
+		tool-icon-color: #93959d,
+		icon-bgcolor-hover: rgba(252,118,50,0.1),
+		font-color-disabled: #6c6c6e,
+		icon-color-disabled: #6c6c6e,
+		tool-icon-color-disabled: #49494a,
+		// edit-scale-bgcolor: #343435,
+		// edit-scale-hover: #49494a,
+		split-line-color: #454548,
+		text-template-color: #9a9a9a,
+		canvas-bg-color : rgba(29, 29, 30, 0.95)
+	)
+);
+$curent-theme-config: map-get($theme-config, $theme);
+
+$tips-background-color: #35384b;
+$btn-color-hover: #ff884d;
+$btn-disabled-color: #bec1c7;
+$btn-disabled-color-border: #dddee1;
+$btn-disabled-color-bg: #f7f7f7;
+$guide-line-color: #fd753d;
+
+$background-color: getValueByTheme(background-color);
+$nav-background-color: getValueByTheme(nav-background-color);
+$aside-background-color: getValueByTheme(aside-background-color);
+$comm-font-color:#222;
+$font-color: getValueByTheme(font-color);
+$second-font-color: getValueByTheme(second-font-color);
+$material-topic-bg: getValueByTheme(material-topic-bg);
+$material-topic-color: getValueByTheme(material-topic-color);
+$font-color-disabled: getValueByTheme(font-color-disabled);
+$icon-color: getValueByTheme(icon-color);
+$border-color: getValueByTheme(border-color);
+$ele-icon-border-color: getValueByTheme(ele-icon-border-color);
+$ele-icon-content-color: getValueByTheme(ele-icon-content-color);
+$tool-icon-color: getValueByTheme(tool-icon-color);
+$icon-color-disabled: getValueByTheme(icon-color-disabled);
+$tool-icon-color-disabled: getValueByTheme(tool-icon-color-disabled);
+$icon-bgcolor-hover: getValueByTheme(icon-bgcolor-hover);
+$comm-icon-bgcolor-hover: #feefe4;
+// $edit-scale-bgcolor: getValueByTheme(edit-scale-bgcolor);
+// $edit-scale-hover: getValueByTheme(edit-scale-hover);
+$split-line-color: getValueByTheme(split-line-color);
+$text-template-color: getValueByTheme(text-template-color);
+$canvas-bg-color: getValueByTheme(canvas-bg-color);
+$scrollbar-thumb-color: #aaa;
+
+$modal-border-color: #e1e1e1;
+
+$box-shadow: (
+	nav: 0px 1px 5px 0px rgba(0, 0, 0, 0.2),
+	ele: 0px 0px 18px 0px rgba(0, 0, 0, 0.1),
+	ele-background : 0px 1px 5px 0px rgba(0, 0, 0, 0.15),
+	ele-category: 0px 0px 8px 0px rgba(0, 0, 0, 0.2),
+	tool: 0px 0px 8px 0px rgba(0, 0, 0, 0.1)
+);

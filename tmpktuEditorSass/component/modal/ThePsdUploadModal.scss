@@ -1,0 +1,501 @@
+.psd-upload-modal {
+    .ktu-modal-header{
+        height: 64px;
+        box-shadow: none;
+        line-height: 64px;
+        padding-left: 24px;
+        .titleTip{
+            color: #222222;
+            font-size: 16px;
+            font-weight: bold;
+        }
+    }
+    .ktu-modal-body {
+        box-sizing: border-box;
+        width: 460px;
+        height: 348px;
+        flex-direction: column;
+        justify-content: flex-start;
+        font-size: 14px;
+        // transition: all .3s;
+    }
+    .ktu-modal-close{
+        @include modal-close-btn;
+    }
+
+    .modal-body {
+        padding: 24px;
+
+        .ktu-loading {
+            margin: 24px 0 22px;
+        }
+
+        .uploadArea{
+            $boder: 2;
+            width: 414px;
+            height: 186px;
+            display: flex;
+            justify-content: center;
+            align-items:center;
+            cursor: pointer;
+            position: relative;
+            @include border-dashed('psdModal',$boder);
+            &.uploadArea-more{
+                @include border-dashed('psdMoreBig',$boder);
+            }
+            border-radius: 4px;
+            a{
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+            }
+            .psdSelectbtn{
+                display: none;
+
+            }
+            .PSDUploadText{
+                margin-top: 10px;
+            }
+            .PSDUploadText,.reUploadText{
+                color: $add-icon;
+                text-align: center;
+            }
+            .reUploadText{
+                margin-top: 10px;
+            }
+            &:hover{
+                border: 2px solid $theme-color;
+                .psd-nav-icon{
+                    color: $theme-color;
+                    fill: $theme-color;
+                }
+                .PSDUploadText,.reUploadText{
+                    color: $theme-color;
+                }
+            }
+            /*.psd-icon-content{
+                position: relative;
+                top: -8px;
+            }*/
+            &-svg {
+                width: 100px;
+                height: auto;
+                .psd-nav-icon{
+                    width: 16px;
+                    display: block;
+                    margin: 0 auto;
+                    height: 16px;
+                    fill: $add-icon;
+                }
+                position: relative;
+            }
+        }
+        .textToImg{
+            height: auto;
+            padding: 12px 0;
+            box-sizing: border-box;
+            .title{
+                font-size: 14px;
+                color: #333333;
+                display: inline-block;
+                line-height: 23px;
+            }
+            .des{
+                display: inline-block;
+                float: right;
+            }
+        }
+        .attention{
+            width:100%;
+            height:84px;
+            background:#EEEEEE;
+            border-radius:4px;
+            box-sizing: border-box;
+            padding:16px;
+            font-size:12px;
+            line-height:18px;
+            color:#999999;
+            .psdInfo{
+                width: 102%;
+                height:36px;
+            }
+            .psdLink{
+                color: #2762EB;
+                cursor: pointer;
+                &:hover{
+                    text-decoration:underline;
+                }
+            }
+        }
+        .bigFileTips{
+            height: 124px;
+            width: 100%;
+            .tipsImage{
+                width: 90px;
+                height: 94px;
+                margin: 0 auto;
+                background-image: url("/image/editor/fileOverTips.png");
+            }
+            .tipsText{
+                width: 100%;
+                font-size: 12px;
+                text-align: center;
+                color: #222222;
+            }
+        }
+        // .container{
+        //     width: 280px;
+        //     height: 8px;
+        //     margin: 15px 30px 15px 0;
+        //     position: relative;
+        //     .progressBar {
+        //         display: inline-block;
+        //         position: relative;
+        //         width: 280px;
+        //         height: 8px;
+        //         background-color: #F3F3F3;
+        //         -webkit-border-radius: 3px;
+        //         -moz-border-radius: 3px;
+        //         border-radius: 3px;
+        //         margin-right: 3%;
+        //         .mark{
+        //             position: absolute;
+        //             top: 0;
+        //             left: 0;
+        //             width: 100%;
+        //             height: 100%;
+        //             background: linear-gradient(to right,rgba(255,255,255,0.5) 0%,rgba(255,255,255,0) 100%);
+        //             z-index: 99;
+        //         }
+        //         #progressFill {
+        //             width: 0%;
+        //             height: 8px;
+        //             position: relative;
+        //             background-color: #F4CF39;
+        //             border-radius: 3px;
+        //             -webkit-border-radius: 3px;
+        //             -moz-border-radius: 3px;
+        //             background-size: 25px 25px;
+        //             background-image: linear-gradient(-45deg, transparent 0em, transparent 0.5em, #FC7D51 0.6em, #FC7D51 1.1em, transparent 1.1em, transparent 1.7em, #FC7D51 1.7em);
+        //             -webkit-animation: warning-animation 750ms infinite linear;
+        //             -moz-animation: warning-animation 750ms infinite linear;
+        //             animation: warning-animation 750ms infinite linear;
+        //             &:before {
+        //                 content: '';
+        //                 position: absolute;
+        //                 top: 0;
+        //                 left: 0;
+        //                 right: 0;
+        //                 bottom: 0;
+        //                 height: 100%;
+        //                 border-radius: 3px;
+        //                 -webkit-border-radius: 3px;
+        //                 -moz-border-radius: 3px;
+        //                 background-image: linear-gradient(to bottom, #F4CF39, rgbA(255, 127, 39, 0.8) 15%, transparent 60%, #F4CF39);
+        //             }
+        //             @-moz-keyframes warning-animation {
+        //                 0% {
+        //                     background-position: 0 0;
+        //                 }
+        //                 100% {
+        //                     background-position: 3em 0;
+        //                 }
+        //               }
+        //               @-webkit-keyframes warning-animation {
+        //                   0% {
+        //                       background-position: 0 0;
+        //                   }
+        //                   100% {
+        //                       background-position: 3em 0;
+        //                   }
+        //               }
+        //               @-ms-keyframes warning-animation {
+        //                   0% {
+        //                       background-position: 0 0;
+        //                   }
+        //                   100% {
+        //                       background-position: 3em 0;
+        //                   }
+        //               }
+        //               @-o-keyframes warning-animation {
+        //                   0% {
+        //                       background-position: 0 0;
+        //                   }
+        //                   100% {
+        //                       background-position: 3em 0;
+        //                   }
+        //               }
+        //               @keyframes warning-animation {
+        //                   0% {
+        //                       background-position: 0 0;
+        //                   }
+        //                   100% {
+        //                       background-position: 3em 0;
+        //                   }
+        //               }
+        //         }
+        //     }
+        //     #percentage {
+        //         display: inline-block;
+        //         position: absolute;
+        //         top: 0;
+        //         right: -36px;
+        //     }
+        // }
+
+.psd-upload {
+    &-progress {
+        position: relative;
+        left: -18px;
+        width: 280px;
+        height: 8px;
+        border-radius: 4px;
+        background-color: #F3F3F3;
+
+        &-bg {
+            width:0%;
+            height: 100%;
+            border-radius: 4px;
+            overflow: hidden;
+            transition: .5s all;
+            background-image: linear-gradient(to right,#f4d039, #fc7c51);
+        }
+
+        &-bar {
+            height: 100%;
+            background-image: url(/image/editor/upload/bar.png?v=201805181647);
+        }
+
+        &-text {
+            position: absolute;
+            top:-7px;
+            right: -44px;
+            color : #666666;
+            font-size: 14px;
+        }
+
+        &-close {
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            top: -4px;
+            left: 440px;
+            cursor: pointer;
+        }
+    }
+}
+
+        .removeUpload{
+            width: 100%;
+            height:32px;
+            margin-top: 36px;
+            button{
+                width: 140px;
+                height: 32px;
+                border: 1px solid $theme-color;
+                margin: 0 auto;
+                border-radius: 16px;
+                color: $theme-color;
+            }
+            text-align: center;
+            vertical-align: middle;
+
+        }
+        .putinUpload{
+            width: 100%;
+            height:32px;
+            margin-top: 36px;
+            text-align: center;
+            vertical-align: middle;
+            color: $theme-color;
+        }
+        .tipsImage{
+            width: 129px;
+            height: 131px;
+            margin: 8px auto;
+            background: url("/image/editor/upload.png");
+        }
+        // .successCon{
+        //     width: 280px;
+        //     height: 8px;
+        //     margin: 15px 30px 15px 0;
+        //     position: relative;
+        //     .progressBar {
+        //         display: inline-block;
+        //         position: relative;
+        //         width: 280px;
+        //         height: 8px;
+        //         background-color: #F3F3F3;
+        //         -webkit-border-radius: 3px;
+        //         -moz-border-radius: 3px;
+        //         border-radius: 3px;
+        //         margin-right: 3%;
+        //         .mark{
+        //             position: absolute;
+        //             top: 0;
+        //             left: 0;
+        //             width: 100%;
+        //             height: 100%;
+        //             background: linear-gradient(to right,rgba(255,255,255,0.5) 0%,rgba(255,255,255,0) 100%);
+        //             z-index: 99;
+        //         }
+        //         #progressFill {
+        //             width: 100%;
+        //             height: 8px;
+        //             position: relative;
+        //             background-color: #F4CF39;
+        //             border-radius: 3px;
+        //             -webkit-border-radius: 3px;
+        //             -moz-border-radius: 3px;
+        //             background-size: 25px 25px;
+        //             background-image: linear-gradient(-45deg, transparent 0em, transparent 0.5em, #FC7D51 0.6em, #FC7D51 1.1em, transparent 1.1em, transparent 1.7em, #FC7D51 1.7em);
+        //             -webkit-animation: warning-animation 750ms infinite linear;
+        //             -moz-animation: warning-animation 750ms infinite linear;
+        //             animation: warning-animation 750ms infinite linear;
+        //             &:before {
+        //                 content: '';
+        //                 position: absolute;
+        //                 top: 0;
+        //                 left: 0;
+        //                 right: 0;
+        //                 bottom: 0;
+        //                 height: 100%;
+        //                 border-radius: 3px;
+        //                 -webkit-border-radius: 3px;
+        //                 -moz-border-radius: 3px;
+        //                 background-image: linear-gradient(to bottom, #F4CF39, rgbA(255, 127, 39, 0.8) 15%, transparent 60%, #F4CF39);
+        //             }
+        //             @-moz-keyframes warning-animation {
+        //                 0% {
+        //                     background-position: 0 0;
+        //                 }
+        //                 100% {
+        //                     background-position: 3em 0;
+        //                 }
+        //               }
+        //               @-webkit-keyframes warning-animation {
+        //                   0% {
+        //                       background-position: 0 0;
+        //                   }
+        //                   100% {
+        //                       background-position: 3em 0;
+        //                   }
+        //               }
+        //               @-ms-keyframes warning-animation {
+        //                   0% {
+        //                       background-position: 0 0;
+        //                   }
+        //                   100% {
+        //                       background-position: 3em 0;
+        //                   }
+        //               }
+        //               @-o-keyframes warning-animation {
+        //                   0% {
+        //                       background-position: 0 0;
+        //                   }
+        //                   100% {
+        //                       background-position: 3em 0;
+        //                   }
+        //               }
+        //               @keyframes warning-animation {
+        //                   0% {
+        //                       background-position: 0 0;
+        //                   }
+        //                   100% {
+        //                       background-position: 3em 0;
+        //                   }
+        //               }
+        //         }
+        //     }
+        //     #percentage {
+        //         display: inline-block;
+        //         position: absolute;
+        //         top: 0;
+        //         right: -36px;
+        //     }
+        // }
+.psd-upload {
+    &-success {
+        position: relative;
+        left: -18px;
+        width: 280px;
+        height: 8px;
+        border-radius: 4px;
+        background-color: #F3F3F3;
+
+        &-bg {
+            width:100%;
+            height: 100%;
+            border-radius: 4px;
+            overflow: hidden;
+            // transition: .5s all;
+            background-image: linear-gradient(to right,#f4d039, #fc7c51);
+        }
+
+        &-bar {
+            height: 100%;
+            background-image: url(/image/editor/upload/bar.png?v=201805181647);
+        }
+
+        &-text {
+            position: absolute;
+            top:-7px;
+            right: -44px;
+            color : #666666;
+            font-size: 14px;
+        }
+
+        &-close {
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            top: -4px;
+            left: 440px;
+            cursor: pointer;
+        }
+    }
+}
+        .successImage{
+            width: 129px;
+            height: 131px;
+            margin: 8px auto;
+            background: url("/image/editor/uploadSuccess.png");
+        }
+        .errorImage{
+            width: 129px;
+            height: 131px;
+            margin: 8px auto -2px;
+            background: url("/image/editor/uploadError.png");
+        }
+        .errorUploadText {
+            width: 218px;
+            margin-bottom: 39px;
+            text-align: center;
+        }
+        .errorUploadBtn {
+            width: 218px;
+            .errorReupload,.errorDelete {
+                width: 100px;
+                height: 32px;
+                font-size: 12px;
+                border-radius: 16px;
+                text-align: center;
+                line-height: 32px;
+                display: inline-block;
+                cursor: pointer;
+            }
+            .errorReupload {
+                color: #FFFFFF;
+                background:rgba(255,119,51,1);
+                margin-right: 14px;
+                border: 1px solid #ff7733;
+            }
+            .errorDelete {
+                color: #333333;
+                border:1px solid rgba(224,224,224,1);
+            }
+        }
+    }
+}

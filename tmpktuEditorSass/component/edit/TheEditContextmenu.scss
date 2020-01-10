@@ -1,0 +1,86 @@
+.edit-contextmenu {
+    position: absolute;
+    z-index: 3;
+    width: 158px;
+    box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+    border-radius: 4px;
+    &.translateX {
+        transform: translateX(-100%);
+    }
+    &.translateY {
+        transform: translateY(-100%);
+    }
+    // &.translateX.translateY{
+    //     transform: translate(-100%, -100%);
+    // }
+    .edit-contextmenu-category {
+        position: relative;
+        padding: 6px 0;
+        &:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            left: 22px;
+            right: 0;
+            bottom: 0;
+            height: 1px;
+            background-color: #f3f3f3;
+        }
+        &:empty{
+            display: none;
+        }
+    }
+    .edit-contextmenu-operate {
+        position: relative;
+        display: flex;
+        align-items: center;
+        height: 32px;
+        color: #444;
+        font-size: 14px;
+        cursor: pointer;
+        
+        &:hover, &.opened {
+            background-color: $comm-icon-bgcolor-hover;;
+            color: $theme-color;
+            .edit-contextmenu-icon {
+                fill: $theme-color;
+            }
+            .edit-contextmenu-arrow {
+                fill: $theme-color;
+            }
+        }
+        &.locked{
+            //
+            background-color:#fff;
+            color:#dadada;
+            .edit-contextmenu-icon {
+                fill: #dadada;
+            }
+            .edit-contextmenu-arrow {
+                fill: #dadada;
+            }
+            cursor:not-allowed;
+        }
+        .edit-contextmenu-icon {
+            width: 26px;
+            height: 26px;
+            fill: #888;
+            margin-left: 20px;
+            margin-right: 6px;
+        }
+        .edit-contextmenu-label {
+            height: 20px;
+        }
+        .edit-contextmenu-arrow {
+            transform: rotate(180deg);
+            width: 10px;
+            height: 10px;
+            fill: #888;
+            position: absolute;
+            right: 16px;
+            top: 50%;
+            margin-top: -5px;
+            //margin-top: -6px;
+        }
+    }
+}

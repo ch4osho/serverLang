@@ -1,0 +1,54 @@
+.tool-size {
+    // width: 122px;
+    margin-left: 8px;
+
+    .tool-size-container {
+        display: flex;
+        height: 26px;
+
+        .input-box::before {
+            top: 29px;
+        }
+
+        .input-box::after {
+            top: 37px;
+        }
+
+        .tool-size-lock {
+            display: inline-block;
+            width: 28px;
+            height: 28px;
+            margin: 0 4px;
+
+        }
+
+        .tool-btn-special {
+            width: 28px;
+            height: 28px;
+            margin: 0 4px;
+            line-height: 28px;
+            border-radius: 3px;
+            cursor: pointer;
+            border: 1px solid transparent;
+
+            .tool-btn-svg {
+                width: 100%;
+                height: 100%;
+                fill: $tool-icon-color;
+            }
+        }
+
+        input {
+            display: inline-block;
+            width: 32px;
+            height: 26px;
+            text-align: center;
+            border: none;
+            border-bottom: 1px solid #dddee1;
+
+            &:focus {
+                border-color: #ff7733;
+            }
+        }
+    }
+}

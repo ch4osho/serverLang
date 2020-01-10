@@ -1,0 +1,243 @@
+.ele-background {
+    .bg-color-picker {
+        width: 75px;
+        height: 34px;
+        border-radius: 4px 0 0 4px;
+        .color-btn {
+            border: none;
+            box-shadow: none;
+        }
+    }
+    .ele-btn{width: $ele-width!important;}
+    .bg-btn {
+        @include flex-center;
+        width: 34px;
+        height: 34px;
+        cursor: pointer;
+        border-radius: 4px;
+        background-color: #ffffff;
+        box-shadow: map-get($box-shadow, ele-background);
+        &.checked .bg-btn-icon,
+        &:hover .bg-btn-icon {
+            fill: $theme-color;
+        }
+        .bg-btn-icon {
+            width: 26px;
+            height: 26px;
+            fill: $tool-icon-color;
+            &.checked{
+                fill: $theme-color;
+            }
+        }
+    }
+    .title {
+        margin-bottom: 16px;
+        font-size: 14px;
+        font-weight: bold;
+        text-align: center;
+    }
+    .colorSelectBox {
+        width: $ele-width;
+        display: flex;
+        height: 34px;
+        .colorPickerBox {
+            display: flex;
+            border-radius: 4px;
+            box-shadow: map-get($box-shadow, ele-background);
+            .color-btn {
+                border-radius: 4px 0 0 4px;
+            }
+        }
+        .collectBtn {
+            border-radius: 0 4px 4px 0;
+            box-shadow: none;
+            border-left: 1px solid $split-line-color;
+        }
+        .colorInput {
+            width: 110px;
+            height: 34px;
+            margin: 0 10px;
+            color: #999;
+            font-size: 14px;
+            text-align: center;
+            border-radius: 4px;
+            background-color: #ffffff;
+            box-shadow: map-get($box-shadow, ele-background);
+        }
+    }
+
+    .defaultColorBox {
+        width: $ele-width;
+        height: 68px;
+        margin-top: 16px;
+        margin-bottom: 16px;
+        box-shadow : map-get($box-shadow, ele-background);
+        display: flex;
+        flex-wrap: wrap;
+        .colorItem {
+            width: 34px;
+            height: 34px;
+            cursor: pointer;
+            &:hover{
+                position: relative;
+                z-index: 1; 
+                transform: scale(1.176);
+                transition: transform .2s;
+            }
+            &:first-child{ 
+                border-top-left-radius: 4px;
+            }
+            &:nth-child(8){
+                border-top-right-radius: 4px;
+            }
+            &:nth-child(9){
+                border-bottom-left-radius: 4px;
+            }
+            &:last-child{
+                border-bottom-right-radius: 4px;
+            }
+        }
+    }
+
+    .collectBox {
+        width: 100%;
+        margin-top: 16px;
+        margin-bottom: 18px;
+        .title {
+            margin-bottom: 12px;
+            color: $second-font-color;
+            text-align: left;
+            font-weight: normal;
+        }
+    }
+
+    .collectColorBox {
+        display: flex;
+        flex-wrap: wrap;
+        //height: 34px;
+        // overflow: hidden;
+        .colorItem {
+            position: relative;
+            width: 34px;
+            height: 34px;
+            cursor: pointer;
+            box-shadow: map-get($box-shadow, ele-background);
+            background-image: url('/image/editor/colorpicker/grid.jpg');
+            .bg {
+                height: 100%;
+            }
+            .mask {
+                @include flex-center;
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top:0;
+                left: 0;
+                z-index: 0;
+                background-color: rgba(#000, .2);
+                .bg-btn-icon{
+                    width: 100%;
+                    height: 100%;
+                    fill: #fff;
+                }
+            }
+            &:hover{
+                z-index: 1;
+                transform: scale(1.176);
+                transition: transform .2s;
+            }
+            &:first-child , &:first-child .bg, &:first-child .mask{
+                border-top-left-radius: 4px;
+            }
+            &:nth-child(8), &:nth-child(8) .bg, &:nth-child(8) .mask{
+                border-top-right-radius: 4px; 
+            }
+            &.bottom-left-radius, &.bottom-left-radius .bg, &.bottom-left-radius .mask{
+                border-bottom-left-radius: 4px;
+            }
+            &.bottom-right-radius, &.bottom-right-radius .bg, &.bottom-right-radius .mask{
+                border-bottom-right-radius: 4px;
+            }
+        }
+        .delBtn {
+            float: left;
+            box-shadow: none;
+            border-left: 1px solid #d8d8db;
+            box-shadow: map-get($box-shadow, ele-background);
+            border-radius: 0;
+            border-bottom-right-radius: 4px;
+            &.top-right-radius{
+                border-top-right-radius: 4px;
+            }
+            &.bottom-left-radius{
+                border-bottom-left-radius: 4px;
+            }
+        }
+    }
+
+    .background-item {
+        position: relative;
+        float: left;
+        width: 86px;
+        height: 86px;
+        margin: 0 7px 7px 0;
+        cursor: pointer;
+        // background-color: #333;
+        &:nth-child(3n) {
+            margin-right: 0;
+        }
+
+        &-box {
+            width: 100%;
+            margin: 16px 0;
+        }
+
+        &-img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            border-radius: 4px;
+        }
+
+        &-copyright-icon {
+            display: none;
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            top: 2px;
+            left: 2px;
+            z-index: 2;
+            background-position: -4px -4px;
+            background-image: url("/image/editor/copyright.png?v=20180814");
+            cursor: default;
+            &.active {
+                display: block;
+            }
+
+            &:hover,
+            &.active {
+                background-position: -34px -4px;
+            }
+
+            &.other {
+                background-position: -4px  -34px;
+                &:hover,
+                &.active {
+                    background-position: -34px -34px;
+                }
+            }
+
+            &.nocopyright {
+                background-position: -4px  -64px;
+                &:hover,
+                &.active {
+                    background-position: -34px -64px;
+                }
+            }
+        }
+
+        &:hover {
+            .background-item-copyright-icon {display: block;}
+        }
+    }
+}

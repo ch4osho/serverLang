@@ -1,0 +1,1119 @@
+.ele-qrCode-old {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 9;
+    font-family: 'Microsoft YaHei';
+
+    .ele-qrCode-mask {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: rgba(#000, 0.7);
+    }
+
+    .code-self-head,
+    .ele-qrCode-head {
+        .title {
+            font-size: 16px;
+            margin: 0 0 0 24px;
+            font-family: 'Microsoft YaHei';
+            font-weight: 400;
+            color: #222222;
+            font-weight: bold;
+            line-height: 18px;
+        }
+        .closeBtn {
+            margin-right: 24px;
+            cursor: pointer;
+
+            .ktu-icon-ios-close-empty {
+                font-size: 31px;
+                color: #999;
+                transition: color 0.2s ease;
+                position: relative;
+
+                &:hover {
+                    color: #444;
+                }
+            }
+        }
+    }
+
+    .ele-qrCode-foot,
+    .code-self-footer {
+        @include flex-center;
+        border-top: 1px solid #e6e6e6;
+
+        .btn {
+            // display: inline-block;
+            width: 140px;
+            height: 32px;
+            font-size: $modal-btn-font-size;
+            font-weight: 400;
+            color: #444;
+            border: 1px solid #e0e0e0;
+            border-radius: 16px;
+
+            &.code-self-btn{
+                width: 100px;
+            }
+        }
+
+        .applyBtn {
+            margin-right: 10px;
+            background: #ff7733;
+            color: #ffffff;
+            border: none;
+        }
+
+        .applyBtn:hover {
+            background: #ff884d;
+        }
+
+        .cancelBtn:hover {
+            background: #f9f9f9;
+            border: 1px solid #999;
+        }
+
+        .disableBtn {
+            color: #bec1c7;
+            background: #f7f7f7 !important;
+            border: 1px solid #dddee1;
+        }
+    }
+
+    .noData {
+        width: 147px;
+        height: 175px;
+        margin: 0 auto;
+        position: relative;
+        left: 16px;
+
+        .noData-tip {
+            width: 94px;
+            margin: 0 auto;
+            font-size: 12px;
+            color: #666;
+            text-align: center;
+        }
+    }
+
+    .ele-qrCode-editor {
+        position: absolute;
+        width: 761px;
+        top: calc(50% - 223px - 5%);
+        left: calc(50% - 380px);
+        border-radius: 4px;
+        background-color: #fff;
+        z-index: 1;
+
+        .ele-qrCode-head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px;
+            width: 100%;
+            border-bottom: 1px solid #e6e6e6;
+            overflow: hidden;
+        }
+
+        .qrCode-nav {
+            width: 100%;
+            height: 50px;
+            padding-left: 48px;
+            display: flex;
+            align-items: center;
+            background: #F0F0F2;
+            position: relative;
+
+            .tab {
+                margin-left: 48px;
+                position: relative;
+                line-height: 32px;
+                text-align: center;
+                font-size: 14px;
+                font-weight: 400;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                cursor: pointer;
+
+                &:first-child {
+                    margin-left: 0;
+                }
+
+                &:hover {
+                    color: #ff7733;
+
+                    .qrCode-nav-svg {
+                        fill: #ff7733;
+                    }
+                }
+            }
+
+            .tab-underline {
+                width: 32px;
+                height: 3px;
+                fill: $theme-color;
+                position: absolute;
+                bottom: 0px;
+                transition: transform .3s
+            }
+
+            .active {
+                color: #ff7733;
+
+                .qrCode-nav-svg {
+                    fill: #ff7733;
+                }
+            }
+
+            li:first-child {
+                &.active:after {
+                    border-top-left-radius: 4px;
+                    border-bottom-left-radius: 4px;
+                }
+            }
+
+            li:last-child {
+                &.active:after {
+                    border-top-right-radius: 4px;
+                    border-bottom-right-radius: 4px;
+                }
+            }
+        }
+
+        .ele-qrCode-container {
+            display: flex;
+            height: 309px;
+            width: 100%;
+
+            .qrCode-left {
+                flex: 0 0 316px;
+                width: 316px;
+                text-align: center;
+
+                .qrCode-img {
+                    position: relative;
+                    display: flex;
+                    align-items: center;
+                    // vertical-align: middle;
+                    width: 230px;
+                    height: 220px;
+                    margin: 24px 24px 12px 50px;
+                    border: 1px solid #e0e0e0;
+                    border-radius: 4px;
+                    overflow: hidden;
+
+                    canvas {
+                        margin-left: 5px;
+                        display: none;
+                    }
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        transition: all 0.3s;
+                        // margin-left: 5px;
+                    }
+
+                    .tip {
+                        position: absolute;
+                        width: 98px;
+                        height: 16px;
+                        font-size: 14px;
+                        font-family: 'Microsoft YaHei';
+                        font-weight: 400;
+                        color: #d2d2d2;
+                        top: calc(50% - 8px);
+                        left: calc(50% - 49px);
+                        z-index: -1;
+                    }
+                }
+
+                .qrCode-tip {
+                    margin: 0px 35px 0 50px;
+                    font-size: 14px;
+                    font-weight: 400;
+                    color: #d2d2d2;
+                }
+            }
+
+            .qrCode-right {
+                position: relative;
+                flex: 1;
+                font-family: 'Microsoft YaHei';
+
+                .color-panel-content{
+                    max-height: 450px !important;
+                }
+
+                .qrCode-content {
+                    margin: 24px 0;
+
+                    .qrCode-inside,
+                    .qrCode-outside {
+                        height: 34px;
+                        @include flex();
+
+                        label {
+                            font-size: 12px;
+                        }
+
+                        input {
+                            width: 323px;
+                            height: 32px;
+                            padding: 0 12px;
+                            margin-left: 16px;
+                            font-size: 14px;
+                            border: 1px solid #e1e1e1;
+                            border-radius: 4px;
+
+                            &:focus,
+                            &:hover {
+                                border: 1px solid #ff7733;
+                            }
+
+                            &:focus::-webkit-input-placeholder {
+                                text-indent: -999em;
+                                z-index: -20;
+                            }
+
+                            &::-webkit-input-placeholder {
+                                color: #333333;
+                                opacity: 0.4;
+                            }
+                        }
+
+                        .qrCode-label {
+                            height: 100%;
+                            cursor: pointer;
+                            @include flex();
+
+                            .virtual-radio {
+                                display: block;
+                                width: 16px;
+                                height: 16px;
+                                margin: 0;
+                                margin-right: 6px;
+                                outline: 0;
+                                border: 1px solid #dddee1;
+                                background: transparent;
+                                border-radius: 50%;
+                                position: relative;
+
+                                &::before {
+                                    content: '';
+                                    width: 0;
+                                    height: 0;
+                                    display: inline-block;
+                                    font-size: 36px;
+                                    color: #ff7733;
+                                    border: 3px solid #ff7733;
+                                    border-radius: 100%;
+                                    text-align: center;
+                                    position: absolute;
+                                    top: 50%;
+                                    left: 50%;
+                                    margin-top: -3px;
+                                    margin-left: -3px;
+                                    transform: scale(0);
+                                    opacity: 0;
+                                    transition: transform 0.2s linear;
+                                }
+                            }
+
+                            .qrCode-radio {
+                                width: 0;
+                                height: 0;
+                                margin: 0;
+                                opacity: 0;
+                            }
+
+                            .text {
+                                color: rgba(51, 51, 51, 0.7);
+                                font-size: 14px;
+                                align-self: center;
+                                line-height: 34px;
+                            }
+
+                            .qrCode-radio:checked + .virtual-radio {
+                                border: 1px solid #ff7733;
+
+                                &::before {
+                                    opacity: 1;
+                                    transform: scale(1);
+                                }
+                            }
+
+                            &:hover {
+                                .virtual-radio {
+                                    border: 1px solid #ff7733;
+                                }
+                            }
+                        }
+                    }
+
+                    .qrCode-inside {
+                        margin-top: 16px;
+                        position: relative;
+
+                        .inside-input-box {
+                            @include flex(flex-start, center);
+                            width: 323px;
+                            margin-left: 16px;
+                            border-radius: 4px;
+                            .choose-inside-url {
+                                width: 89px;
+                                height: 32px;
+                                border: 1px solid #E1E1E1;
+                                border-left: 1px solid #E1E1E1;
+                                border-radius: 0 4px 4px 0;
+                                color: #666;
+                                background-color: #fff;
+                                font-size: 12px;
+
+                                &:hover {
+                                    border: 1px solid #ff7733;
+                                    color: #ff7733;
+                                }
+                            }
+                            .insideUrl-input {
+                                flex: 1;
+                                border: 1px solid #e1e1e1;
+                                border-right: 0;
+                                margin-left: 0;
+                                border-radius: 4px 0 0 4px;
+                                color: #999;
+
+                                &:hover,
+                                &:focus {
+                                    border: 1px solid #ff7733;
+                                    border-right: 0;
+
+                                    & + .choose-inside-url{
+                                        border-left: 1px solid #ff7733;
+                                    }
+                                    
+                                    .choose-inside-url{
+                                        border: 1px solid #ff7733;
+                                        color: #ff7733;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    .qrCode-vcard {
+                        height: 130px;
+                        overflow: hidden;
+
+                        .input-group {
+                            display: inline-block;
+                            margin: 0 20px 16px 0;
+
+                            label {
+                                font-size: 14px;
+                                color: #333333;
+                                opacity: 0.7;
+                            }
+
+                            input {
+                                width: 144px;
+                                height: 32px;
+                                padding: 0 12px;
+                                margin-left: 12px;
+                                font-size: 14px;
+                                border: 1px solid #e0e0e0;
+                                border-radius: 4px;
+
+                                &:focus,
+                                &:hover {
+                                    border: 1px solid #ff7733;
+                                }
+
+                                &::placeholder {
+                                    font-size: 12px;
+                                    color: #ddd;
+                                }
+                            }
+
+                            .company {
+                                width: 355px;
+                            }
+
+                            &:last-child {
+                                margin-bottom: 0;
+                            }
+                        }
+                    }
+
+                    .qrCode-flyer {
+                        height: 130px;
+                        width: 410px;
+                        overflow-y: scroll;
+
+                        .qrCode-flyer-item {
+                            display: inline-block;
+                            width: 190px;
+                            height: 52px;
+                            margin-bottom: 8px;
+                            border: 1px solid #e1e1e3;
+                            border-radius: 4px;
+                            overflow: hidden;
+                            cursor: pointer;
+
+                            .flyer-left {
+                                display: inline-block;
+                                width: 60px;
+                                height: 100%;
+                                overflow: hidden;
+
+                                .flyer-img {
+                                    width: 38px;
+                                    height: 38px;
+                                    margin: 6px 11px 6px 11px;
+                                    overflow: hidden;
+
+                                    img {
+                                        width: 100%;
+                                        height: 100%;
+                                        overflow: hidden;
+                                    }
+                                }
+                            }
+
+                            .flyer-right {
+                                display: inline-block;
+                                width: 122px;
+                                height: 100%;
+                                font-size: 12px;
+                                font-family: 'Microsoft YaHei';
+                                color: #333333;
+                                overflow: hidden;
+                            }
+
+                            &:nth-child(odd) {
+                                margin-right: 18px;
+                            }
+
+                            &:hover {
+                                border: 1px solid #999;
+                            }
+                        }
+
+                        .activeFlyer {
+                            border: 1px solid #ff7733 !important;
+                            background: #feefe4;
+
+                            .flyer-right {
+                                color: #ff7733;
+                            }
+                        }
+                    }
+
+                    .qrCode-game {
+                        height: 130px;
+                        width: 410px;
+                        overflow-y: scroll;
+
+                        .qrCode-game-item {
+                            display: inline-block;
+                            width: 190px;
+                            height: 52px;
+                            margin-bottom: 8px;
+                            border: 1px solid #e1e1e3;
+                            border-radius: 4px;
+                            overflow: hidden;
+                            cursor: pointer;
+
+                            .game-left {
+                                display: inline-block;
+                                width: 91px;
+                                height: 100%;
+                                overflow: hidden;
+
+                                .game-img {
+                                    width: 69px;
+                                    height: 38px;
+                                    margin: 7px 13px 7px 9px;
+                                    overflow: hidden;
+
+                                    img {
+                                        width: 100%;
+                                        height: 100%;
+                                        overflow: hidden;
+                                    }
+                                }
+                            }
+
+                            .game-right {
+                                display: inline-block;
+                                width: 91px;
+                                height: 100%;
+                                font-size: 12px;
+                                font-family: 'Microsoft YaHei';
+                                color: #333333;
+                                overflow: hidden;
+
+                                .title {
+                                    text-align: center;
+                                }
+                            }
+
+                            &:nth-child(odd) {
+                                margin-right: 18px;
+                            }
+
+                            &:hover {
+                                border: 1px solid #999;
+                            }
+                        }
+
+                        .activeGame {
+                            border: 1px solid #ff7733 !important;
+                            background: #feefe4;
+
+                            .game-right {
+                                color: #ff7733;
+                            }
+                        }
+                    }
+
+                    .title {
+                        font-size: 12px;
+                        margin-bottom: 5px;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                    }
+
+                    .desc {
+                        height: 14px;
+                        margin-top: 0;
+                        opacity: 0.5;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                    }
+
+                    .scan-pic {
+                        $boder:1px;
+                        height: 174px;
+                        width: 402px;
+                        border-radius: 4px;
+                        text-align: center;
+                        position: relative;
+                        @include border-dashed('qrcode',$boder);
+                        .svg-box {
+                            width: 100%;
+                            height: 100%;
+                            position: absolute;
+                            top: 0;
+                            text-align: center;
+                            @include flex-center;
+                            flex-direction: column;
+                            .scaned-svg-box{
+                                height: auto;
+                                .text{
+                                    margin-top: 5px;
+                                }
+                            }
+                            .text {
+                                width: 100%;
+                                height: 25px;
+                                line-height: 25px;
+                                margin-top: 10px;
+                                color: $add-text;
+                                font-size: 14px;
+                                @include flex-center;
+
+                                &.scaned {
+                                    width: 294px;
+                                    color: #999;
+
+                                    .localUrl-text {
+                                        display: inline-block;
+                                        text-align: left;
+                                        cursor: text;
+                                        @include ellipsis;
+                                        &:hover {
+                                            background-color: #ededed;
+                                        }
+                                    }
+
+                                    .scan-content {
+                                        flex-shrink: 0;
+                                    }
+
+                                    .local-url-input {
+                                        height: 24px;
+                                        line-height: 24px;
+                                        padding-left: 5px;
+                                        border: 1px solid #ff7733;
+                                        font-family: 'Microsoft YaHei';
+                                    }
+                                }
+
+                                &.scaning {
+                                    margin-top: 7px;
+                                }
+                            }
+
+                            .scaning-svg-box {
+                                width: 65px;
+                                height: 60px;
+                                position: relative;
+
+                                .active-img,
+                                .inactive-img,
+                                .scaning-img {
+                                    position: absolute;
+                                    left: 50%;
+                                    transform: translateX(-50%);
+                                }
+
+                                .active-img,
+                                .inactive-img {
+                                    width: 47px;
+                                    height: 47px;
+                                    top: 5px;
+                                }
+
+                                .scaning-img {
+                                    width: 63px;
+                                    height: 60px;
+                                    top: -1px;
+                                }
+
+                                .inactive-img {
+                                    z-index: 5;
+                                }
+
+                                .active-img {
+                                    height: 47px;
+                                    z-index: 10;
+                                    background-color: #fff;
+                                    position: absolute;
+                                    left: 50%;
+                                    transform: translateX(-50%);
+                                    transform-origin: top;
+                                    will-change: transform;
+                                    overflow: hidden;
+                                    animation: showImgOld 1.5s linear infinite;
+                                    @keyframes showImgOld {
+                                        0% {
+                                            clip-path: inset(0px 0px 46px 0px);
+                                        }
+                                        100% {
+                                            clip-path: inset(0px 0px 0px 0px);
+                                        }
+                                    }
+                                }
+
+                                .move-thumb {
+                                    width: 52px;
+                                    height: 3px;
+                                    position: absolute;
+                                    left: 50%;
+                                    transform: translateX(-50%);
+                                    background-color: #fff;
+                                    z-index: 15;
+                                    animation: scanOld 1.5s linear infinite;
+
+                                    @keyframes scanOld {
+                                        from {
+                                            top: 5px;
+                                        }
+                                        to {
+                                            top: 53px;
+                                        }
+                                    }
+                                }
+                            }
+
+                            .scaned-img,
+                            .scan-img {
+                                width: 50px;
+                                height: 50px;
+                            }
+
+                            .upload-again-box {
+                                width: 70px;
+                                margin: 0px auto;
+                                padding-top:10px; 
+                                color: #333;
+                                
+                                .upload-again {
+                                    width: 100%;
+                                }
+                                &:hover {
+                                    color: #ff7733;
+                                    svg {
+                                        fill: #ff7733;
+                                    }
+                                }
+                            }
+                        }
+
+                        .scan-pic-input {
+                            width: 100%;
+                            height: 100%;
+                            cursor: pointer;
+                            position: relative;
+                            z-index: 99;
+                            display: inline-block;
+                            &.before-scan {
+                                opacity: 0;
+                            }
+                            &.after-scan {
+                                opacity: 1;
+                                svg {
+                                    width: 15px;
+                                    height: 13px;
+                                    vertical-align: bottom;
+                                    margin-right: 3px;
+                                    fill: #999;
+                                    use {
+                                        width: 100%;
+                                        height: 100%;
+                                        transform: scale(2);
+                                    }
+                                }
+                            }
+                        }
+
+                        &.hover {
+                            .text {
+                                color: #ff7733;
+                            }
+                        }
+                    }
+                }
+
+                .qrCode-tool {
+                    display: flex;
+                    align-items: center;
+                    width: 398px;
+                    height: 32px;
+                    line-height: 32px;
+                    text-align: center;
+                    font-size: 12px;
+                    font-weight: 400;
+                    color: #444444;
+
+                    // overflow: hidden;
+                    .qrCode-foreground {
+                        display: flex;
+                        align-items: center;
+                    }
+
+                    .qrCode-background {
+                        display: flex;
+                        align-items: center;
+                        margin-left: 24px;
+                    }
+
+                    .color-panel {
+                        z-index: 100;
+                        border-bottom: 0 !important;
+
+                        &::before {
+                            content: none !important;
+                        }
+
+                        &::after {
+                            content: none !important;
+                        }
+
+                        &.up{
+                            bottom: 0px;
+                            left: 35px;
+                        }
+                    }
+
+                    .qrCode-upload {
+                        position: relative;
+                        display: inline-block;
+                        width: 91px;
+                        height: 32px;
+                        margin-left: 32px;
+                        border: 1px solid #e0e0e0;
+                        border-radius: 16px;
+
+                        input {
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 91px;
+                            height: 32px;
+                            line-height: 32px;
+                            border-radius: 16px;
+                            overflow: hidden;
+                            opacity: 0;
+                            font-size: 0;
+                            cursor: pointer;
+                        }
+
+                        span {
+                            position: absolute;
+                            top: -2px;
+                            left: 20px;
+                            display: inline-block;
+                            height: 32px;
+                            line-height: 32px;
+                            cursor: pointer;
+                        }
+
+                        &:before {
+                            content: ' ';
+                            position: absolute;
+                            left: -16px;
+                            top: 6px;
+                            width: 1px;
+                            height: 18px;
+                            background-color: #e0e0e0;
+                        }
+                    }
+
+                    .qrCode-upload:hover {
+                        color: #ff7733;
+                        border: 1px solid #ff7733;
+                    }
+
+                    .qrCode-remove {
+                        display: inline-block;
+                        margin-left: 24px;
+                        cursor: pointer;
+
+                        &:hover {
+                            color: #ff7733;
+                        }
+                    }
+
+                    .tip {
+                        margin-right: 16px;
+                        font-size: 14px;
+                        opacity: 0.7;
+                        color: #333333;
+                    }
+
+                    .qrCode-picker {
+                        width: 28px;
+                        height: 28px;
+                        .color-theme {
+                            margin-top: 0;
+                            .color-label{
+                                margin-bottom: 0;
+                            }
+                        }
+                        .color-collect{
+                            margin-top: 0;
+                            .color-label{
+                                margin-bottom: 0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .ele-qrCode-foot {
+            @include flex-center;
+            width: 100%;
+            height: 64px;
+        }
+    }
+
+    .fade-enter-active,
+    .fade-leave-active {
+        transition: opacity 0.2s;
+    }
+    .fade-enter,
+    .fade-leave-to {
+        opacity: 0;
+    }
+    .ele-code-self-mask {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.6);
+    }
+    .code-self-wrapper {
+        width: 658px;
+        height: 401px;
+        position: absolute;
+        top: calc(50% - 401px / 2);
+        left: calc(50% - 658px / 2);
+        background-color: #fff;
+        border-radius: 3px;
+
+        .code-self-head {
+            @include flex(space-between, center);
+            height: 64px;
+            width: 100%;
+            overflow: hidden;
+            border-bottom: 1px solid #eee;
+        }
+        .product-type {
+            width: 292px;
+            height: 34px;
+            margin: 16px auto;
+            @include flex-center;
+            .tabs {
+                flex: 1;
+                height: 100%;
+                line-height: 34px;
+                color: #666;
+                font-size: 14px;
+                text-align: center;
+                display: inline-block;
+                border: 1px solid #e0e0e0;
+                cursor: pointer;
+
+                &:hover {
+                    color: #ff7630;
+                }
+
+                &.active {
+                    color: #ff7630;
+                    border-color: #ff7630;
+                }
+            }
+
+            .flyer {
+                border-right: 1px solid #ff7630;
+                border-radius: 3px 0px 0px 3px;
+            }
+            .game {
+                border-left: 0;
+                border-radius: 0px 3px 3px 0px;
+            }
+        }
+        .product-list {
+            width: 100%;
+            height: 224px;
+            margin-left: -15px;
+            overflow-y: scroll;
+            position: relative;
+
+            .flyer-list,
+            .game-list {
+                padding: 0 17px 25px 51px;
+                position: absolute;
+                top: 0;
+                @include flex(flex-start, flex-start);
+                flex-wrap: wrap;
+                @-moz-document url-prefix() {
+                    padding: 0 13px 25px 51px;
+                }
+            }
+
+            .product-item {
+                display: inline-block;
+                width: 190px;
+                height: 52px;
+                margin-right: 8px;
+                margin-bottom: 8px;
+                border: 1px solid #e1e1e3;
+                border-radius: 4px;
+                overflow: hidden;
+                cursor: pointer;
+
+                &.flyer:nth-child(3n),
+                &.game:nth-child(3n) {
+                    margin-right: 0;
+                }
+
+                .product-left {
+                    display: inline-block;
+                    width: auto;
+                    height: 100%;
+                    overflow: hidden;
+
+                    .product-img {
+                        width: 38px;
+                        height: 38px;
+                        margin: 6px;
+                        overflow: hidden;
+
+                        img {
+                            width: 100%;
+                            height: 100%;
+                            overflow: hidden;
+                        }
+                    }
+                }
+
+                .product-right {
+                    display: inline-block;
+                    width: 122px;
+                    height: 100%;
+                    overflow: hidden;
+                    font-size: 12px;
+                    font-family: 'Microsoft YaHei';
+                    .title {
+                        @include ellipsis;
+                        margin: 8px 0 3px;
+                        color: #333333;
+                    }
+                    .desc {
+                        @include ellipsis;
+                        color: #999;
+                    }
+                }
+
+                &:hover {
+                    border: 1px solid #ff7733;
+                    .product-right {
+                        .title {
+                            color: #ff7733;
+                        }
+                        .desc {
+                            color: #ffc2ad;
+                        }
+                    }
+                }
+            }
+
+            .activeProduct {
+                border: 1px solid #ff7733 !important;
+                background: #fff1ea;
+
+                .product-right {
+                    .title {
+                        color: #ff7733;
+                    }
+                    .desc {
+                        color: #ffc2ad;
+                    }
+                }
+            }
+
+            &::-webkit-scrollbar-thumb {
+                background-color: #dbdbdb;
+            }
+        }
+    }
+    .code-self-footer {
+        width: 100%;
+        height: 80px;
+        position: absolute;
+        bottom: 0;
+        background-color: #fff;
+        border-radius: 0 0 3px 3px;
+        .applyBtn.disableBtn {
+            color: #bec1c7;
+            background: #f7f7f7 !important;
+            border: 1px solid #dddee1;
+        }
+    }
+}

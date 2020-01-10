@@ -1,0 +1,273 @@
+.resizefileModalBody {
+
+    .ktu-modal-content{
+        overflow: visible;
+    }
+    .ktu-modal-header {
+        box-shadow: none;
+        // text-align: ;
+        height: 64px;
+        line-height: 64px;
+        padding-left: 24px;
+        // padding-top: 38px;
+    }
+    .ktu-modal-close{
+        @include modal-close-btn;
+    }
+    .headerTitle {
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+    .lineTip{
+        display: inline-block;
+        position: relative;
+        height: 12px;
+        width: 1px;
+        top: 1.5px;
+        background-color: #e6e6e6;
+        margin: 0 10px 0 10px;
+    }
+    .headerTip{
+        color:#999;
+    }
+
+    .newModalContent {
+        position: relative;
+        box-sizing: border-box;
+        padding: 48px 0 36px;
+        .adjustMaterial {
+            position: relative;
+            left: 50%;
+            top: 18px;
+            transform: translateX(-50%);
+            cursor: pointer;
+            display: inline-block;
+            vertical-align: top;
+            .svg-icon {
+                position: absolute;
+                top: 1px;
+                left: 0px;
+                width: 16px;
+                height: 15px;
+                z-index: 1;
+                transform: scale(0);
+                transition: all .2s;
+            }
+            &.is-checked{
+                .svg-icon{
+                    display: block;
+                    transform: scale(1);
+                }
+            }
+            &:hover input {
+                border: 1px solid #ff7733;
+            }
+        }
+        input[type="checkbox"]{
+            -webkit-appearance: none;
+            vertical-align: sub;
+            margin-top: 0;
+            background: #fff;
+            border: 1px solid #e0e0e0;
+            border-radius: 2px;
+            height: 16px;
+            width: 16px;
+            position: relative;
+            margin: 0;
+            margin-right: 8px;
+            cursor: pointer;
+            transition: all .2s;
+            // &:hover{
+            //     border: 1px solid #ff7733;
+            // }
+        }
+
+        input[type="checkbox"]:checked {
+            // background: #ff7733;
+            border: 1px solid #ff7733;
+        }
+    }
+
+    .ktu-modal-body {
+        width: 100%;
+    }
+
+    .inputBox {
+        display: flex;
+        padding: 2px 0 0;
+        justify-content: center;
+        align-items: center;
+
+        .newModalInput {
+            height: 26px;
+            width: 60px;
+            font-size: 14px;
+            border: none;
+            border-bottom: 1px solid #e0e0e0;
+
+            &:focus {
+                border-color: $theme-color;
+            }
+        }
+        .newModalUnit{
+            height: 26px;
+            line-height: 40px;
+            width: 60px;
+            font-size: 14px;
+            border: none;
+            border-bottom: 1px solid #eee;
+            margin-left: 20px;
+            text-align: center;
+        }
+
+        .input-tip{
+            margin-right: 16px;
+            color: #93959d;
+        }
+    }
+
+    .selectorBox {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .selector {
+            width: 100%;
+            margin-left: 0;
+            text-align: left;
+            text-indent: 2px;
+
+            .selector-option{
+                height: 30px;
+                line-height: 30px;
+            }
+
+            .selector-option.selected:first-child{
+                height: 40px;
+                line-height: 40px;
+            }
+        }
+    }
+
+    .selector {
+        position: relative;
+        height: 40px;
+        min-width: 60px;
+        line-height: 40px;
+        margin-left: 20px;
+        cursor: pointer;
+        text-align: center;
+        border-bottom: 1px solid #eee;
+        margin-top: -12px;
+
+        .selector-btn{
+            margin-top: 5px;
+        }
+
+        .selector-option {
+            height: 40px;
+            line-height: 40px;
+            justify-content: left;
+            text-indent: 10px;
+        }
+    }
+
+    .selector-option-list{
+        height: 166px;
+        overflow: auto;
+    }
+
+    .newModalSpan {
+        margin: 0 20px;
+        font-size: 14px;
+        color: $font-color;
+    }
+
+    .newModalSelect {
+        width: 80px;
+        margin-left: 25px;
+        flex-shrink: 0;
+
+        .ktu-select-dropdown {padding: 0;}
+    }
+
+    .newBtn {
+        width: 160px;
+        height: 32px;
+        line-height: 32px;
+        margin: 0 auto;
+        border-radius: 21px;
+        color: #fff;
+        font-size: $modal-btn-font-size;
+        text-align: center;
+        cursor: pointer;
+        background-color: $theme-color;
+        margin-top: 58px;
+
+        &:hover {
+            background-color: $assist-color;
+        }
+    }
+
+    .lock-icon{
+        position: relative;
+        width: 26px;
+        height: 26px;
+        line-height: 26px;
+        border-radius: 3px;
+        cursor: pointer;
+        background-color: rgba(236,236,236,1);
+        margin: 0 18px;
+
+        &:hover{
+            background-color: #FF7733;
+
+            .svg-lock-icon {
+                fill: #fff;
+            }
+
+            &::before{
+                content: '';
+                position: absolute;
+                top: 26px;
+                z-index: 2;
+                left: 50%;
+                margin-left: -4px;
+                border-width: 4px;
+                border-style: solid;
+                border-color: transparent transparent #35384b transparent;
+            }
+
+            &::after{
+                content: attr(tips);
+                position: absolute;
+                top: 34px;
+                z-index: 2;
+                left: 50%;
+                -webkit-transform: translateX(-50%);
+                transform: translateX(-50%);
+                height: 23px;
+                line-height: 23px;
+                padding: 0 8px;
+                white-space: nowrap;
+                background-color: #35384b;
+                color: #fff;
+                -webkit-box-shadow: 0px 1px 8px 0px rgba(0, 0, 0, 0.2);
+                box-shadow: 0px 1px 8px 0px rgba(0, 0, 0, 0.2);
+                border-radius: 2px;
+                font-size: 12px;
+            }
+        }
+
+        .svg-lock-icon{
+            width: 100%;
+            height: 100%;
+            fill: #93959d;
+        }
+
+        .lock-tip{
+
+        }
+    }
+}

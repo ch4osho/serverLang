@@ -1,0 +1,34 @@
+.invite-edit-modal {
+    .ktu-modal-close {
+        top: 26px;
+    }
+
+    .modal-body {
+        text-align: center;
+
+        .img {
+            margin-top: 49px;
+            margin-bottom: 40px;
+        }
+
+        .text{
+            font-size: 14px;
+            color: #333;
+            line-height: 21px;
+
+            p {
+                margin: 0;
+            }
+        }
+
+        .invite-modal-btn {
+            margin-top: 24px;
+            margin-bottom: 36px;
+
+            .btn {
+                width: 220px;
+                margin: 0 auto;
+            }
+        }
+    }
+}

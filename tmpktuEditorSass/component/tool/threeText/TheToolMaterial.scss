@@ -1,0 +1,152 @@
+.tool-material {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    margin-left: 8px;
+    background-image: url(/image/editor/colorpicker/grid.jpg);
+    border-radius: 3px;
+
+    .tool-icon {
+        width: 24px;
+        height: 24px;
+        border-radius: 3px;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+        background-size: contain !important;
+
+        &.color-empty-background{
+            border-color: #e5e5e5;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-image: url(/image/editor/colorpicker/clear.png);
+        }
+    }
+
+    .material-panel {
+        width: 275px;
+        position: absolute;
+        top: calc(100% + 10px);
+        left: 0px;
+        background-color: #fff;
+        color: #222;
+        box-shadow: 0px 1px 8px 0px rgba(0, 0, 0, 0.2);
+        border-top: 2px solid #ff7733;
+        border-bottom-left-radius: 3px;
+        border-bottom-right-radius: 3px;
+
+        &:before {
+            content: '';
+            position: absolute;
+            left: 4px;
+            top: -16px;
+            border: 8px solid transparent;
+            border-bottom-color: #ff7733;
+            text-indent: 0;
+        }
+
+        &:after {
+            content: '';
+            position: absolute;
+            left: 6px;
+            top: -11px;
+            border: 6px solid transparent;
+            border-bottom-color: #fff;
+            text-indent: 0;
+        }
+
+        .panel-header{
+            @include flex(space-between);
+            width: 100%;
+            height: 40px;
+            border-bottom: 1px #E7E7E7 solid;
+
+            .head-item {
+                flex: 1;
+                text-align: center;
+                font-size: 14px;
+                color: #222222;
+                position: relative;
+                cursor: pointer;
+
+                &.active {
+                    color: $theme-color;
+                    &:before {
+                        content: '';
+                        position: absolute;
+                        display: block;
+                        width:56px;
+                        height:2px;
+                        background: $theme-color;
+                        opacity:1;
+                        bottom: -11px;
+                        left: calc(50% - 28px);
+                    }
+                }
+
+                &:not(:last-child) {
+                    &:after {
+                        content: '';
+                        display: block;
+                        position: absolute;
+                        right: 0;
+                        top: 4px;
+                        width: 1px;
+                        height: 12px;
+                        background-color: #D8D8DB;
+                    }
+                }
+            }
+        }
+
+        .panel-container {
+            position: relative;
+
+            .color-picker {
+                margin-left: 0;
+                .color-panel {
+                    box-shadow: none;
+                }
+                
+            }
+
+            .texture-panel {
+                width: 100%;
+                max-height: 433px;
+                padding: 16px 16px 0 16px;
+                overflow-y: scroll;
+                overflow-x: hidden;
+                @include flex(space-between, space-between);
+                flex-wrap: wrap;
+
+                .texture-item {
+                    width: 75px;
+                    height: 75px;
+                    border:1px solid rgba(0,0,0,0.07);
+                    opacity:1;
+                    border-radius:4px;
+                    margin-bottom: 8px;
+                    overflow: hidden;
+                    box-sizing: border-box;
+                    position: relative;
+                    cursor: pointer;
+                    
+                    &.active, &:hover {
+                        border-color: transparent;
+                        &:after{
+                            position: absolute;
+                            content: '';
+                            display: block;
+                            width: 100%;
+                            height: 100%;
+                            left: 0;
+                            z-index: 1;
+                            top: 0;
+                            border: 2px solid #ff7733;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

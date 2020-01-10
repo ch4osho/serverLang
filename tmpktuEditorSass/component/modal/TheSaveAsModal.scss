@@ -1,0 +1,194 @@
+.sava-as-modal {
+
+    .ktu-modal-content {
+        .ktu-modal-close{
+            @include modal-close-btn;
+        }
+    }
+
+    .ktu-modal-header {
+        height: 64px;
+        line-height: 64px;
+        box-shadow: none;
+        padding-left: 24px;
+        .moveModalHeader {
+            font-size: 16px;
+            color: #222222;
+            font-weight: bold;
+        }
+    }
+
+    .ktu-modal-body {
+        width: 100%;
+        // height: 258px;
+        border-radius: 2px;
+        padding: 32px 40px;
+
+
+        .moveModalContent {
+            width: 100%;
+            height: 100%;
+            .contentBox{
+                width: 100%;
+                height: 100%;
+                border: 1px solid #dddee1;
+                border-radius: 4px;
+                .dir-list {
+                    width: 100%;
+                    height: 178px;
+                    // padding: 8px 15px 8px 0;
+                    padding: 8px 0;
+                    overflow: auto;
+
+                    &::-webkit-scrollbar {
+                        display: block;
+                        width: 2px;
+                    }
+
+                    .dir-item {
+                        @include flex-center(false, true);
+                        width: 100%;
+                        height: 32px;
+                        line-height: 32px;
+                        padding-left: 33px;
+                        color: #444;
+                        font-size: 14px;
+                        cursor: pointer;
+
+                        &.active {
+                            color: $theme-color;
+                        }
+
+                        &:hover {
+                            color: $theme-color;
+                            background-color: #FEEFE4;
+                            fill: $theme-color;
+                        }
+
+                        &.editing {
+                            &:hover {
+                                background-color: #fff;
+                            }
+                        }
+
+                        .svg-icon {
+                            margin-right: 12px;
+                            width: 16px;
+                            height: 16px;
+                        }
+
+                        .svg-check-icon {
+                            width: 21px;
+                            height: 21px;
+                            fill: $theme-color;
+                        }
+
+                        .title {
+                            width: 265px;
+                            height: 32px;
+                            white-space: nowrap;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            // cursor: text;
+                        }
+
+                        .title-input {
+                            padding-left: 4px;
+                            border: 1px solid $theme-color;
+                        }
+                    }
+                }
+                .new-dir {
+                    @include flex-center(true, true);
+                    width: 100%;
+                    height: 50px;
+                    font-size: 14px;
+                    border-top: 1px solid #dddee1;
+                    color: #888;
+                    cursor: pointer;
+
+                    .svg-icon {
+                        width: 26px;
+                        height: 26px;
+                        fill: #888;
+                    }
+
+                    &:hover {
+                        color: $theme-color;
+                        // background-color: #FEEFE4;
+                        .svg-icon{
+                            fill: $theme-color;
+                        }
+                    }
+
+                    span {
+                        margin-left: 2px;
+                    }
+                }
+            }
+
+            .reNameInput{
+                font-size:14px;
+                width: 100%;
+                height: 32px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                color:#444444;
+                margin-top: 16px;
+                input{
+                    width:296px;
+                    height:32px;
+                    background:rgba(255,255,255,1);
+                    border:1px solid rgba(224,224,224,1);
+                    opacity:1;
+                    border-radius:4px;
+                    padding: 0 12px;
+                    box-sizing: border-box;
+                }
+            }
+        }
+
+
+    }
+
+    .ktu-modal-footer {
+        display: block;
+        border-top: none;
+        padding: 16px 12px 16px 12px;
+        border-top: 1px solid #E6E6E6;
+
+        .moveModalFooter {
+            display: flex;
+            vertical-align: middle;
+            justify-content: center;
+
+            .btn {
+                display: inline-block;
+                text-align: center;
+                width: 100px;
+                height: 32px;
+                border-radius: 16px;
+            }
+
+            .btn-primary {
+                margin-right: 8px;
+                background: #FF7733;
+                color: #fff;
+
+                &:hover {
+                    background-color: $assist-color;
+                }
+            }
+
+            .btn-normal {
+                border: 1px solid #e0e0e0;
+                color: #333;
+
+                &:hover {
+                    border-color: $modal-cancel-btn-hover-border;
+                }
+            }
+        }
+    }
+}

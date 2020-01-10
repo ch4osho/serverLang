@@ -1,0 +1,111 @@
+.edit-draw {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    cursor: url('/image/editor/draw.png'), default;
+    .edit-draw-assist{
+        display: flex;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 30px;
+        height: 34px;
+        color: #666;
+        .edit-draw-tips{
+            @include flex-center;
+            flex-shrink: 0;
+            height: 100%;
+            padding: 0 14px;
+            box-shadow: 0px 1px 8px 0px rgba(0,0,0,0.2);
+            border-radius: 3px;
+            background-color: #fff;
+        }
+        .edit-draw-icon{
+            width: 16px;
+            height: 16px;
+        }
+    }
+    .edit-draw-types{
+        display: flex;
+        margin-left: 8px;
+        background-color: #fff;
+        box-shadow: 0px 1px 8px 0px rgba(0,0,0,0.2);
+        border-radius: 3px;
+    }
+    .edit-draw-type{
+        position: relative;
+        height: 100%;
+        cursor: pointer;
+        &:not(:first-child)::after{
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 1px;
+            height: 12px;
+            background-color: #ddd;
+        }
+    }
+    .edit-draw-type-rect, .edit-draw-type-square, .edit-draw-type-circle{
+        @include flex-center;
+        width: 34px;
+        &::before{
+            content: '';
+        }
+        &:first-child{
+            &::before{
+                background-color: #9d9d9d;
+            }
+            &:hover::before, &.selected::before{
+                background-color: $theme-color;
+            }
+        }
+        &:last-child{
+            &::before{
+                border: 2px solid #9d9d9d;
+            }
+            &:hover::before, &.selected::before{
+                border-color: $theme-color;
+            }
+        }
+    }
+    .edit-draw-type-rect{
+        &::before{
+            width: 18px;
+            height: 12px;
+        }
+    }
+    .edit-draw-type-square{
+        &::before{
+            width: 14px;
+            height: 14px;
+        }
+    }
+    .edit-draw-type-circle{
+        &::before{
+            width: 16px;
+            height: 16px;
+            border-radius: 100%;
+        }
+    }
+    .edit-draw-type-text{
+        @include flex-center;
+        width: 50px;
+        &:hover, &.selected{
+            color: $theme-color;
+        }
+        &:first-child::before{
+            content: '标题';
+        }
+        &:nth-child(2)::before{
+            content: '副标题';
+        }
+        &:last-child::before{
+            content: '正文';
+        }
+    }
+}

@@ -1,0 +1,18 @@
+.tool-stroke {
+    position: relative;
+
+    .tool-stroke-popup {
+        width: 220px;
+        left: -2px;
+        @include popup(left, 7px);
+        .tool-color {
+            margin: 4px 0 15px;
+        }
+
+        &.reverseX {}
+
+        &.reverseY {
+            top: -172px;
+        }
+    }
+}

@@ -1,0 +1,19 @@
+.tool-opacity {
+    position: relative;
+
+    .tool-opacity-popup {
+        width: 220px;
+
+        &.reverseX {
+            left: unset;
+            right: 0;
+            @include popupReverse(x, 18px);
+        }
+
+        &.reverseY {
+            top: -100px;
+        }
+        @include popup(left, 18px);
+        
+    }
+}

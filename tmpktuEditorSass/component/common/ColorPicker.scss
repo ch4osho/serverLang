@@ -1,0 +1,677 @@
+.color-picker {
+    position: relative;
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    color: $comm-font-color;
+    border-radius: 4px;
+    background: url("/image/editor/colorpicker/grid.jpg");
+
+    .color-btn {
+        position: relative;
+        height: 100%;
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        border-radius: 3px;
+        cursor: pointer;
+
+        &.colorful {
+            background-image: url("/image/editor/colorpicker/moreColor.jpg");
+            background-size: cover;
+            border: none;
+        }
+
+        &::before {
+            top: 26px;
+        }
+
+        &::after {
+            top: 34px;
+        }
+
+        &.gradient {
+            border: 0;
+
+            &::before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                border: 1px solid rgba(0, 0, 0, 0.05);
+                border-radius: 4px;
+            }
+        }
+    }
+
+    .color-empty-background {
+        border-color: #e5e5e5;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-image: url("/image/editor/colorpicker/clear.png");
+
+        &.color-setting-bg {
+            background-image: url("/image/editor/colorpicker/clear-1.png");
+                    //border: 1px solid rgba(0, 0, 0, .1);
+
+        }
+
+        &.big-color {
+            background-image: url("/image/editor/colorpicker/clear-2.png");
+                    //border: 1px solid rgba(0, 0, 0, .1);
+
+        }
+    }
+
+    .color-icon {
+        width: 16px;
+        height: 16px;
+        fill: $tool-icon-color;
+    }
+
+    .color-input {
+        color: #b0b0b0;
+        border-bottom: 1px solid #b0b0b0;
+        text-align: center;
+
+        &.active {
+            border-bottom-color: $theme-color;
+        }
+    }
+
+    .color-fade-enter-active,
+    .color-fade-delay-enter-active,
+    .color-fade-delay-leave-active {
+        transition: opacity .3s linear;
+    }
+
+    .color-fade-delay-enter-active,
+    .color-fade-delay-leave-active {
+        transition-delay: .05s;
+    }
+
+    .color-fade-enter,
+    .color-fade-delay-enter,
+    .color-fade-delay-leave-to {
+        opacity: 0;
+    }
+
+    .color-panel {
+        height: auto;
+        position: absolute;
+        z-index: 2;
+        width: 275px;
+        transition: height .3s;
+        border-radius: 3px;
+
+        &::-webkit-scrollbar {
+            width: 2px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: #afafaf;
+            border-radius: 5px;
+        }
+
+        .color-type-tab {
+            width: 100%;
+            height: 38px;
+            display: flex;
+            border-bottom: 1px solid #e7e7e7;
+            position: relative;
+
+            .type {
+                flex: 1;
+                line-height: 38px;
+                text-align: center;
+                color: #222;
+                font-size: 12px;
+                cursor: pointer;
+                position: relative;
+
+                &.active {
+                    font-weight: bold;
+                    color: $theme-color;
+                }
+
+                &:hover {
+                    color: $theme-color;
+                }
+
+                &:nth-child(-n+2)::after {
+                    content: '';
+                    position: absolute;
+                    top: 50%;
+                    right: 0;
+                    margin-top: -6px;
+                    width: 1px;
+                    height: 12px;
+                    background-color: #d8d8db;
+                }
+            }
+
+            .tab-underline {
+                width: 24px;
+                height: 2px;
+                background-color: $theme-color;
+                position: absolute;
+                bottom: 0;
+                transition: transform 0.3s linear;
+            }
+        }
+
+        .color-panel-content {
+            width: 100%;
+            padding: 16px 16px 0 16px;
+            /* padding-bottom: 0px; */
+            max-height: 482px;
+            overflow-y: scroll;
+            overflow-x: hidden;
+            min-height: 320px;
+            .color-base{
+                margin-bottom: 16px;
+                width: 240px;
+            }
+        }
+            
+        .panel {
+            width: 275px;
+            padding: 16px;
+            background-color: #fff;
+            position: absolute;
+            z-index: 5;
+            box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.16);
+            max-height: 514px;
+            overflow-x: hidden;
+            overflow-y: scroll;
+
+            &.small {
+                max-height: 290px;
+            }
+        }
+        
+        .more-panel {
+            width: 264px;
+            height: 110px;
+            padding: 12px;
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            grid-row-gap: 7px;
+            justify-items: center;
+            position: absolute;
+            top: 56px;
+            left: 264px;
+            background-color: #fff;
+            box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.16);
+
+            .block {
+                width: 24px;
+                height: 24px;
+                border-radius: 4px;
+                transition: transform .2s;
+                cursor: pointer;
+    
+                &:hover {
+                    transform: scale(1.16);
+                }
+            }
+        }
+
+        &.normal {
+            top: calc(100% + 10px);
+            @include popup(left, 4px);
+        }
+
+        &.up {
+            bottom: 30px;
+            @include dropup(left, 4px);
+        }
+
+        &.down {
+            top: 30px;
+            @include dropup(left, 4px);
+        }
+
+        &.reverseX {
+            left: unset;
+            right: 0;
+            @include popupReverse(x, 3px);
+        }
+
+        &.reverseY {
+            top: -100px;
+        }
+    }
+
+    .color-default {
+        display: flex;
+        box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.1);
+
+        &-column {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+
+    .color-box {
+        width: 24px;
+        height: 24px;
+        transition: transform .2s;
+        cursor: pointer;
+
+        &.colorful {
+            background-size: cover;
+            background: url('/image/editor/colorpicker/moreColor.jpg') no-repeat center;
+            border: none;
+        }
+
+        &.transparent {
+            background-size: cover;
+            background: url('/image/editor/colorpicker/clear.png') no-repeat center;
+        }
+
+        &:hover {
+            position: relative;
+            z-index: 1;
+            transform: scale(1.3);
+        }
+    }
+
+    .color-setting {
+        position: relative;
+        margin-top: 16px;
+        display: flex;
+        align-items: center;
+
+        &-container {
+            display: flex;
+            box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.15);
+
+            .color-collect-btn {
+                border: none;
+                border-top-left-radius: 0;
+                border-bottom-left-radius: 0;
+                border-left: 1px solid #d8d8db;
+            }
+        }
+
+        &-value {
+            width: 52px;
+            height: 24px;
+            border-top-left-radius: 3px;
+            border-bottom-left-radius: 3px;
+            background-image: url(/image/editor/colorpicker/grid.jpg);
+        }
+
+        &-bg {
+            height: 100%;
+        }
+
+        &-label {
+            margin-left: 12px;
+            margin-right: 5px;
+            color: #b0b0b0;
+        }
+
+        &-picker {
+            @include flex-center;
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 24px;
+            height: 24px;
+            border: 1px solid #e1e2e5;
+            border-radius: 4px;
+            cursor: pointer;
+
+            &:hover .color-icon,
+            &.checked .color-icon {
+                fill: $theme-color;
+            }
+        }
+    }
+
+    .color-label {
+        margin-bottom: 8px;
+        line-height: 32px;
+        text-align: left;
+    }
+
+    .color-collect {
+        display: flex;
+        flex-direction: column;
+        margin-top: 16px;
+
+        &-value {
+            display: inline-flex;
+            flex-wrap: wrap;
+        }
+
+        &-container {
+            position: relative;
+            width: 24px;
+            height: 24px;
+            background: url("/image/editor/colorpicker/grid.jpg");
+
+            .color-box {
+                box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.15);
+            }
+
+            &:first-child,
+            &:first-child .color-box {
+                border-top-left-radius: 4px;
+            }
+
+            &:nth-child(10),
+            &:nth-child(10) .color-box {
+                border-top-right-radius: 4px;
+            }
+
+            &.bottom-left-radius {
+                .color-box {
+                    border-bottom-left-radius: 4px;
+                }
+            }
+
+            &.bottom-right-radius {
+                .color-box {
+                    border-bottom-right-radius: 4px;
+                }
+            }
+        }
+
+        &-btn {
+            border-radius: 4px;
+            border: 1px solid #e1e2e5;
+        }
+
+        &-btn,
+        &-cancel {
+            @include flex-center;
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+
+            &.colorful {
+                cursor: no-drop;
+
+                .color-icon {
+                    fill: #ccc;
+                }
+            }
+
+            &:not(.colorful):hover .color-icon {
+                fill: $theme-color;
+            }
+        }
+
+        &-cancel {
+            background-color: #fff;
+            border-bottom-right-radius: 4px;
+            box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.15);
+
+            &-mask {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, .2);
+                cursor: pointer;
+
+                .color-icon {
+                    width: 100%;
+                    height: 100%;
+                    fill: #fff;
+                }
+            }
+
+            &.top-right-radius {
+                border-top-right-radius: 4px;
+            }
+        }
+    }
+
+    .color-theme {
+        display: flex;
+        flex-direction: column;
+        margin-top: 16px;
+
+        &-value {
+            display: inline-flex;
+            flex-wrap: wrap;
+        }
+
+        &-container {
+            background: url(/image/editor/colorpicker/grid.jpg);
+
+            .color-box {
+                box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.15);
+            }
+
+            &:first-child,
+            &:first-child .color-box {
+                border-top-left-radius: 4px;
+                border-bottom-left-radius: 4px;
+            }
+
+            &:nth-child(10),
+            &:nth-child(10) .color-box {
+                border-top-right-radius: 4px;
+            }
+
+            &:last-child,
+            &:last-child .color-box {
+                border-bottom-right-radius: 4px;
+                border-top-right-radius: 4px;
+            }
+
+            &.bottom-left-radius {
+                .color-box {
+                    border-bottom-left-radius: 4px;
+                }
+            }
+
+            &.bottom-right-radius {
+                .color-box {
+                    border-bottom-right-radius: 4px;
+                }
+            }
+
+            &.top-right-radius {
+                .color-box {
+                    border-top-right-radius: 4px;
+                }
+            }
+        }
+    }
+
+    .color-default-btn {
+        text-align: center;
+        margin-top: 16px;
+        margin-bottom: -16px;
+        height: 45px;
+        line-height: 45px;
+        position: relative;
+
+        .color-default-btn-line {
+            position: absolute;
+            top: 0;
+            left: -16px;
+            right: -16px;
+            height: 1px;
+            background: rgba(241, 241, 241, 1);
+        }
+
+        .color-default-btn-title {
+            position: absolute;
+            top: 0;
+            left: -16px;
+            right: -16px;
+            height: 45px;
+            color: #333333;
+            cursor: pointer;
+
+            &:hover {
+                color: #ff7733;
+            }
+        }
+    }
+
+    .color-more-circle-indicate,
+    .color-slide-indicate {
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        top: 0;
+        border: 2px solid #fff;
+        border-radius: 100%;
+        box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.4);
+    }
+
+    .color-more {
+        width: 272px;
+        height: 392px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #fff;
+        box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.1);
+
+        &-header {
+            width: 100%;
+            height: 36px;
+            position: relative;
+            text-align: center;
+
+            .goback {
+                width: 9px;
+                height: 12px;
+                position: absolute;
+                top: 16px;
+                left: 16px;
+                fill: #B8B8B8;
+                cursor: pointer;
+
+                &:hover {
+                    fill: $theme-color;
+                }
+            }
+
+            .text {
+                line-height: 42px;
+                font-size: 12px;
+            }
+        }
+
+        &-board {
+            height: 252px;
+            padding: 12px 16px 16px;
+        }
+
+        &-circle {
+            position: relative;
+            height: 220px;
+            // background: url('/image/editor/colorpicker/color.png') no-repeat;
+            // border-radius: 100%;
+            background-size: cover;
+            background-image: url('/image/editor/colorpicker/hslPicker.png');
+            cursor: crosshair;
+
+            &-indicate {
+                cursor: move;
+                margin: -9px 0 0 -9px;
+            }
+        }
+
+        &-setting {
+            position: relative;
+            margin: 0 16px;
+            height: 26px;
+            line-height: 26px;
+            display: flex;
+            justify-content: space-between;
+
+            &-tips {
+                display: inline-block;
+            }
+
+            .setting-left {
+                display: flex;
+                align-items: center;
+
+                .color-collect-btn {
+                    margin-left: 8px;
+                }
+            }
+        }
+    }
+
+    .color-slide {
+        position: relative;
+        height: 16px;
+        margin: 0 16px 16px;
+        border: 1px solid #dddee1;
+        background-color: #fff;
+        background-image: linear-gradient(to right, transparent, #000);
+        border-radius: 8px;
+        // overflow: hidden;
+
+        &.color-base-slide {
+            width: 100%;
+            margin-top: 16px;
+            margin-left: 0;
+        }
+
+        &.color-alpha-slide {
+            background-image: url('/image/editor/colorpicker/grid.jpg');
+
+            .color-alpha-bg {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                border-radius: 8px;
+            }
+
+            .color-slide-indicate {
+                position: relative;
+                background-color: #fff;
+            }
+
+            .ktu-tooltip {
+                position: absolute;
+                display: block;
+
+                &-rel {
+                    display: block;
+                }
+            }
+        }
+
+        &-indicate {
+            cursor: e-resize;
+        }
+    }
+
+    &.hide-control-btn {
+        .color-panel {
+            position: relative;
+            top:0;
+            left: 0;
+            border-top: none;
+            &:after,
+            &:before{
+                display: none;
+            }
+        }
+    }
+}
+
+@media only screen and (max-height: 800px) {
+   .color-panel-content{
+       height: 320px !important;
+   }
+}

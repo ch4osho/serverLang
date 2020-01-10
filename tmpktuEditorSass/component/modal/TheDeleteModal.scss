@@ -1,0 +1,96 @@
+.delete-modal {
+    .ktu-modal-close {
+        top: 16.5px;
+    }
+    .ktu-modal-header {
+        height: 60px;
+        box-shadow: none;
+        border: none;
+    }
+
+    .ktu-modal-body {
+        min-height: auto;
+        align-items: flex-start;
+        padding-bottom: 40px;
+
+        .deleteModalContent {
+            font-size: 16px;
+            color: #333;
+
+            .delete-dir {
+                .delete-tip {
+                    width: 344px;
+                    text-align: center;
+                    text-indent: 10px;
+                    line-height: 28px;
+                    word-break: break-all;
+
+                    span {
+                        color: #F04134;
+                    }
+                }
+
+                .delete-checkbox {
+                    height: 28px;
+                    line-height: 28px;
+                    margin-top: 14px;
+
+                    .check-warrper {
+                        width: 148px;
+                        margin: 0 auto;
+                    }
+
+                    p {
+                        font-size: 12px;
+                        color: #aaa;
+                    }
+                }
+            }
+
+            // .delete-work {}
+        }
+    }
+
+    .ktu-modal-footer {
+        display: block;
+        border-top: none;
+        padding: 0 12px 36px 12px;
+
+        .deleteModalFooter {
+            display: flex;
+            vertical-align: middle;
+            justify-content: center;
+
+            .btn {
+                display: inline-block;
+                text-align: center;
+                width: 100px;
+                height: 32px;
+                border-radius: 16px;
+            }
+
+            .btn-primary {
+                margin-right: 10px;
+                background: #FF7733;
+                color: #fff;
+
+                &:hover {
+                    background-color: $assist-color;
+                }
+            }
+
+            .btn-normal {
+                border: 1px solid #e0e0e0;
+                color: #333;
+                margin-left: 10px;
+                &:hover {
+                    border-color: #444;
+                }
+            }
+
+            .disable-btn {
+                background: #666;
+            }
+        }
+    }
+}

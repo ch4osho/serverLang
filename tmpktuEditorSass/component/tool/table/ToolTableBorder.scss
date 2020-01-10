@@ -1,0 +1,20 @@
+.tool-table-border {
+    position: relative;
+
+    .tool-border-popup {
+        width: 220px;
+
+        .tool-color:first-child {
+            margin: 0 0 15px 0;
+        }
+
+        &.reverseX {
+            left: auto;
+            right: 0;
+        }
+
+        &.reverseY {
+            top: -262px;
+        }
+    }
+}

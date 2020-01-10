@@ -1,0 +1,461 @@
+.ele-utils {
+
+    /*去除阴影遮蔽*/
+    .utils-line {
+        width: 100%;
+        font-size: 0;
+
+        .utils-box {
+            display: inline-block;
+            margin-bottom: 15px;
+            margin-right: 16px;
+            cursor: pointer;
+
+            &:nth-child(3n) {
+                margin-right: 0;
+            }
+
+            .box-item {
+                height: 80px;
+                width: 80px;
+                border-radius: 4px;
+                background: #fff;
+                box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.08);
+                //background-color: rgb(231,238,251);
+                background-size: contain;
+                background-position: center;
+                background-repeat: no-repeat;
+                position: relative;
+
+                &:hover {
+                    box-shadow: rgba(45, 45, 45, 0.1) 0px 2px 2px -8px, rgba(49, 49, 49, 0.1) 0px 4px 4px -8px, rgba(32, 32, 32, 0.1) 0px 16px 16px -8px;
+                }
+
+                .active-arrow {
+                    position: absolute;
+                    width: 46px;
+                    height: 12px;
+                    bottom: 0;
+                    left: 50%;
+                    margin-left: -23px;
+                }
+            }
+
+            .box-svg {
+                width: 100%;
+                height: 100%;
+                border-radius: 4px;
+            }
+
+            .box-title {
+                margin-top: 8px;
+                color: $second-font-color;
+                font-size: 12px;
+                text-align: center;
+            }
+        }
+
+        .utils-group {
+            padding-top: 5px;
+            font-size: 12px;
+            margin-top: -18px;
+
+            .border-line {
+                position: relative;
+                height: 1px;
+                background-color: $border-color;
+
+                &::before {
+                    position: absolute;
+                    bottom: 1px;
+                    content: '';
+                    border-left: 4.5px solid transparent;
+                    border-right: 4.5px solid transparent;
+                    border-bottom: 5px solid $border-color;
+                }
+
+                &.first::before {
+                    left: 36px;
+                }
+
+                &.second::before {
+                    left: 132px;
+                }
+
+                &.third::before {
+                    left: 226px;
+                }
+            }
+
+            .group-container {
+                .tableUnit {
+                    margin-top: 16px;
+
+                    .units-line {
+                        margin-bottom: 16px;
+
+                        .box-item {
+                            display: inline-block;
+                            width: 80px;
+                            height: 80px;
+                            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.08);
+                            border-radius: 4px;
+                            margin-right: 16px;
+                            background: #fff;
+                            cursor: pointer;
+
+                            &:hover {
+                                box-shadow: rgba(45, 45, 45, 0.1) 0px 2px 2px -8px, rgba(49, 49, 49, 0.1) 0px 4px 4px -8px, rgba(32, 32, 32, 0.1) 0px 16px 16px -8px;
+                            }
+
+                            &:nth-child(3n) {
+                                margin-right: 0;
+                            }
+
+                            .table-icon {
+                                width: 100%;
+                                height: 100%;
+                            }
+                        }
+                    }
+
+                    &.active {
+                        .box-item:not(.active) {
+                            opacity: 0.5;
+                        }
+
+                        .box-item {
+                            &:hover {
+                                opacity: 1;
+                            }
+                        }
+                    }
+
+                    .customUnit {
+                        position: relative;
+                        width: 272px;
+                        margin: 12px 0;
+
+                        .custom-context {
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 149px;
+                            background: #E8E8ED;
+                            box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.08);
+                            border-radius: 4px;
+                            padding: 16px 8px;
+
+                            .inputBox {
+                                display: -webkit-box;
+                                display: -ms-flexbox;
+                                display: flex;
+                                padding: 2px 0 0;
+                                -webkit-box-pack: center;
+                                -ms-flex-pack: center;
+                                justify-content: center;
+                                -webkit-box-align: center;
+                                -ms-flex-align: center;
+                                align-items: center;
+
+                                .input-tip {
+                                    margin-right: 16px;
+                                    color: #93959d;
+                                }
+
+                                .unitInput {
+                                    height: 26px;
+                                    width: 40px;
+                                    font-size: 12px;
+                                    border: none;
+                                    border-bottom: 1px solid #999999;
+                                    text-align: center;
+
+                                    &:focus {
+                                        border-bottom: 1px solid $theme-color;
+                                    }
+                                }
+
+                                .tip {
+                                    width: 26px;
+                                    height: 26px;
+                                    line-height: 26px;
+                                    border-radius: 3px;
+                                    cursor: pointer;
+                                    text-align: center;
+                                    margin: 0 12px;
+                                }
+                            }
+
+                            .btn-box {
+                                margin-top: 16px;
+
+                                .btn {
+                                    width: 256px;
+                                    height: 32px;
+                                    line-height: 32px;
+                                    text-align: center;
+                                    border-radius: 4px;
+                                    background-color: $theme-color;
+                                    color: #fff;
+                                    cursor: pointer;
+
+                                    &:hover {
+                                        background: #ff884d;
+                                    }
+                                }
+                            }
+
+                            .btn-upload-box {
+                                margin-top: 16px;
+                                border: 1px solid #888888;
+                                border-radius:4px;
+                                width: 256px;
+                                height: 32px;
+
+                                &:hover {
+                                    border: 1px solid rgba(255,119,51,1);
+                                    color: rgba(255,119,51,1);
+                                }
+
+								.btn-upload {
+									width: 100%;
+									height: 100%;
+									line-height: 32px;
+                                    text-align: center;
+                                    cursor: pointer;
+								}
+
+								#select_excel {
+                                    position: absolute;
+                                    display: none;
+								}
+							}
+
+							.upload-title-tip{
+								// display: none;
+								height: 23px;
+								line-height: 23px;
+								padding: 0 8px;
+								white-space: nowrap;
+								text-align: center;
+								color:#fff;
+								background-color: rgba(45, 56, 66, 1);
+								box-shadow: 0px 1px 8px 0px rgba(0, 0, 0, 0.2);
+								border-radius: 2px;
+								font-size: 12px;
+								position: absolute;
+								left:50%;
+								top: 146px;
+								z-index: 1;
+								transform: translate(-50%,0);
+
+								&:before{
+									content:"";
+									border-width:5px;
+									border-style:solid dashed dashed;
+									border-color: transparent transparent rgba(45, 56, 66, 1) transparent;
+									font-size: 0;
+									line-height: 0;
+									position: absolute;
+									left: 50%;
+									top:-10px;
+									margin-left: -5px;
+								}
+							}
+                        }
+
+                        .custom-arrow {
+                            position: absolute;
+                            top: -16px;
+                            width: 0;
+                            height: 0;
+                            border: 8px solid transparent;
+                            border-bottom-color: #E8E8ED;
+                            background: transparent;
+                        }
+                    }
+                }
+
+                .chartUnit {
+                    margin-top: 16px;
+                    overflow: hidden;
+
+                    .box-item {
+                        float: left;
+                        width: 80px;
+                        height: 80px;
+                        background: rgba(255, 255, 255, 1);
+                        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.08);
+                        border-radius: 4px;
+                        margin: 0 16px 15px 0;
+                        cursor: pointer;
+
+                        &:nth-child(3n) {
+                            margin: 0 0 10px 0;
+                        }
+
+                        &:hover {
+                            box-shadow: rgba(45, 45, 45, 0.1) 0px 2px 2px -8px, rgba(49, 49, 49, 0.1) 0px 4px 4px -8px, rgba(32, 32, 32, 0.1) 0px 16px 16px -8px;
+                        }
+                    }
+
+                    .box-svg {
+                        width: 100%;
+                        height: 100%;
+                        border-radius: 4px;
+                    }
+                }
+            }
+        }
+    }
+
+    &.active {
+        .utils-box:not(.active) {
+            .box-svg {
+                opacity: 0.5;
+            }
+
+
+            &:hover {
+                .box-svg {
+                    opacity: 1;
+                }
+
+                .box-title {
+                    color: $second-font-color;
+                }
+
+            }
+        }
+	}
+}
+
+.excel-upload-error {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.7);
+	pointer-events: all;
+    z-index: 4;
+
+	.error-wrapper {
+		position: absolute;
+		@include flex-center;
+		flex-direction: column;
+		top: calc(50% - 145px);
+        left: calc(50% - 195px);
+        width: 390px;
+        height: 290px;
+        background: #fff;
+        box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.15);
+        border-radius: 8px;
+
+        .error-icon {
+            width: 160px;
+            height: 128px;
+        }
+
+        .error-tip {
+            text-align: center;
+
+            .error-title {
+                font-size: 16px;
+                font-weight: 600;
+                color:#222222;
+                line-height: 24px
+            }
+
+            .error-content {
+                font-size: 14px;
+                font-weight: 400;
+                color: #666666;
+                line-height: 24px;
+            }
+        }
+
+        .error-btn {
+            width: 140px;
+            height: 32px;
+            margin-top: 12px;
+        }
+
+	}
+}
+
+.manage-excel-upload-progress {
+    position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.7);
+	pointer-events: all;
+    z-index: 4;
+
+    .progress-wrapper {
+        position: absolute;
+		@include flex-center;
+		flex-direction: column;
+		top: calc(50% - 145px);
+        left: calc(50% - 195px);
+        width: 390px;
+        height: 290px;
+        background: #fff;
+        box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.15);
+        border-radius: 8px;
+
+        .upload-icon {
+            width: 129px;
+            height: 131px;
+        }
+
+        .upload-progress {
+            width: 271px;
+            height: 8px;
+            border-radius: 4px;
+            background-color: rgba(243,243,243,1);
+            margin: 10px 0px 10px -32px;
+
+            .upload-progress-bg {
+                width: 0%;
+                height: 100%;
+                border-radius: 4px;
+                overflow: hidden;
+                background-image: linear-gradient(to right,#f4d039, #fc7c51);
+
+                .upload-progress-bar {
+                    height: 100%;
+                    background-image: url(/image/editor/upload/bar.png?v=201805181647);
+                }
+            }
+
+            .upload-progress-text {
+                position: relative;
+                top: -14px;
+                left: 280px;
+                width: 29px;
+                height: 19px;
+                font-size: 14px;
+                line-height: 19px;
+                color: rgba(102,102,102,1);
+            }
+        }
+
+        .upload-cancel {
+            width: 140px;
+            height: 32px;
+            border: 1px solid rgba(255,119,51,1);
+            opacity: 1;
+            border-radius: 90px;
+            font-size: 14px;
+            line-height: 19px;
+            color:rgba(255,119,51,1);
+            background-color: #fff;
+            cursor: pointer;
+            margin-top: 12px;
+        }
+    }
+}

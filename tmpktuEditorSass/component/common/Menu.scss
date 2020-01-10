@@ -1,0 +1,63 @@
+
+.menu {
+    &-operate {
+        display: flex;
+        align-items: center;
+        height: 30px;
+        cursor: pointer;
+        color: #444;
+        padding: 0 10px;
+
+        &:hover {
+            color: $theme-color;
+            background: #feefe4;
+            .menu-operate-icon{
+                fill: $theme-color;
+            }
+            .menu-operate-otherIcon {
+                fill: $theme-color;
+            }
+        }
+        &-icon {
+            width: 26px;
+            height: 26px;
+            margin-right: 5px;
+            fill: #888;
+        }
+        &-otherIcon {
+            width: 10px;
+            height: 6px;
+            margin-left: 46px;
+            fill: #999;
+            transform: rotate(-90deg);
+        }
+
+        &-popup {
+            position: absolute;
+            pointer-events: auto;
+            min-width: 90px;
+            padding: 8px 0;
+            z-index: 10;
+            border-radius: 5px;
+            background-color: #fff;
+            color: $comm-font-color;
+            white-space: nowrap;
+            box-shadow: 0px 2px 6px 0 rgba(0, 0, 0, 0.16);
+        }
+
+        &.gray{
+            color: #CECECE;
+            background-color: #FFFFFF;
+            cursor: default;
+            .menu-operate-icon{
+                fill:#CECECE
+            }
+            &:hover {
+                color: #CECECE;
+                .menu-operate-icon{
+                    fill: #CECECE;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,16 @@
+.tool-text-margin {
+    position: relative;
+
+    .tool-text-margin-popup {
+        width: 220px;
+
+        &.reverseX {
+            left: unset;
+            right: 0;
+        }
+
+        &.reverseY {
+            top: -155px;
+        }
+    }
+}

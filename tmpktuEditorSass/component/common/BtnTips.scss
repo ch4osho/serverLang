@@ -1,0 +1,41 @@
+.has-tips {
+    position: relative;
+    &.show-tips::before, 
+    &:not(.opened):hover::before{
+        content: '';
+        position: absolute;
+        z-index: 3;
+        left: 50%;
+        margin-left: -4px;
+        border-width: 4px;
+        border-style: solid;
+        border-color: transparent transparent $tips-background-color transparent;
+    }
+    &.show-tips::after, 
+    &:not(.opened):hover::after{
+        content: attr(tips);
+        position: absolute;
+        z-index: 2;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 23px;
+        line-height: 23px;
+        padding: 0 8px;
+        white-space: nowrap;
+        background-color: $tips-background-color;
+        color: #fff;
+        box-shadow: 0px 1px 8px 0px rgba(0, 0, 0, 0.2);
+        border-radius: 2px;
+        font-size: 12px;
+    }
+
+    &.up {
+        &::before {
+            top : -5px;
+            transform: rotate(180deg);
+        }
+        &::after {
+            bottom : calc(100% + 5px);
+        }
+    }
+}

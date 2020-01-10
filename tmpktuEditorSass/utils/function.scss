@@ -1,0 +1,3 @@
+@function getValueByTheme($key) {
+	@return map-get($curent-theme-config, $key);
+}

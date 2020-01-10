@@ -1,0 +1,67 @@
+.tool-table {
+
+    .bg-color-picker,
+    .font-color-picker {
+        position: relative;
+        background: #f4f4f8;
+        margin-left: 8px;
+
+        .color-panel {
+            left: -6px;
+        }
+
+        .color-mask {
+            position: absolute;
+            top: -2px;
+            right: 2px;
+
+            .tool-btn-svg {
+                fill: inherit;
+            }
+        }
+
+        .color-picker {
+            background: none;
+
+            .color-btn {
+                display: none;
+            }
+        }
+    }
+
+    .tool-table-edit {
+        padding-right: 8px;
+    }
+
+    .bg-color-picker {
+        .color-mask {
+            .tool-btn-svg {
+                fill: #666666;
+            }
+        }
+
+        .opened {
+            .tool-btn-svg {
+                fill: $theme-color;
+            }
+        }
+
+        &:hover {
+            .tool-btn-svg {
+                fill: $theme-color;
+            }
+        }
+    }
+
+    .tool-table-border {
+        .tool-border-popup {
+            &::before {
+                left: 5px;
+            }
+
+            &::after {
+                left: 7px;
+            }
+        }
+    }
+}

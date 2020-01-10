@@ -1,0 +1,11 @@
+.tool-qrCode {
+    .qrCode-tip {
+
+        &.show-tips::after,
+        &:not(.opened):hover::after {
+            left: 90%;
+        }
+
+    }
+
+}

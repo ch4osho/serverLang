@@ -1,0 +1,50 @@
+.manageModal {
+
+    .ktu-modal-wrap {
+        @include flex-center;
+    }
+    .downloadModal{
+        overflow: hidden;
+    }
+    .ktu-modal {
+        top: 0;
+
+        &-close {top: 16.5px;}
+        &-header {
+            padding: 0;
+            box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.15);
+        }
+        &-body {padding: 0;}
+        &-footer {display: none;}
+    }
+
+    .manageModalheader {
+        height: 60px;
+        padding-left: 20px;
+        font-size: 16px;
+        line-height: 60px;
+    }
+
+
+
+}
+
+.normal-modal {
+    .ktu-modal-body {
+        flex-direction: column;
+        justify-content: flex-start;
+        height: 300px;
+    }
+    .modal-img {
+        margin-top: 24px;
+    }
+    .modal-text {
+        margin-top: -24px;
+        color: #333;
+        font-size: 16px;
+    }
+    .modal-btn {
+        width: 140px;
+        margin-top: 28px;
+    }
+}

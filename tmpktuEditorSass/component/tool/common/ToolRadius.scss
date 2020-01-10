@@ -1,0 +1,235 @@
+.tool-radius {
+    position: relative;
+
+    .tool-radius-popup {
+        width: 240px;
+        padding: 22px;
+        //color: rgba($theme-color,.1)
+
+        &.reverseX {
+            left: unset;
+            right: 0;
+        }
+
+        &.reverseY {
+            top: -124px;
+        }
+    }
+
+    ;
+
+    .tool-radius-btns:hover {
+        display: inline-block;
+        background: #fff;
+        color: $theme-color;
+        border: 1px $theme-color solid;
+        border-radius: 3px;
+        width: 32px;
+        height: 20px;
+        font-size: 12px;
+    }
+
+    ;
+
+    .tool-radius-btns-container {
+        display: flex;
+        width: 112px;
+        float: left;
+        justify-content: space-between;
+    }
+
+    .tool-radius-btns {
+        color: #999;
+        border: 1px #aaa solid;
+        border-radius: 3px;
+        width: 32px;
+        height: 20px;
+        font-size: 12px;
+    }
+
+    ;
+
+    .tool-radius-option-contain {
+        // display: inline;
+        position: absolute;
+        right: 22px;
+        bottom: 44px;
+        z-index: 10;
+    }
+
+    ;
+
+    #svg-tool-arrow {
+        width: 6px;
+        height: 3px;
+        position: absolute;
+        right: 0;
+        top: -4px;
+
+    }
+
+    .tool-radius-option-contain-svg {
+        fill: rgb(136, 136, 136);
+    }
+
+    .tool-radius-option-contain-svg-setting {
+        fill: $theme-color;
+    }
+
+    .tool-radius-angle-setting {
+        width: 100px;
+        height: 100px;
+        box-shadow: map-get($box-shadow, tool);
+        position: absolute;
+        background-color: #fff;
+        top: 30px;
+        right: 0;
+        z-index: -100;
+    }
+
+    ;
+
+    .tool-radius-angle-setting-middle {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border: 2px #707070 solid;
+        width: 50px;
+        height: 50px;
+        z-index: -1;
+    }
+
+    .tool-radius-angle-btn {
+        border-width: 0 0 1px 0;
+        border-style: solid;
+        border-color: rgb(199, 199, 199);
+        height: 20px;
+        width: 38px;
+        position: absolute;
+        right: 0;
+        padding-bottom: 10px;
+        cursor: pointer;
+        top: 1px;
+    }
+
+    ;
+
+    .tool-radius-angle-btn-setting {
+        border-width: 0 0 2px 0;
+        border-style: solid;
+        border-color: $theme-color;
+        height: 20px;
+        width: 38px;
+        position: absolute;
+        right: 0;
+        cursor: pointer;
+        top: 1px;
+    }
+
+    .tool-radius-angle-btn-icon {
+        border-radius: 6px 0 0 0;
+        width: 14px;
+        height: 14px;
+        background: #c7c7c7;
+    }
+
+    ;
+
+    .tool-radius-angle-btn-icon-setting {
+        border-radius: 6px 0 0 0;
+        width: 14px;
+        height: 14px;
+        background: $theme-color;
+    }
+
+    .tool-radius-angle-btn-triangle {
+        display: inline;
+        position: relative;
+        left: 20px;
+        top: -6px;
+        border-width: 4px;
+        border-style: solid;
+        border-color: rgb(136, 136, 136) transparent transparent transparent;
+    }
+
+    ;
+
+    .tool-radius-angle-btn-triangle-setting {
+        display: inline;
+        position: relative;
+        left: 20px;
+        top: -6px;
+        border-width: 4px;
+        border-style: solid;
+        border-color: $theme-color transparent transparent transparent;
+    }
+
+    .tool-radius-angle-setting-top,
+    .tool-radius-angle-setting-bottom {
+        display: block;
+        height: 50px;
+        width: 100px;
+    }
+
+    .tool-radius-angle-setting-top {
+        padding: 16px 16px 10px 16px;
+        z-index: 1000;
+    }
+
+    .tool-radius-angle-setting-bottom {
+        padding: 10px 16px 16px 16px;
+        z-index: 1000;
+    }
+
+    .tool-radius-angle-lt,
+    .tool-radius-angle-lb,
+    .tool-radius-angle-rt,
+    .tool-radius-angle-rb {
+        float: left;
+        width: 24px;
+        height: 24px;
+        border: 1px #aaa solid;
+        background: rgba(#fff, .3);
+        cursor: pointer;
+        color: #999;
+
+        &.selected {
+            &:hover {
+                border-color: $theme-color;
+            }
+
+            border-color:$theme-color;
+            background: rgba($theme-color, .1);
+        }
+    }
+
+    .tool-radius-angle-lt,
+    .tool-radius-angle-lb {
+        margin-right: 20px;
+    }
+
+    .tool-radius-angle-lt:hover,
+    .tool-radius-angle-lb:hover,
+    .tool-radius-angle-rt:hover,
+    .tool-radius-angle-rb:hover {
+        border-color: #777;
+    }
+
+
+    .tool-radius-angle-setting-middle-lt {
+        border-top-left-radius: 6px;
+    }
+
+    .tool-radius-angle-setting-middle-rt {
+        border-top-right-radius: 6px;
+    }
+
+    .tool-radius-angle-setting-middle-lb {
+        border-bottom-left-radius: 6px;
+    }
+
+    .tool-radius-angle-setting-middle-rb {
+        border-bottom-right-radius: 6px;
+    }
+}

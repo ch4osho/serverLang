@@ -1,0 +1,48 @@
+.copy-upload {
+    @include flex-center;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    background-color: rgba(#000, .7);
+
+    &-progress {
+        position: relative;
+        width: 430px;
+        height: 8px;
+        border-radius: 4px;
+        background-color: #fff;
+
+        &-bg {
+            width: 0%;
+            height: 100%;
+            border-radius: 4px;
+            overflow: hidden;
+            transition: .5s all;
+            background-image: linear-gradient(to right, #f4d039, #fc7c51);
+        }
+
+        &-bar {
+            height: 100%;
+            background-image: url(/image/editor/upload/bar.png?v=201805181647);
+        }
+
+        &-text {
+            color: #c4c4c4;
+            margin-top: 36px;
+            text-align: center;
+            font-size: 18px;
+        }
+
+        &-close {
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            top: -4px;
+            left: 440px;
+            cursor: pointer;
+        }
+    }
+}

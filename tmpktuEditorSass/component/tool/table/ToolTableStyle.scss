@@ -1,0 +1,80 @@
+.tool-table-style {
+    position: relative;
+
+    .theme-color-picker {
+        position: relative;
+        width: 66px;
+        margin-left: 18px;
+
+        .color-mask {
+            position: absolute;
+            top: -2px;
+            right: 2px;
+        }
+
+        .color-picker {
+            background: none;
+            margin-left: 20px;
+
+            .color-panel {
+                left: -22px;
+
+                &::before {
+                    left: 24px;
+                }
+
+                &::after {
+                    left: 26px;
+                }
+            }
+
+            .color-btn {
+                display: none;
+            }
+
+            .style-list {
+                @include flex-center(false, false);
+                width: 100%;
+                flex-wrap: wrap;
+
+                .style-item {
+                    @include flex-center;
+                    width: 39px;
+                    height: 35px;
+                    flex-shrink: 0;
+                    margin-right: 11px;
+                    margin-bottom: 11px;
+                    border: 1px solid #E0E0E0;
+                    border-radius: 4px;
+                    cursor: pointer;
+
+                    &:hover {
+                        border: 2px solid $theme-color;
+                    }
+
+                    &:nth-child(5n+5) {
+                        margin-right: 0;
+                    }
+
+                    &.active {
+                        border: 2px solid $theme-color;
+                    }
+
+                }
+            }
+
+            .split-line {
+                width: 100%;
+                height: 1px;
+                background: #EEEEEE;
+                margin: 5px 0 16px 0;
+            }
+        }
+    }
+
+    .tool-style-popup {
+        width: 259px;
+        height: 237px;
+        padding: 8px;
+    }
+}
