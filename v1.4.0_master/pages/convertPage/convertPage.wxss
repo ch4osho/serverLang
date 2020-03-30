@@ -1,0 +1,419 @@
+/* pages/convertPage/convertPage.wxss */
+
+.login-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    background-color: white;
+}
+
+.login-body .btn {
+    background-color: #00d090;
+    width: 300rpx;
+    height: 80rpx;
+    font-size: 0.95rem;
+    color: white;
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1.8rem;
+}
+
+.page {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding-bottom: 100rpx;
+}
+
+.body {
+    width: 100%;
+}
+
+.info-basic {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-end;
+    margin-top: -130rpx;
+    color: white;
+}
+
+.info-basic .left {
+    background: linear-gradient(90deg, rgba(255, 96, 0, 1) 0%, rgba(255, 51, 43, 1) 100%);
+    box-shadow: 8px 0px 8px 0px rgba(255, 66, 59, 0.7);
+    border-radius: 0px 193px 0px 0px;
+    height: 200rpx;
+    width: 80%;
+    z-index: 3;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.info-basic .left .left-left {
+    display: flex;
+    flex-direction: column;
+    padding-left: 30rpx;
+}
+
+.info-basic .left .left-left .left-left-top {
+    margin-top: 40rpx;
+    font-family: 'Source Han Sans CN';
+    font-weight: bold;
+    color: rgba(255, 255, 249, 1);
+    text-shadow: 3px 5px 8px rgba(255, 66, 59, 0.8);
+    font-size: 1.3rem;
+}
+
+.info-basic .left .left-left .left-left-bottom {
+    margin-top: 10rpx;
+    font-size: 0.8rem;
+    font-family: 'Source Han Sans CN';
+    color: rgba(255, 255, 255, 1);
+    font-weight: 400;
+}
+
+.info-basic .left .left-right {
+    margin-top: 60rpx;
+    margin-left: 20rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+
+.info-basic .left .left-right .left-right-price {
+    font-family: 'Source Han Sans CN';
+    font-weight: bold;
+    color: rgba(255, 255, 255, 1);
+    text-shadow: 7px 12px 8px rgba(255, 66, 59, 1);
+    font-size: 3rem;
+    line-height: 90rpx;
+}
+
+.info-basic .left .left-right .left-right-tag {
+    font-size: 1.1rem;
+    font-family: 'Source Han Sans CN';
+    font-weight: bold;
+    color: rgba(255, 255, 255, 1);
+    line-height: 56rpx;
+}
+
+.info-basic .right {
+    height: 150rpx;
+    width: 50%;
+    margin-left: -10%;
+    background: linear-gradient(90deg, rgba(255, 96, 0, 1) 0%, rgba(255, 52, 43, 1) 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.info-basic .right .right-top {
+    margin-left: 80rpx;
+    font-size: 0.8rem;
+}
+
+.info-basic .right .right-bottom {
+    margin-left: 80rpx;
+    font-size: 1.1rem;
+}
+
+.info-details {
+    height: 140rpx;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding-left: 30rpx;
+    padding-top: 20rpx;
+}
+
+.info-details .info-details-title {
+    font-family: 'Source Han Sans CN';
+    font-weight: bold;
+    color: rgba(53, 53, 53, 1);
+    font-size: 1.5rem;
+}
+
+.info-details .info-details-desc {
+    font-family: 'Source Han Sans CN';
+    font-weight: 500;
+    color: rgba(100, 100, 100, 1);
+    font-size: 0.8rem;
+}
+
+.info-special {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: rgba(255, 247, 247, 1);
+    margin-bottom: 40rpx;
+    position: relative;
+    height: 70rpx;
+}
+
+.info-special > image {
+    width: 14rpx;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+    right: 10rpx;
+}
+
+.info-special > .special-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-weight: 300;
+    font-size: 0.7rem;
+    margin: 0 10rpx;
+}
+
+.info-special > .special-item:first-child {
+    padding-left: 20rpx;
+}
+
+.info-special > .special-item >  image {
+    width: 30rpx;
+    margin-right: 5rpx;
+}
+
+image {
+    width: 100%;
+}
+
+.bottom-bar1 {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 80rpx;
+    z-index: 3;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    text-align: right;
+    background-color: white;
+}
+
+.bottom-trial-price {
+    font-family: 'Source Han Sans CN';
+    font-weight: 500;
+    color: rgba(255, 67, 59, 1);
+    font-size: 1.6rem;
+    margin-right: 30rpx;
+}
+
+.bottom-original-price {
+    color: rgba(197, 197, 197, 1);
+    font-family: 'Source Han Sans CN';
+    font-weight: 500;
+    font-size: 0.9rem;
+    margin-right: 50rpx;
+}
+
+.bottom-bar1 .left {
+    width: 60%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.btn-sign {
+    background: linear-gradient(90deg, rgba(255, 96, 0, 1) 0%, rgba(255, 23, 17, 1) 100%);
+    border-radius: 50px;
+    color: white;
+    width: 35%;
+    height: 60rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.95rem;
+    font-weight: 400;
+}
+
+/* 模态窗口 */
+
+.modal-hide1 {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #000;
+    opacity: 0.5;
+    overflow: hidden;
+    z-index: 99;
+    color: #fff;
+}
+
+.modal-dialog1 {
+    z-index: 100;
+    width: 100%;
+    height: 60vh;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0 auto;
+    position: fixed;
+    background-color: white;
+    border-top-left-radius: 30rpx;
+    border-top-right-radius: 30rpx;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.course-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 10vh;
+    width: 100%;
+    border-top-left-radius: 30rpx;
+    border-top-right-radius: 30rpx;
+}
+
+.course-header > .title {
+    font-family: 'PingFang SC';
+    font-weight: 400;
+    color: rgba(53, 53, 53, 1);
+    font-size: 1.5rem;
+    margin-left: 50rpx;
+    justify-self: flex-start;
+}
+
+.course-header > image {
+    width: 40rpx;
+    margin-right: 50rpx;
+}
+
+.course-selection > button {
+    width: 600rpx;
+    height: 100rpx;
+    margin-bottom: 40rpx;
+    border-radius: 10000rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Source Han Sans CN';
+    font-weight: 400;
+    font-size: 0.8rem;
+    background: rgba(255, 246, 246, 1);
+}
+
+.active {
+    border: 2rpx solid rgba(255, 66, 59, 1);
+    color: rgba(255, 66, 59, 1);
+}
+
+.disabled {
+    color: rgba(136, 136, 136, 1);
+    border: 2rpx solid rgba(136, 136, 136, 1);
+}
+
+.course-selection > button:last-child {
+    margin-bottom: 30rpx;
+}
+
+/* 这里是安心购窗口的  */
+
+.modal-buy {
+    z-index: 100;
+    width: 80%;
+    height: 800rpx;
+    left: 30rpx;
+    right: 30rpx;
+    top: 180rpx;
+    margin: 0 auto;
+    position: fixed;
+    background-color: white;
+    border-radius: 15rpx;
+}
+
+.buy-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 101;
+    margin: 10rpx 0;
+}
+
+.buy-header > .title {
+    font-size: 1.3rem;
+    font-family: 'PingFang SC';
+    font-weight: 600;
+    color: rgba(53, 53, 53, 1);
+    margin: 30rpx 0;
+}
+
+.buy-header > image {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 30rpx;
+    margin: auto 0;
+    width: 25rpx;
+}
+
+.buy-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-bottom: 30rpx;
+}
+
+.buy-item > .title-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    margin-left: 60rpx;
+}
+
+.buy-item > .title-wrapper > .title {
+    font-family: 'PingFang SC';
+    font-weight: bold;
+    color: rgba(53, 53, 53, 1);
+    font-size: 1.1rem;
+}
+
+.buy-item > .title-wrapper > image {
+    width: 32rpx;
+    margin-right: 30rpx;
+}
+
+.buy-item > .content {
+    margin: 0 auto;
+    width: 60%;
+    font-family: 'PingFang SC';
+    font-weight: 300;
+    color: rgba(136, 136, 136, 1);
+    font-size: 0.8rem;
+}

@@ -1,0 +1,44 @@
+<!--pages/purchaseSuccessful/purchaseSuccessful.wxml-->
+<view>
+    <view class="header">
+        恭喜你完成报名!
+    </view>
+    <view class="body w90" wx:if="{{courseDetails && courseDetails.hasTeacher != 0}}">
+        <view class="big-desc">添加班主任微信</view>
+        <view style="display: flex; flex-direction: row; justify-content: center; align-items: center">
+            <view class="we-chat-num" style="color: #00d090; margin-right: 20rpx;">{{courseDetails.contact}}</view>
+            <button bindtap="addToClipBoard" class="btn-copy">复制</button>
+        </view>
+
+        <view class="small-desc">点击复制后，请回到微信添加</view>
+        <image src="https://web.xuexiyuansu.com/images/miniprogramimages/670420_1583286344436.png" class="add-we-chat-instruction" mode="widthFix"></image>
+        <view class="small-desc">您可以在学得慧APP内查看已购课程</view>
+    </view>
+    <view class="body w90" wx:else>
+        <view class="big-desc">
+            <view>班主任将主动联系您</view>
+            <view>请随时留意电话和短信</view>
+        </view>
+        <view class="center-box">
+            <image class="box-image" src="https://web.xuexiyuansu.com/images/miniprogramimages/629361351_1583289324043.png" mode="widthFix"></image>
+            <view class="box-text">要想学得会，就来学得慧</view>
+        </view>
+        <view class="small-desc">您可以在学得慧APP内查看已购课程</view>
+    </view>
+</view>
+<!-- 底栏 -->
+<view class="bottom-bar">
+    <image src="https://web.xuexiyuansu.com/images/miniprogramimages/342478139_1582877844854.png" mode="aspectFit"></image>
+    <button bindtap="showDownloadModal">立即下载</button>
+</view>
+<!-- 自定义模态窗口 -->
+<view class="modal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+<view class="modal-dialog" wx:if="{{showModal}}">
+    <view class="image">
+        <image src="https://web.xuexiyuansu.com/images/miniprogramimages/787070_1582883273587.png" mode="widthFix" open-type="contact"></image>
+    </view>
+    <button open-type="contact" class="open-contact">立即下载：回复 1</button>
+    <view class="close-tag">
+        <image src="https://web.xuexiyuansu.com/images/miniprogramimages/2099713199_1582880945771.png" mode="widthFix" bindtap="hideModal"></image>
+    </view>
+</view>

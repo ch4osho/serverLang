@@ -1,0 +1,7 @@
+{
+    "navigationBarTitleText": "家长指引",
+    "usingComponents": {
+        "mp-cell": "../../components/cell/cell",
+        "mp-cells": "../../components/cells/cells"
+    }
+}

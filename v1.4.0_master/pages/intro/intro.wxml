@@ -1,0 +1,29 @@
+<!--pages/intro/intro.wxml-->
+<!-- 长图介绍页 -->
+<view class="container">
+    <image src="https://web.xuexiyuansu.com/images/miniprogramimages/-200430778_1582861408904.png" mode="widthFix"></image>
+
+    <swiper class="swiper" indicator-dots="true" autoplay="ture" interval="3000" duration="1000" indicator-active-color="#00d090" circular="true">
+        <swiper-item class="swiper-item" wx:for="{{imageUrls}}" wx:for-item="url" wx:for-index="idx" wx:key="idx">
+            <image src="{{url}}" mode="widthFix"></image>
+        </swiper-item>
+    </swiper>
+
+    <image src="https://web.xuexiyuansu.com/images/miniprogramimages/-200430777_1582861800674.png" mode="widthFix"></image>
+</view>
+<!-- 底栏 -->
+<view class="bottom-bar">
+    <image src="https://web.xuexiyuansu.com/images/miniprogramimages/342478139_1582877844854.png" mode="aspectFit"></image>
+    <button bindtap="showDownloadModal">立即下载</button>
+</view>
+<!-- 自定义模态窗口 -->
+<view class="modal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+<view class="modal-dialog" wx:if="{{showModal}}">
+    <view class="image">
+        <image src="https://web.xuexiyuansu.com/images/miniprogramimages/787070_1582883273587.png" mode="widthFix" open-type="contact"></image>
+    </view>
+    <button open-type="contact" class="open-contact">立即下载：回复 1</button>
+    <view class="close-tag">
+        <image src="https://web.xuexiyuansu.com/images/miniprogramimages/2099713199_1582880945771.png" mode="widthFix" bindtap="hideModal"></image>
+    </view>
+</view>

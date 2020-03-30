@@ -1,0 +1,56 @@
+<!--pages/parentGuide/subpages/howToDownload/howToDownload.wxml-->
+<view>
+    <view class="swiper-tab">
+        <view class="swiper-tab-item {{currentTab==0?'active':''}}" data-current="0" bindtap="clickTab">安卓</view>
+        <view class="swiper-tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="clickTab">苹果</view>
+    </view>
+    <view class="swiper-content">
+        <swiper current="{{currentTab}}" duration="300" bindchange="swiperTab" class="swiper" style="height: {{clientHeight?clientHeight + 'px' : 'auto'}}">
+            <swiper-item>
+                <scroll-view scroll-y="true" style="height: {{clientHeight ? clientHeight + 'px' : 'auto'}}">
+                    <view class="w90 m20">
+                        <view>● 您可以在
+                            <text class="font-green">手机应用商店</text>、
+                            <text class="font-green">应用宝</text>等平台搜索“
+                            <text class="font-green">学得慧</text>”进行下载安装。
+                        </view>
+                        <view class="image-wrapper m20">
+                            <image src="{{android}}" mode="widthFix" bindtap="clickImage"></image>
+                        </view>
+                        <view class="m20">● 您也可以点击下方“
+                            <text class="font-green">立即下载</text>”按钮，按提示操作进行下载安装。
+                            <button class="button" bindtap="showDownloadModal">立即下载</button>
+                        </view>
+                    </view>
+                </scroll-view>
+            </swiper-item>
+            <swiper-item>
+                <scroll-view scroll-y="true" style="height: {{clientHeight?clientHeight+'px':'auto'}}">
+                    <view class="w90 m20">
+                        <view>● 您可以在
+                            <text class="font-green">苹果应用商店（App Store）</text>搜索“学得慧”进行下载安装。
+                        </view>
+                        <view class="image-wrapper m20">
+                            <image src="{{ios}}" mode="widthFix" bindtap="clickImage"></image>
+                        </view>
+                        <view class="m20">● 您也可以点击下方“
+                            <text class="font-green">立即下载</text>”按钮，按提示操作进行下载安装。
+                            <button class="button" bindtap="showDownloadModal">立即下载</button>
+                        </view>
+                    </view>
+                </scroll-view>
+            </swiper-item>
+        </swiper>
+    </view>
+</view>
+<!-- 自定义模态窗口 -->
+<view class="modal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+<view class="modal-dialog" wx:if="{{showModal}}">
+    <view class="image">
+        <image src="https://web.xuexiyuansu.com/images/miniprogramimages/787070_1582883273587.png" mode="widthFix" open-type="contact"></image>
+    </view>
+    <button open-type="contact" class="open-contact">立即下载：回复 1</button>
+    <view class="close-tag">
+        <image src="https://web.xuexiyuansu.com/images/miniprogramimages/2099713199_1582880945771.png" mode="widthFix" bindtap="hideModal"></image>
+    </view>
+</view>

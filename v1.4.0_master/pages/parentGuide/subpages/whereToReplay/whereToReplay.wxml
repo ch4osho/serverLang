@@ -1,0 +1,25 @@
+<!--pages/parentGuide/subpages/whereToReplay/whereToReplay.wxml-->
+<view class="container w90">
+    <view class="m20">
+        ● 进入学得慧App，登录购课账号后，您可以在“我的课程”中看到已购课程。点击课程进入课程主页，点击“已上的课”，进入要回看的小节，再点击“观看课程回放”按钮即可观看回放。
+    </view>
+    <view class="m20">
+        ● 您可以根据下方图示的步骤进行操作：
+    </view>
+    <view class="image-wrapper">
+        <image src="{{whereToReplay}}" bindtap="clickImage" mode="widthFix"></image>
+    </view>
+    <view class="m20">
+        相关问题：
+        <view class="w90">
+            <text class="color-lightblue underline" bindtap="navigateToDownload">
+                如何安装学得慧App？
+            </text>
+        </view>
+        <view class="w90">
+            <text class="color-lightblue underline" bindtap="navigateToCannotReplay">
+                打不开回放？
+            </text>
+        </view>
+    </view>
+</view>

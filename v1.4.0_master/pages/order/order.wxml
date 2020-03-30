@@ -1,0 +1,33 @@
+<!--pages/order/order.wxml-->
+<view>
+    <view class="header">
+        <view class="left">
+            <view class="remaining-num">{{courseDetail.remindNumber}}</view>
+            <view class="remaining-tip">剩余名额</view>
+        </view>
+        <view class="right">
+            <view class="remaining-num">{{countDownClock}}</view>
+            <view class="remaining-tip">剩余支付时间</view>
+        </view>
+    </view>
+    <view class="section w90">
+        <view class="title">课程信息</view>
+        <view class="details">
+            <view class="title">{{courseDetail.title}}</view>
+            <view class="time">上课时间：{{courseDetail.courseTime}}</view>
+        </view>
+    </view>
+    <!-- <view class="section w90" wx:if="{{courseDetail.giftList.length > 0}}">
+        <view class="title">教辅礼包
+            <text class="sub-title">【价值{{courseDetail.giftPrice}}元】</text>
+        </view>
+    </view> -->
+    <view class="bottom-bar">
+        <view class="left">
+            实付款：￥<text class="price">{{courseDetail.coursePrice}}</text>
+        </view>
+        <view class="right">
+            <button bindtap="payNow" class="btn-pay-now">立即支付</button>
+        </view>
+    </view>
+</view>

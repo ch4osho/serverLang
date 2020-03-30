@@ -1,0 +1,23 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/parentGuide/parentGuide",
+        "pages/parentGuide/subpages/howToDownload/howToDownload",
+        "pages/parentGuide/subpages/whereToReplay/whereToReplay",
+        "pages/parentGuide/subpages/whereToCourse/whereToCourse",
+        "pages/parentGuide/subpages/otherCourse/otherCourse",
+        "pages/parentGuide/subpages/howToBuy/howToBuy",
+        "pages/parentGuide/subpages/cannotReplay/cannotReplay",
+        "pages/intro/intro",
+        "pages/convertPage/convertPage",
+        "pages/purchaseSuccessful/purchaseSuccessful",
+        "pages/order/order"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "学得慧",
+        "navigationBarTextStyle": "black"
+    },
+    "sitemapLocation": "sitemap.json"
+}

@@ -1,0 +1,18 @@
+<!--pages/parentGuide/subpages/cannotReplay/cannotReplay.wxml-->
+
+
+
+<view class="w90">
+    <view class="m20">
+        <view class="m20">
+            ● 如果打不开回放视频，您可以尝试重启App、尝试切换网络、尝试重启手机或平板电脑等。
+        </view>
+        <view class="m20">
+            ● 回放视频会在课程小节直播结束后一个小时内生成，若回放视频未完成生成，请您耐心等待。 若出现其他情况。请及时联系辅导老师或客服人员解决。
+        </view>
+    </view>
+    <view class="m20">
+        相关问题：
+        <view class="color-lightblue m20 w90 underline" bindtap="navigateToWhereToReplay">怎么看回放？</view>
+    </view>
+</view>
