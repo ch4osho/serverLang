@@ -20,6 +20,9 @@ public class MySQLDemo {
 
 
         Statement stmt = null;
+
+        // Person person = new Person();
+
         try{
             // 注册 JDBC 驱动
             Class.forName(JDBC_DRIVER);
@@ -32,7 +35,7 @@ public class MySQLDemo {
             System.out.println(" 实例化Statement对象...");
             stmt = conn.createStatement();
             String sql;
-            sql = "SELECT * FROM test";
+            sql = "SELECT * FROM movies";
             ResultSet rs = stmt.executeQuery(sql);
         
             // 展开结果集数据库
