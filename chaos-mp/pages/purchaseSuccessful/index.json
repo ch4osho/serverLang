@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "购课成功",
+  "usingComponents": {
+    "progress-bar": "../../components/progress-bar/progress-bar",
+    "totast": "../../components/totast/totast"
+  }
+}

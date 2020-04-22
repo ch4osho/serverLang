@@ -1,0 +1,14 @@
+/* pages/intro/intro.wxss */
+.container image {
+    width: 100%;
+}
+
+/* 轮播图 */
+.swiper {
+    height: 430rpx;
+    width: 100%;
+}
+
+.swiper-item image {
+    width: 90%;
+}

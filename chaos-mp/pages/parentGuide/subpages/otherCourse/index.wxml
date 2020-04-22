@@ -1,0 +1,20 @@
+<!--pages/parentGuide/subpages/otherCourse/otherCourse.wxml-->
+<view class="container w90">
+    <view class="m20">
+        ● 学得慧App提供更多名师在线课程，安装App后，您可以根据年级/科目在App内进行选购、上课，我们会有专门的辅导老师全程辅导跟进。
+    </view>
+
+    <view class="m20">
+        相关问题：
+        <view class="w90">
+            <text class="color-lightblue underline" bindtap="navigateToDownload">
+                如何安装学得慧App？
+            </text>
+        </view>
+        <view class="w90">
+            <text class="color-lightblue underline" bindtap="navigateToHowToBuy">
+               如何购买课程？
+            </text>
+        </view>
+    </view>
+</view>

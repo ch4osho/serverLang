@@ -1,0 +1,19 @@
+.error-dialog{
+    z-index: 20;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    opacity: 0;
+    transform: translate(-50%, -50%);
+    border-radius: 20rpx;
+    background-color: #000000;
+    color: white;
+    padding: 20rpx 40rpx;
+    white-space: nowrap;
+    transition: all .3s ease-in-out 0s;
+}
+
+.error-dialog.show{
+    transition-duration: 0.3s;
+    opacity: 1;
+}

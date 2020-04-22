@@ -1,0 +1,12 @@
+<!--parentGuide.wxml-->
+<mp-cells ext-class="my-cells">
+<mp-cell link hover url="./subpages/howToDownload/index" value="如何下载安装学得慧APP？"></mp-cell>
+    <mp-cell link hover url="./subpages/whereToCourse/index" value="在哪上课？怎么上课？"></mp-cell>
+    <mp-cell link hover url="./subpages/whereToReplay/index" value="怎么观看回放？"></mp-cell>
+    <mp-cell link hover url="./subpages/cannotReplay/index" value="打不开回放？"></mp-cell>
+    <mp-cell link hover url="./subpages/otherCourse/index" value="还有其他课程吗？"></mp-cell>
+    <mp-cell link hover url="./subpages/howToBuy/index" value="如何购买课程？"></mp-cell>
+    
+    
+</mp-cells>
+<button open-type="contact" class="contact-button" type="primary">在线客服</button>

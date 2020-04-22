@@ -1,0 +1,44 @@
+<!--pages/parentGuide/subpages/howToBuy/howToBuy.wxml-->
+<view class="container">
+    <view class="swiper-tab">
+        <view class="swiper-tab-item {{currentTab==0?'active':''}}" data-current="0" bindtap="clickTab">安卓</view>
+        <view class="swiper-tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="clickTab">苹果</view>
+    </view>
+
+    <view class="swiper-content">
+        <swiper current="{{currentTab}}" duration="300" bindchange="swiperTab" class="swiper" style="height: {{clientHeight?clientHeight+'px':'auto'}}">
+            <swiper-item>
+                <scroll-view scroll-y="{{true}}" style="height: {{clientHeight?clientHeight+'px':'auto'}}">
+                    <view class="w90 m20">
+                        <text>● 您可以根据如下指引图中的步骤进行操作：</text>
+                    </view>
+                    <view class="image-wrapper m20">
+                        <image src="{{android}}" bindtap="clickImage" mode="widthFix"></image>
+                    </view>
+                    <view class="w90 m20 left">
+                        相关问题：
+                        <view class="w90 m20">
+                            <text class="color-lightblue w90" bindtap="navigateToDownload">如何安装学得慧App？</text>
+                        </view>
+                    </view>
+                </scroll-view>
+            </swiper-item>
+            <swiper-item>
+                <scroll-view scroll-y="{{true}}" style="height: {{clientHeight?clientHeight+'px':'auto'}}">
+                    <view class="w90 m20">
+                        <text>● 您可以根据如下指引图中的步骤进行操作：</text>
+                    </view>
+                    <view class="image-wrapper">
+                        <image src="{{android}}" bindtap="clickImage" mode="widthFix"></image>
+                    </view>
+                    <view class="w90 m20 left">
+                        相关问题：
+                        <view class="w90 m20">
+                            <text class="color-lightblue w90 underline" bindtap="navigateToDownload">如何安装学得慧App？</text>
+                        </view>
+                    </view>
+                </scroll-view>
+            </swiper-item>
+        </swiper>
+    </view>
+</view>

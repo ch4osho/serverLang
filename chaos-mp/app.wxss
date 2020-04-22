@@ -1,0 +1,198 @@
+/**app.wxss**/
+@import './components/weui-wxss/dist/style/weui.wxss';
+/* @import "./colorui/animation.wxss"; */
+/* @import './components/colorui/main.wxss'; */
+@import './components/colorui/icon.wxss';
+
+page{
+    --theme: #00d090;
+    --white: white;
+    --black: rgba(0,0,0,.5);
+    --shadow-grey: #DDDDDD;
+    --text-grey: #797979;
+    --disable: #ededed;
+}
+
+.clearfix::after {
+    content: ' ';
+    clear: both;
+    display: block;
+}
+
+.w90 {
+    text-align: left;
+    width: 94%;
+    margin: 0 auto;
+}
+
+.m20 {
+    margin: 20rpx auto;
+}
+
+.container {
+    padding-bottom: 100rpx;
+}
+
+.container.isFringeScreen{
+    padding-bottom: 130rpx;
+}
+
+.font-green {
+    color: var(--theme);
+}
+
+.color-lightblue {
+    color: #33a6b8;
+}
+
+.image-wrapper {
+    text-align: center;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+.line-through {
+    text-decoration: line-through;
+}
+
+/* 选项卡模块 */
+
+.swiper-tab {
+    width: 100%;
+    border-bottom: 2rpx solid #ccc;
+    text-align: center;
+    height: 88rpx;
+    line-height: 88rpx;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+}
+
+.swiper-tab-item {
+    width: 50%;
+    color: #434343;
+}
+
+.swiper-tab-item .active {
+    color: var(--theme);
+    border-bottom: 4rpx solid var(--theme);
+}
+
+.swiper {
+    text-align: center;
+}
+
+/* 底部固定栏 */
+
+.bottom-bar {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100rpx;
+    z-index: 3;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    text-align: right;
+    background-color: white;
+}
+
+.bottom-bar.fringe-screen{
+    height: 130rpx;
+}
+
+
+
+.bottom-bar image {
+    width: 200rpx;
+    margin-left: 40rpx;
+    margin-right: 160rpx;
+}
+
+.bottom-bar button {
+    background-color: var(--theme);
+    border-radius: 4000rpx;
+    color: var(--white);
+    width: 35%;
+    height: 60rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.95rem;
+    font-weight: 400;
+}
+
+/* 模态窗口 */
+
+.modal {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: var(--black);
+    overflow: hidden;
+    z-index: 9000;
+}
+
+.modal-dialog {
+    z-index: 9001;
+    height: 65vh;
+    width: 70%;
+    position: fixed;
+    top: 15%;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    background-color: transparent;
+}
+
+.modal-dialog > .image > image {
+    width: 100%;
+    position: relative;
+}
+
+.modal-dialog > .open-contact {
+    width: 80%;
+    height: 60rpx;
+    background-color: var(--theme);
+    color: var(--white);
+    font-size: 0.95rem;
+    position: absolute;
+    top: 520rpx;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    border-radius: 10000rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border: 1rpx solid var(--theme);
+}
+
+.modal-dialog > .close-tag {
+    margin-top: 30rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-dialog .close-tag > image {
+    width: 15%;
+}
+
+
+
+button::after{
+    border: none;
+}
+
+

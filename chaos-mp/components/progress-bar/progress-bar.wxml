@@ -1,0 +1,14 @@
+<view class="progress-container">
+        <view class="progress-bar-container">
+            <view class="progress-bar" style="width: {{currentBarWidth}}"></view>
+        </view>
+        <view class="progress-label-container">
+            <view wx:for="{{progressArr}}" wx:key="label" class="progress-label" style="width: {{labelWidth}}">
+                <!-- <view class="label-dot {{index <= currentStep ? 'active' : ''}}">
+                    <view class="cuIcon-check text-white"></view>
+                </view> -->
+                <view class="label-dot cuIcon-check text-white {{currentStep === progressArr.length - 1  ? 'active' : index <= currentStep - 1 ? 'active' : ''}}"></view>
+                <text class="label-des">{{item.label}}</text>
+            </view>
+        </view>
+    </view>

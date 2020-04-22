@@ -1,0 +1,5 @@
+/* pages/parentGuide/subpages/howToBuy/howToBuy.wxss */
+
+.left {
+    text-align: left;
+}
