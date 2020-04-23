@@ -1,13 +1,15 @@
 import java.sql.*;
-
-import com.chaosho.test.Person;
+import com.chaosho.*;
+import com.chaosho.test.*;
+// import com.chaosho.test.Person;
+// javac 不通过，以为该目录下仍存在Person.java
 
 public class MySQLDemo {
  
     // MySQL 8.0 以下版本 - JDBC 驱动名及数据库 URL
     // static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";  
     // static final String DB_URL = "jdbc:mysql://localhost:3306/RUNOOB";
- 
+
     // MySQL 8.0 以上版本 - JDBC 驱动名及数据库 URL
     static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";  
     static final String DB_URL = "jdbc:mysql://localhost:3306/chaos_database?useSSL=false&serverTimezone=UTC";
@@ -26,6 +28,11 @@ public class MySQLDemo {
         Person p = new Person();
 
         System.out.println(p);
+        System.out.println("--------------");
+
+        Animation ani = new Animation();
+
+        System.out.println(ani);
         System.out.println("--------------");
 
         // Person person = new Person();
