@@ -10,7 +10,7 @@ Component({
     properties: {
         progressArr: {
             type: Array,
-            default: [
+            value: [
                 {
                     label: '选项一'
                 },
@@ -25,7 +25,7 @@ Component({
         // 进度从零算起
         currentStep: {
             type: Number,
-            default: 0,
+            value: 0,
             observer(val){
               this.setData({
                 currentBarWidth: val == this.data.progressArr.length - 1 ? '100%' : this.getCurrentProgressBarWidth()

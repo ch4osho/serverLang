@@ -1,4 +1,4 @@
-<!-- pages/order/order.wxml -->
+<!-- pages/order/index.wxml -->
 <view>
     <view class="header">
         <view class="left">

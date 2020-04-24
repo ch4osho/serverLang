@@ -1,11 +1,4 @@
-<!-- 自定义模态窗口 -->
-<view class="middle-page"> 
-    <view class="modal">
-        <view class="modal-dialog">
-            <view class="image">
-                <image src="https://web.xuexiyuansu.com/images/miniprogramimages/787070_1582883273587.png" mode="widthFix"></image>
-            </view>
-            <button open-type="contact" class="open-contact" send-message-img="{{imgUrl}}" send-message-path="{{pagePath}}" send-message-title="{{title}}" show-message-card="true">关注公众号</button>
-        </view>
-    </view>
-</view>
+<!-- pages/middlePage/index.wxml -->
+<xdh-contact-dialog showModal="{{true}}" showClose="{{false}}">
+    <button open-type="contact" slot="btn" class="global-open-contact-dialog" send-message-img="{{imgUrl}}" send-message-path="{{pagePath}}" send-message-title="{{title}}" show-message-card="true">关注公众号</button>
+</xdh-contact-dialog>

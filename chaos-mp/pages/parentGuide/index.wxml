@@ -1,4 +1,4 @@
-<!--parentGuide.wxml-->
+<!--pages/parentGuide/index-->
 <mp-cells ext-class="my-cells">
 <mp-cell link hover url="./subpages/howToDownload/index" value="如何下载安装学得慧APP？"></mp-cell>
     <mp-cell link hover url="./subpages/whereToCourse/index" value="在哪上课？怎么上课？"></mp-cell>

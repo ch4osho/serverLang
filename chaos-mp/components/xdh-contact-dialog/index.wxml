@@ -1,0 +1,11 @@
+<view class="modal" catchtouchmove="{{true}}" wx:if="{{showModal}}">
+    <view class="modal-dialog">
+        <view class="image">
+            <image src="https://web.xuexiyuansu.com/images/miniprogramimages/787070_1582883273587.png" mode="widthFix" open-type="contact"></image>
+        </view>
+        <slot name="btn"></slot>
+        <view class="close-tag" wx:if="{{showClose}}">
+            <i class="~cuIcon-roundclose" bindtap="hideModal"></i>
+        </view>
+    </view>
+</view>

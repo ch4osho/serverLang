@@ -1,4 +1,4 @@
-<!--pages/intro/intro.wxml-->
+<!--pages/intro/index-->
 <!-- 长图介绍页 -->
 <view class="container {{isFringeScreen ? 'fringe-screen' : ''}}">
     <image src="https://web.xuexiyuansu.com/images/miniprogramimages/-200430778_1582861408904.png" mode="widthFix"></image>
@@ -11,20 +11,6 @@
 
     <image src="https://web.xuexiyuansu.com/images/miniprogramimages/-200430777_1582861800674.png" mode="widthFix"></image>
 </view>
-<!-- 底栏 -->
-<view class="bottom-bar {{isFringeScreen ? 'fringe-screen' : ''}}">
-    <image src="https://web.xuexiyuansu.com/images/miniprogramimages/342478139_1582877844854.png" mode="aspectFit"></image>
-    <button bindtap="showDownloadModal">立即下载</button>
-</view>
-<!-- 自定义模态窗口 -->
-<view class="modal" catchtouchmove="{{true}}" wx:if="{{showModal}}">
-    <view class="modal-dialog">
-        <view class="image">
-            <image src="https://web.xuexiyuansu.com/images/miniprogramimages/787070_1582883273587.png" mode="widthFix" open-type="contact"></image>
-        </view>
-        <button open-type="contact" class="open-contact">立即下载：回复 1</button>
-        <view class="close-tag">
-            <image src="https://web.xuexiyuansu.com/images/miniprogramimages/2099713199_1582880945771.png" mode="widthFix" bindtap="hideModal"></image>
-        </view>
-    </view>
-</view>
+
+<!-- 下载 --> 
+<xdh-download-bar isFringeScreen="{{isFringeScreen}}"></xdh-download-bar>

@@ -1,4 +1,4 @@
-<!--pages/purchaseSuccessful/purchaseSuccessful.wxml-->
+<!--pages/purchaseSuccessful/index-->
 <scroll-view class="wrap {{showWithMaterial  ? 'wrap-full' : ''}} {{isFringeScreen && !showWithMaterial ? 'fringe-screen-wrap' : ''}}" scroll-y="true">
     <view class="header" wx:if="{{currentStep > 1 || showTeacher}}">
         恭喜你完成报名!
@@ -8,7 +8,7 @@
     </view>
 
     <!-- 进度条 -->
-    <progress-bar progressArr="{{progressArr}}" currentStep="{{currentStep}}" wx:if="{{withMaterial}}"></progress-bar>
+    <xdh-progress-bar progressArr="{{progressArr}}" currentStep="{{currentStep}}" wx:if="{{withMaterial}}"></xdh-progress-bar>
 
     <!-- 无随材，有班主任, 且有班主任联系方式 -->
     <view class="body w90" wx:if="{{!isGroupPurchase && showTeacher && courseDetails && courseDetails.headTeacherInfo && courseDetails.headTeacherInfo.contact}}">
@@ -128,24 +128,10 @@
     </view>
 
 </scroll-view>
-<!-- 底栏 -->
-<view class="bottom-bar {{isFringeScreen ? 'fringe-screen' : ''}}" wx:if="{{!showWithMaterial}}">
-    <image src="https://web.xuexiyuansu.com/images/miniprogramimages/342478139_1582877844854.png" mode="aspectFit"></image>
-    <button bindtap="showDownloadModal">立即下载</button>
-</view>
 
-<!-- 自定义模态窗口 -->
-<view class="modal" catchtouchmove="{{true}}" wx:if="{{showModal}}">
-    <view class="modal-dialog">
-        <view class="image">
-            <image src="https://web.xuexiyuansu.com/images/miniprogramimages/787070_1582883273587.png" mode="widthFix" open-type="contact"></image>
-        </view>
-        <button open-type="contact" class="open-contact">立即下载：回复 1</button>
-        <view class="close-tag">
-            <image src="https://web.xuexiyuansu.com/images/miniprogramimages/2099713199_1582880945771.png" mode="widthFix" bindtap="hideModal"></image>
-        </view>
-    </view>
-</view>
+
+<!-- 下载 --> 
+<xdh-download-bar isFringeScreen="{{isFringeScreen}}"></xdh-download-bar>
 
 <!-- 土司弹窗 -->
-<totast show="{{showErrorDialog}}" msg="{{errorDes}}"></totast>
+<xdh-totast show="{{showErrorDialog}}" msg="{{errorDes}}"></xdh-totast>

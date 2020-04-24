@@ -49,8 +49,6 @@ Page({
             currentUserList3:this.data.currentUserList3
         })
 
-        console.log(this.data.currentUserList3)
-
     },
 
     // 0 - max随机数
@@ -67,6 +65,7 @@ Page({
     countDown(){
         let that = this
         setInterval(()=>{
+            
             that.data.currentUserList2.forEach((item, index, currentUserList2)=>{
                 that.formaterAndCountdown(item, index, currentUserList2, that)
             })
@@ -84,9 +83,8 @@ Page({
             item.time = '00:00:00:0'
         })
 
+        // 前两个用户，并且页面停止滚动
         temp = [temp[0], temp[1]]
-
-        console.log(temp)
 
         this.setData({
             currentUserList2: temp
@@ -104,11 +102,13 @@ Page({
                 // 先减，再判断
                 --ms
 
+                // 毫秒
                 if(ms < 0){
                     --sec
                     ms = 9
                 }
 
+                // 秒
                 if(sec < 10 && sec >= 0) {
                     sec =  '0' + sec * 1
                 } else if(sec < 0){
@@ -116,6 +116,7 @@ Page({
                     --min
                 }
 
+                // 分
                 if(min < 10 && min >= 0) {
                     min =  '0' + min * 1
                 } else if(min < 0){
@@ -123,6 +124,7 @@ Page({
                     --hour
                 }
 
+                // 时
                 if(hour < 10 && hour >= 0) {
                     hour =  '0' + hour * 1
                 } else if(hour < 0){
@@ -163,6 +165,7 @@ Page({
                     time = 'currentUserList2[' + index + '].time'
                 }
 
+                // 修改时间
                 context.setData({
                     [time] : `${hour}:${min}:${sec}:${ms}`
                 })
@@ -226,7 +229,7 @@ Page({
                 wx.setStorageSync('discountPrice', that.data.courseInfo.originPrice - that.data.courseInfo.salePrice)
 
 
-                // 倒计时
+                // 判断是否开始倒计时
                 if(that.data.signDisabled || that.data.expired){
                     this.endTime()
                 } else {
@@ -242,7 +245,7 @@ Page({
         if(this.data.signDisabled || this.data.expired) return
         let that = this;
 
-        // 本地存储拼团头像
+        // 本地存储拼团团长头像
         wx.setStorageSync('groupPurchaseUser', e.currentTarget.dataset.user ? e.currentTarget.dataset.user : this.data.currentUserList2[0])
 
         if (
@@ -292,7 +295,8 @@ Page({
                 type: 2
             };
         wx.navigateTo({
-            url: `../order/index?params=${JSON.stringify(params)}`,
+            // url: `../order/index?params=${JSON.stringify(params)}`,
+            url: wx.$urlMaker(`../order/index`, params)
         });
     },
 

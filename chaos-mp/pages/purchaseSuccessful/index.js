@@ -61,18 +61,13 @@ Page({
         showWithMaterial: false,
 
     },
-
-    /**
-     * 生命周期函数--监听页面加载
-     */
     onLoad: function (options) {
         let that = this,
-            params = options;
+            params = options
         that.setData({
             orderId: params.orderId,
             isGroupPurchase: params.type == 2 ? true : false,
             params,
-            // discountPrice: app.globalData.discountPrice ? app.globalData.discountPrice : ''
             // 打折价钱
             discountPrice: wx.getStorageSync('discountPrice') || '',
              // 获取团购团长信息
@@ -82,13 +77,9 @@ Page({
         that.getCourseDetails();
     },
 
-    /**
-     * 用户点击右上角分享
-     */
+    // 用户点击右上角分享
     onShareAppMessage: function () {
-        let params = {
-            c: this.data.params.c
-        }
+        let c = this.data.params.c
 
         // 团购分享
         if(this.data.isGroupPurchase){
@@ -96,7 +87,7 @@ Page({
                 // title: `${res.userInfo.nickName}邀请你一起来拼团！19元5节名师精品课，物理高分锦囊等你来领！`,
                 title: `${app.globalData.xdhLoginUserInfo.customerName}邀请你一起来拼团！19元5节名师精品课，物理高分锦囊等你来领！`,
                 imageUrl: 'https://web.xuexiyuansu.com/images/webcommonimages/wxshare20200415-111546.png',
-                path: `pages/groupPurchase/index?params=${JSON.stringify(params)}`
+                path: `pages/groupPurchase/index?c=${c}`
             }
 
         }
@@ -108,23 +99,7 @@ Page({
         };
     },
     
-    importAddress(){
-        this.getaddress()
-    },
-
-    showDownloadModal() {
-        this.setData({
-            showModal: true,
-        });
-    },
-    hideModal() {
-        this.setData({
-            showModal: false,
-        });
-    },
-    /**
-     * 添加到剪切板
-     */
+    // 添加到剪切板
     addToClipBoard() {
         let that = this;
         wx.setClipboardData({
@@ -138,9 +113,7 @@ Page({
             },
         });
     },
-    /**
-     * 获取微信用户的收货地址
-     */
+    // 获取微信用户的收货地址
     getaddress(){
         let that = this
         wx.chooseAddress({
@@ -162,9 +135,7 @@ Page({
             }
         })
     },
-    /**
-     * 获取课程详情信息
-     */
+    // 获取课程详情信息
     getCourseDetails() {
         let that = this;
         wx.$post({
@@ -208,9 +179,9 @@ Page({
             userRegion,
             localAddress,
         } = this.data.userInfo;
-        const province = userRegion[0] ? userRegion[0] : '';
-        const city = userRegion[1] ? userRegion[1] : '';
-        const region = userRegion[2] ? userRegion[2] : '';
+        const province = userRegion[0] || '';
+        const city = userRegion[1] || '';
+        const region = userRegion[2] ||  '';
         let that = this;
         wx.$post({
             url: wx.$apis.updateAddress,
@@ -265,7 +236,7 @@ Page({
             return;
         }
 
-        // 手机格式检测
+        // 手机格式检测（因为考虑到有可能会填固话，所以废弃）
         // if (
         //     this.data.userInfo.contactPhone !== '' &&
         //     !/^1[3456789]\d{9}$/.test(this.data.userInfo.contactPhone)
@@ -283,18 +254,5 @@ Page({
         this.setData({
             showErrorDialog: true,
         });
-    },
-    // 输入手机号时做检测
-    // phoneFormatCheck() {
-    //     if (
-    //         this.data.userInfo.contactPhone !== '' &&
-    //         !/^1\d{10}$/.test(this.data.userInfo.contactPhone)
-    //     ) {
-    //         return wx.showToast({
-    //             title: '手机号码格式不正确',
-    //             icon: 'none',
-    //             duration: 2000,
-    //         });
-    //     }
-    // },
+    }
 });

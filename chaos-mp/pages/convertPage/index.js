@@ -1,5 +1,6 @@
 // pages/convertPage/convertPage.js
 const app = getApp();
+const { uriToParams } = require('../../utils/util')
 Page({
     /**
      * 页面的初始数据
@@ -30,6 +31,12 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+
+        // 二维码识别跳转,跳转参数会带有q，值为一个完整进入地址，需要decodeURIComponent一次，自行获取参数
+        if(options.q) {
+            options = uriToParams(options.q)
+        }
+
         let that = this;
         let { c } = options;
         that.setData({
@@ -189,7 +196,7 @@ Page({
                 price: parseInt(that.data.courseInfo.salePrice),
             };
         wx.navigateTo({
-            url: `../order/index?params=${JSON.stringify(params)}`,
+            url: wx.$urlMaker(`../order/index`, params)
         });
     },
 

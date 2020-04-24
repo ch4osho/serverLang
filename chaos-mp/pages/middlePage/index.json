@@ -1,3 +1,6 @@
 {
-    "navigationBarTitleText": "前往公众号"
+    "navigationBarTitleText": "前往公众号",
+    "usingComponents": {
+      "xdh-contact-dialog": "../../components/xdh-contact-dialog/index"
+    }
   }

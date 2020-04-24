@@ -24,15 +24,5 @@ Page({
             title: '了解学得慧',
             path: 'pages/intro/intro'
         }
-    },
-    showDownloadModal() {
-        this.setData({
-            showModal: true
-        })
-    },
-    hideModal() {
-        this.setData({
-            showModal: false
-        });
     }
 })

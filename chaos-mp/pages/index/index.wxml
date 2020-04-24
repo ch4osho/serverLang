@@ -1,13 +1,4 @@
-<!-- index.wxml -->
-<!-- <view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
-  </view>
-</view> -->
+<!--pages/index/index-->
 <view class="pb100 w90 {{isFringeScreen ? 'fringe-screen' : ''}}">
     <view class="header">
         <image alt="headerImage" class="header-image" src="https://web.xuexiyuansu.com/images/miniprogramimages/-1396342996_1582870292623.png" bindtap="navigateToIntro"></image>
@@ -42,9 +33,9 @@
                 <button bindtap="navigateToPurchaseSuccessful" class="pretender" data-a="123">
                     跳转购课成功页
                 </button>
-                <!-- <button bindtap="navigateToConvertPage" data-c="wt21" class="pretender">
-                    带参跳转转化页
-                </button> -->
+                <button bindtap="navigateToConvertPage" data-c="wt21" class="pretender">
+                    跳转化页
+                </button>
                 <button class="pretender" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">
                     登录
                 </button>
@@ -82,21 +73,8 @@
         </swiper-item>
     </swiper>
 </view>
-<!-- 底栏 -->
-<view class="bottom-bar {{isFringeScreen ? 'fringe-screen' : ''}}">
-    <image src="https://web.xuexiyuansu.com/images/miniprogramimages/342478139_1582877844854.png" mode="aspectFit"></image>
-    <button bindtap="showDownloadModal">立即下载</button>
-</view>
 
-<!-- 自定义模态窗口 -->
-<view class="modal" catchtouchmove="{{true}}" wx:if="{{showModal}}">
-    <view class="modal-dialog">
-        <view class="image">
-            <image src="https://web.xuexiyuansu.com/images/miniprogramimages/787070_1582883273587.png" mode="widthFix" open-type="contact"></image>
-        </view>
-        <button open-type="contact" class="open-contact">立即下载：回复 1</button>
-        <view class="close-tag">
-            <image src="https://web.xuexiyuansu.com/images/miniprogramimages/2099713199_1582880945771.png" mode="widthFix" bindtap="hideModal"></image>
-        </view>
-    </view>
-</view>
+
+<!-- 下载 --> 
+<xdh-download-bar isFringeScreen="{{isFringeScreen}}"></xdh-download-bar>
+

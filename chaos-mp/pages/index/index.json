@@ -1,3 +1,5 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "xdh-download-bar": "../../components/xdh-download-bar/index"
+  }
 }

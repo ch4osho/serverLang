@@ -22,6 +22,7 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+        console.log('支付成功页的options',options)
         let that = this,
             params = options;
         that.setData({
@@ -190,9 +191,10 @@ Page({
             type: that.data.params.type
         };
         wx.navigateTo({
-            url: `../purchaseSuccessful/index?params=${JSON.stringify(
-                params
-            )}`,
+            // url: `../purchaseSuccessful/index?params=${JSON.stringify(
+            //     params
+            // )}`,
+            url: wx.$urlMaker(`../purchaseSuccessful/index`, params)
         });
     },
     cancelOrder() {

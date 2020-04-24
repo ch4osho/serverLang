@@ -1,4 +1,3 @@
-<!--pages/parentGuide/subpages/howToDownload/howToDownload.wxml-->
 <view>
     <view class="swiper-tab">
         <view class="swiper-tab-item {{currentTab==0?'active':''}}" data-current="0" bindtap="clickTab">安卓</view>
@@ -43,14 +42,8 @@
         </swiper>
     </view>
 </view>
-<!-- 自定义模态窗口 -->
-<view class="modal" catchtouchmove="{{true}}" wx:if="{{showModal}}"></view>
-<view class="modal-dialog" wx:if="{{showModal}}">
-    <view class="image">
-        <image src="https://web.xuexiyuansu.com/images/miniprogramimages/787070_1582883273587.png" mode="widthFix" open-type="contact"></image>
-    </view>
-    <button open-type="contact" class="open-contact">立即下载：回复 1</button>
-    <view class="close-tag">
-        <image src="https://web.xuexiyuansu.com/images/miniprogramimages/2099713199_1582880945771.png" mode="widthFix" bindtap="hideModal"></image>
-    </view>
-</view>
+
+<!-- 前往客服下载弹窗 -->
+<xdh-contact-dialog showModal="{{showModal}}" bindhideModal="hideModal">
+    <button slot="btn" class="global-open-contact-dialog" open-type="contact">立即下载：回复 1</button>
+</xdh-contact-dialog>

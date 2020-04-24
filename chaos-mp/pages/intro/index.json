@@ -1,3 +1,6 @@
 {
-  "navigationBarTitleText": "了解学得慧"
+  "navigationBarTitleText": "了解学得慧",
+  "usingComponents": {
+    "xdh-download-bar": "../../components/xdh-download-bar/index"
+  }
 }

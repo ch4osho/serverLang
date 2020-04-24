@@ -45,10 +45,11 @@ Page({
         });
     },
     navigateToConvertPage(event) {
+
         let params = {
             c: event.currentTarget.dataset.c,
-            ctype: event.currentTarget.dataset.ctype
-        };
+            ctype:  event.currentTarget.dataset.ctype
+        }
 
         let type;
         // 1正常商品，2拼团商品
@@ -65,15 +66,16 @@ Page({
         }
         
         wx.navigateTo({
-            url: `../${type}/index?params=${JSON.stringify(params)}`
+            url: wx.$urlMaker(`../${type}/index`, params)
         });
     },
     navigateToGroupPurchase(event){
         let params = {
             c: event.currentTarget.dataset.c
         }
+        
         wx.navigateTo({
-            url: `../groupPurchase/index?params=${JSON.stringify(params)}`
+            url: wx.$urlMaker(`../groupPurchase/index`, params)
         });
     },
     navigateToMiddlePage(){
@@ -125,8 +127,6 @@ Page({
         //     aid = weixinadinfoArr[0];
         // }
         // console.log('来源广告的广告id是:' + aid);
-
-        console.log('查看全局data',app.globalData)
     },
     /**
      *
@@ -174,16 +174,6 @@ Page({
             path: 'pages/index/index'
         };
     },
-    showDownloadModal() {
-        this.setData({
-            showModal: true
-        });
-    },
-    hideModal() {
-        this.setData({
-            showModal: false
-        });
-    },
     /**
      *  跳转到长图介绍页
      */
@@ -201,10 +191,9 @@ Page({
             c: 'wt21',
             type: 2
         };
+
         wx.navigateTo({
-            url: `../purchaseSuccessful/index?params=${JSON.stringify(
-                params
-            )}`
+            url: wx.$urlMaker(`../purchaseSuccessful/index`, params)
         });
     },
     /**

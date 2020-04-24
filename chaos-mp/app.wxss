@@ -84,81 +84,8 @@ page{
     text-align: center;
 }
 
-/* 底部固定栏 */
 
-.bottom-bar {
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 100rpx;
-    z-index: 3;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    text-align: right;
-    background-color: white;
-}
-
-.bottom-bar.fringe-screen{
-    height: 130rpx;
-}
-
-
-
-.bottom-bar image {
-    width: 200rpx;
-    margin-left: 40rpx;
-    margin-right: 160rpx;
-}
-
-.bottom-bar button {
-    background-color: var(--theme);
-    border-radius: 4000rpx;
-    color: var(--white);
-    width: 35%;
-    height: 60rpx;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    font-size: 0.95rem;
-    font-weight: 400;
-}
-
-/* 模态窗口 */
-
-.modal {
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background: var(--black);
-    overflow: hidden;
-    z-index: 9000;
-}
-
-.modal-dialog {
-    z-index: 9001;
-    height: 65vh;
-    width: 70%;
-    position: fixed;
-    top: 15%;
-    left: 0;
-    right: 0;
-    margin: 0 auto;
-    background-color: transparent;
-}
-
-.modal-dialog > .image > image {
-    width: 100%;
-    position: relative;
-}
-
-.modal-dialog > .open-contact {
+.global-open-contact-dialog {
     width: 80%;
     height: 60rpx;
     background-color: var(--theme);
@@ -175,24 +102,6 @@ page{
     justify-content: center;
     align-items: center;
     border: 1rpx solid var(--theme);
-}
-
-.modal-dialog > .close-tag {
-    margin-top: 30rpx;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-}
-
-.modal-dialog .close-tag > image {
-    width: 15%;
-}
-
-
-
-button::after{
-    border: none;
 }
 
 

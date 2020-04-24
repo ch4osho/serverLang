@@ -1,4 +1,5 @@
 
+<!--pages/groupPurchase/index-->
 <scroll-view class="body-wrap {{isFringeScreen ? 'fringe-screen' : ''}}">
     <!-- 顶部滚动拼团用户 -->
     <view class="rolling-container" wx:if="{{!signDisabled && !expired}}">
