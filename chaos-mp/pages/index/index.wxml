@@ -1,7 +1,7 @@
 <!--pages/index/index-->
 <view class="pb100 w90 {{isFringeScreen ? 'fringe-screen' : ''}}">
     <view class="header">
-        <image alt="headerImage" class="header-image" src="https://web.xuexiyuansu.com/images/miniprogramimages/-1396342996_1582870292623.png" bindtap="navigateToIntro"></image>
+        <image alt="headerImage" class="header-image" src="http://chaosho.com/mp/catdog.png" mode="aspectFill" bindtap="navigateToIntro"></image>
     </view>
     <view class="parent-guide {{upward?'upward' : ''}}" bindtap="navigateToParentGuide" style="display: {{upward ? 'flex' : 'none'}}">
         <image src="https://web.xuexiyuansu.com/images/miniprogramimages/-1698726002_1582877096726.png" mode="widthFix"></image>
@@ -11,7 +11,7 @@
         <image src="https://web.xuexiyuansu.com/images/miniprogramimages/-1698726002_1582877096726.png" mode="widthFix"></image>
     </view>
     <view class="course">
-        <text>课程</text>
+        <text>学得慧测试版小程序</text>
     </view>
     <view class="swiper-tab">
         <view class="swiper-tab-item {{currentTab == 0 ? 'active' : ''}}" data-current="0" bindtap="clickTab">

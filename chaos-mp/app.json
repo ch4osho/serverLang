@@ -18,7 +18,7 @@
     "window": {
         "backgroundTextStyle": "light",
         "navigationBarBackgroundColor": "#fff",
-        "navigationBarTitleText": "学得慧",
+        "navigationBarTitleText": "学得慧-测试版",
         "navigationBarTextStyle": "black"
     },
     "sitemapLocation": "sitemap.json"
