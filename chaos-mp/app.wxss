@@ -105,3 +105,8 @@ page{
 }
 
 
+button::after{
+    border: none;
+}
+
+
