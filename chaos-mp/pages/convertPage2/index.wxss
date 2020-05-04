@@ -296,6 +296,93 @@ image {
     width: 100%;
 }
 
+/* 新需求的按钮 */
+
+.grade-bar{
+    width: 100%;
+}
+
+.grade-bar .grade{
+    text-align: center;
+    margin: 30rpx 0 60rpx 0;
+}
+
+.grade-bar .grade-item {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.grade-bar .grade-item .btn-container{
+    position: relative;
+    margin-left: 40rpx;
+    margin-bottom: 20rpx;
+}
+
+.grade-bar .grade-item .btn-container .label{
+    padding: 5rpx 15rpx;
+    border-radius: 20rpx;
+    position: absolute;
+    top: -20rpx;
+    right: -20rpx;
+    font-size: .5rem;
+    background: #666666;
+    color: white
+}
+
+.grade-bar .grade-item .btn-container > button{
+    border-radius: 60px;
+    height: 80rpx;
+    width: 140rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.7rem;
+}
+
+/* 半身弹窗 */
+
+.grade-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 20rpx 70rpx;
+}
+
+.grade-wrapper .btn-container{
+    position: relative;
+    margin-bottom: 50rpx;
+    width: 33%;
+}
+
+.grade-wrapper .btn-container .label{
+    padding: 5rpx 15rpx;
+    border-radius: 20rpx;
+    position: absolute;
+    top: -20rpx;
+    right: 0rpx;
+    font-size: .8rem;
+    background: #666666;
+    color: white
+}
+
+.grade-wrapper .btn-container > button{
+    border-radius: 60px;
+    height: 80rpx;
+    width: 140rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.7rem;
+}
+
+
+
+/* 底部栏 */
+
 .bottom-bar1 {
     position: fixed;
     width: 100%;
@@ -310,6 +397,16 @@ image {
     align-items: center;
     text-align: right;
     background-color: white;
+}
+
+
+
+.bottom-bar1{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    text-align: right;
 }
 
 .bottom-bar1.fringe-screen{
@@ -432,27 +529,8 @@ image {
     margin-bottom: 20rpx;
 }
 
-.grade-select {
-    margin-bottom: 40rpx;
-}
-
-.grade-wrapper {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.grade-wrapper > button {
-    border-radius: 60px;
-    height: 80rpx;
-    width: 140rpx;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    font-size: 0.7rem;
+.select-title.index{
+    margin: 30rpx 0;
 }
 
 .course-selection button.selected {
@@ -485,7 +563,7 @@ image {
     width: 600rpx;
     height: 100rpx;
     margin-bottom: 40rpx;
-    border-radius: 10000rpx;
+    border-radius: 100rpx;
     display: flex;
     flex-direction: row;
     justify-content: center;

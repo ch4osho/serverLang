@@ -21,66 +21,70 @@ Page({
         middleCourseList: [],
         highCourseList: [],
         isFringeScreen: wx.getStorageSync('isFringeScreen') || false,
+        errorDes: null,
+        showErrorDialog: false,
     },
     onPageScroll(e) {
         if (e.scrollTop > this.data.lastY) {
             this.setData({
-                upward: false
+                upward: false,
             });
             this.setData({
-                lastY: e.scrollTop
+                lastY: e.scrollTop,
             });
         } else {
             this.setData({
-                upward: true
+                upward: true,
             });
             this.setData({
-                lastY: e.scrollTop
+                lastY: e.scrollTop,
             });
         }
     },
     navigateToParentGuide() {
         wx.navigateTo({
-            url: '../parentGuide/index'
+            url: '../parentGuide/index',
         });
     },
     navigateToConvertPage(event) {
-
         let params = {
             c: event.currentTarget.dataset.c,
-            ctype:  event.currentTarget.dataset.ctype
-        }
+            ctype: event.currentTarget.dataset.ctype,
+        };
 
         let type;
-        // 1正常商品，2拼团商品
-        switch(params.ctype){
-            case 1 :
+        // 1正常商品，2拼团商品，3自动（1.7.0的转化页）
+        switch (params.ctype) {
+            case 1:
                 type = 'convertPage';
                 break;
-            case 2 :
+            case 2:
                 type = 'groupPurchase';
+                break;
+            case 3:
+                type = 'convertPage2';
                 break;
             default:
                 type = 'convertPage';
                 break;
         }
-        
+
         wx.navigateTo({
-            url: wx.$urlMaker(`../${type}/index`, params)
+            url: wx.$urlMaker(`../${type}/index`, params),
         });
     },
-    navigateToGroupPurchase(event){
+    navigateToGroupPurchase(event) {
         let params = {
-            c: event.currentTarget.dataset.c
-        }
-        
+            c: event.currentTarget.dataset.c,
+        };
+
         wx.navigateTo({
-            url: wx.$urlMaker(`../groupPurchase/index`, params)
+            url: wx.$urlMaker(`../groupPurchase/index`, params),
         });
     },
-    navigateToMiddlePage(){
+    navigateToMiddlePage() {
         wx.navigateTo({
-            url: `../middlePage/index`
+            url: `../middlePage/index`,
         });
     },
     /**
@@ -91,28 +95,28 @@ Page({
         if (app.globalData.userInfo) {
             that.setData({
                 userInfo: app.globalData.userInfo,
-                hasUserInfo: true
+                hasUserInfo: true,
             });
             // console.log(this.data.userInfo);
         } else if (that.data.canIUse) {
             // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
             // 所以此处加入 callback 以防止这种情况
-            app.userInfoReadyCallback = res => {
+            app.userInfoReadyCallback = (res) => {
                 that.setData({
                     userInfo: res.userInfo,
-                    hasUserInfo: true
+                    hasUserInfo: true,
                 });
             };
         } else {
             // 在没有 open-type=getUserInfo 版本的兼容处理
             wx.getUserInfo({
-                success: res => {
+                success: (res) => {
                     app.globalData.userInfo = res.userInfo;
                     that.setData({
                         userInfo: res.userInfo,
-                        hasUserInfo: true
+                        hasUserInfo: true,
                     });
-                }
+                },
             });
         }
         that.getCourseList();
@@ -139,7 +143,7 @@ Page({
     swiperTab(e) {
         let that = this;
         that.setData({
-            currentTab: e.detail.current
+            currentTab: e.detail.current,
         });
     },
     /**
@@ -151,18 +155,18 @@ Page({
             return false;
         } else {
             that.setData({
-                currentTab: e.target.dataset.current
+                currentTab: e.target.dataset.current,
             });
         }
     },
     /**
      *  获取用户资料
      */
-    getUserInfo: function(e) {
+    getUserInfo: function (e) {
         app.globalData.userInfo = e.detail.userInfo;
         this.setData({
             userInfo: e.detail.userInfo,
-            hasUserInfo: true
+            hasUserInfo: true,
         });
     },
     /**
@@ -171,7 +175,7 @@ Page({
     onShareAppMessage() {
         return {
             title: '学得慧',
-            path: 'pages/index/index'
+            path: 'pages/index/index',
         };
     },
     /**
@@ -179,7 +183,7 @@ Page({
      */
     navigateToIntro() {
         wx.navigateTo({
-            url: '../intro/index'
+            url: '../intro/index',
         });
     },
     /**
@@ -189,57 +193,78 @@ Page({
         let params = {
             orderId: `D_10173634043365337`,
             c: 'wt21',
-            type: 2
+            type: 2,
         };
 
         wx.navigateTo({
-            url: wx.$urlMaker(`../purchaseSuccessful/index`, params)
+            url: wx.$urlMaker(`../purchaseSuccessful/index`, params),
         });
     },
     /**
      * TODO: FIXME: NOTE: 登录模块，线上移除
      */
     getPhoneNumber(e) {
+        let that = this;
         if (e.detail.errMsg.includes('ok')) {
             wx.$post({
                 url: wx.$apis.loginByPhone,
                 data: {
                     openId: app.globalData.openid,
                     encryptedData: e.detail.encryptedData,
-                    iv: e.detail.iv
+                    iv: e.detail.iv,
                 },
-                success: res => {
+                success: (res) => {
+                    if (res.data.status !== 0) {
+                        return that.setData({
+                            errorDes: res.data.message,
+                            showErrorDialog: true,
+                        });
+                    }
+                    console.log(`---获取用户信息成功---`);
+                    console.log(res.data);
                     app.globalData.isLogin = true;
                     app.globalData.token = res.data.data.token;
                     app.globalData.xdhLoginUserInfo = res.data.data.userInfo;
-                    console.log(app.globalData)
-                }
+                },
             });
         }
     },
+    // // 显示错误弹窗
+    // switchErrorDialog() {
+    //     this.setData({
+    //         showErrorDialog: true,
+    //     });
+    // },
     /**
-     * 获取各种课程
+     * 获取课程列表
      */
     getCourseList() {
         let that = this;
         wx.$get({
             url: wx.$apis.pageIndex,
-            success: res => {
+            success: (res) => {
                 if (res.data.status !== 0) {
-                    throw new Error(`获取失败`);
+                    return that.setData({
+                        errorDes: res.data.message,
+                        showErrorDialog: true,
+                    });
                 }
                 let recommendCourseList = res.data.data.courseGroup.find(
-                        item => {
+                        (item) => {
                             return item.groupId === 0;
                         }
                     ),
-                    primaryCourseList = res.data.data.courseGroup.find(item => {
-                        return item.groupId === 1;
-                    }),
-                    middleCourseList = res.data.data.courseGroup.find(item => {
-                        return item.groupId === 2;
-                    }),
-                    highCourseList = res.data.data.courseGroup.find(item => {
+                    primaryCourseList = res.data.data.courseGroup.find(
+                        (item) => {
+                            return item.groupId === 1;
+                        }
+                    ),
+                    middleCourseList = res.data.data.courseGroup.find(
+                        (item) => {
+                            return item.groupId === 2;
+                        }
+                    ),
+                    highCourseList = res.data.data.courseGroup.find((item) => {
                         return item.groupId === 3;
                     });
                 that.setData({
@@ -254,9 +279,23 @@ Page({
                         : [],
                     highCourseList: highCourseList
                         ? highCourseList.courseChannels
-                        : []
+                        : [],
                 });
-            }
+            },
         });
-    }
+    },
+    handleUserInfo(res) {
+        console.log(res);
+    },
+    triggerError() {
+        console.log(`触发一下错误`);
+        let that = this;
+        console.log(`原来的错误值`, that.data.errorDes);
+        that.setData({
+            errorDes: `主动触发错误`,
+        });
+        that.setData({
+            showErrorDialog: true,
+        });
+    },
 });

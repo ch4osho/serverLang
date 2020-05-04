@@ -24,6 +24,8 @@ Page({
         starImage: `https://web.xuexiyuansu.com/images/miniprogramimages/684208302_1583381520919.png`,
         currentUser: null,
         isFringeScreen: wx.getStorageSync('isFringeScreen') || false,
+        errorDes: null,
+        showErrorDialog: false
     },
     onLoad(options){
         let that = this;
@@ -189,7 +191,10 @@ Page({
             data: { c: that.data.convertPageParams },
             success: (res) => {
                 if (res.data.status !== 0) {
-                    throw new Error(`获取课程包失败`);
+                    return that.setData({
+                        errorDes: res.data.message,
+                        showErrorDialog: true,
+                    });
                 }
                 /* NOTE: 获取上课日期 */
                 that.getCourseDateRange(res.data.data.courseSignEndDate);
@@ -220,6 +225,7 @@ Page({
                             res.data.data.courseGradeList[0].courseList,
                     });
                 }
+
                 that.setData({
                     courseTag: res.data.data.packageLabel.split(','),
                     courseInfo: res.data.data,
@@ -269,6 +275,7 @@ Page({
         let that = this;
         that.setData({
             selectedGrade: e.target.dataset.grade,
+            selectedGoods: null
         });
         let courseList = that.data.courseInfo.courseGradeList.find((item) => {
             return item.grade === that.data.selectedGrade;
@@ -311,16 +318,35 @@ Page({
                 data: {
                     openId: app.globalData.openid,
                     encryptedData: e.detail.encryptedData,
-                    iv: e.detail.iv,
+                    iv: e.detail.iv
                 },
                 success: (res) => {
+                    if (res.data.status !== 0) {
+                        return that.setData({
+                            errorDes: res.data.message,
+                            showErrorDialog: true,
+                        });
+                    }
                     app.globalData.isLogin = true;
                     app.globalData.token = res.data.data.token;
                     app.globalData.xdhLoginUserInfo = res.data.data.userInfo;
                     that.setData({
                         isLogin: true,
                     });
-                    that.showModal(e);
+                    
+                    console.log('eeeeeeeee',e)
+                    if(e.currentTarget.dataset.issys) {
+                        that.setData({
+                            errorDes: '系统将为你自动拼团~',
+                            showErrorDialog: true,
+                        });
+                        setTimeout(function(){
+                            that.showModal(e);
+                        },2500)
+                    } else {
+                        that.showModal(e);
+                    }
+                    
                 },
             });
         }

@@ -165,7 +165,7 @@
     </view>
     <view class="order" wx:if="{{!expired && !signDisabled}}">
         <view class="item">
-            <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" class="order-btn single">
+            <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" class="order-btn single" data-issys="1">
                 <view class="btn-container">
                     <view class="price-label">￥{{courseInfo.originPrice}}单独购买</view>
                 </view>
@@ -189,6 +189,13 @@
     
 </view>
 
+<el-form v-for="item in configArr" :key="item.value">
+    <el-form-item :label="item.key">
+        <el-input :value="item.value"></el-input>
+    </el-form-item>
+</el-form>
+
+
 <!-- 半屏选择课程框 -->
 <view class="modal-hide1" bindtap="hideModal" catchtouchmove="{{true}}" wx:if="{{showModal}}">
     <view class="modal-dialog1" catchtap="{{true}}">
@@ -201,15 +208,20 @@
                 <view class="grade-select">
                     <view class="select-title">1. 点击选择年级</view>
                     <view class="grade-wrapper">
-                        <button wx:for="{{courseInfo.courseGradeList}}" wx:key="index" wx:for-index="index" wx:for-item="grade" bindtap="selectGrade" data-grade="{{grade.grade}}" class="{{grade.hasCourse ? selectedGrade === grade.grade ? 'selected' : 'active' : 'disabled'}}" disabled="{{!grade.hasCourse}}">
-                            {{grade.gradeName}}
-                        </button>
+                        <view class="btn-container" wx:for="{{courseInfo.courseGradeList}}" wx:key="index" wx:for-index="index" wx:for-item="grade">
+                            <button bindtap="selectGrade" data-grade="{{grade.grade}}" class="{{grade.hasCourse && !grade.signEnd ? selectedGrade === grade.grade ? 'selected' : 'active' : 'disabled'}}" disabled="{{!grade.hasCourse || grade.signEnd}}">
+                                {{grade.gradeName}}
+                            </button>
+                            <view class="label" wx:if="{{grade.signEnd || !grade.hasCourse}}">
+                                已报满
+                            </view>
+                        </view>
                     </view>
                 </view>
                 <view class="course-select">
                     <view class="select-title">2. 点击选择课程</view>
                     <view class="course-wrapper">
-                        <button wx:for="{{selectedGradeGoodsList}}" wx:key="index" wx:for-index="index" wx:for-item="course" data-g="{{course.goodsId}}" disabled="{{!course.canUse}}" bindtap="selectGoods" class="{{course.canUse ? selectedGoods == course.goodsId ? 'selected' : 'active' : 'disabled'}}">
+                        <button wx:for="{{selectedGradeGoodsList}}" wx:key="index" wx:for-index="index" wx:for-item="course" data-g="{{course.goodsId}}" disabled="{{!course.canUse || course.signEnd}}" bindtap="selectGoods" class="{{!course.canUse || course.signEnd ? 'disabled' : selectedGoods == course.goodsId ? 'selected' : 'active'}}">
                             {{course.goodsName}}({{course.dateRange}})
                         </button>
                     </view>
@@ -220,7 +232,7 @@
                 <view class="course-select">
                     <view class="select-title">点击选择课程</view>
                     <view class="course-wrapper">
-                        <button wx:for="{{selectedGradeGoodsList}}" wx:key="index" wx:for-index="index" wx:for-item="course" data-g="{{course.goodsId}}" disabled="{{!course.canUse}}" bindtap="selectGoods" class="{{course.canUse ? selectedGoods == course.goodsId ? 'selected' : 'active' : 'disabled'}}">
+                        <button wx:for="{{selectedGradeGoodsList}}" wx:key="index" wx:for-index="index" wx:for-item="course" data-g="{{course.goodsId}}" disabled="{{!course.canUse}}" bindtap="selectGoods" class="{{!course.canUse || course.signEnd ? 'disabled' : selectedGoods == course.goodsId ? 'selected' : 'active'}}">
                             {{course.goodsName}}({{course.dateRange}})
                         </button>
                     </view>
@@ -264,3 +276,5 @@
         </view>
     </view>
 </view>
+<!-- 错误弹窗 -->
+<xdh-toast show="{{showErrorDialog}}" msg="{{errorDes}}"></xdh-toast>

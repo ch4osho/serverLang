@@ -75,11 +75,11 @@
                     <textarea  value="{{userInfo.localAddress}}" placeholder="请输入街道，门牌等信息" bindinput="infoInput" data-type="localAddress" placeholder-style="color:#DDDDDD;" auto-height="{{false}}"/>
                 </view>
             </view>
-            <view class="list-item" bindtap="importAddress">
+            <view class="list-item" bindtap="getAuth">
                 <view class="address"><i class="cuIcon-weixin icon"></i>导入微信地址</view>
             </view>
         </view>
-        <view class="btn" bindtap="checkBeforeSubmit">
+        <view class="btn {{canSubmit ? 'active' : ''}}" bindtap="checkBeforeSubmit">
             提交
         </view>
     </view>
@@ -101,6 +101,9 @@
                     
                     <view class="captain">团长</view>
                 </view>
+                <view class="plus">
+                    +
+                </view>
                 <view class="avatar">
                     <!-- <image mode="aspectFill" src="{{userAvatarUrl}}"></image> -->
                     <open-data type="userAvatarUrl"></open-data>
@@ -111,7 +114,7 @@
                 <text>添加班主任{{courseDetails.headTeacherInfo.contactType == 'wx' ? '微信' : 'QQ'}}:</text>
                 <text>{{courseDetails.headTeacherInfo.contact ? courseDetails.headTeacherInfo.contact : '暂无'}}</text>
             </view>
-            <button class="big-btn copy-wx" bindtap="addToClipBoard" wx:if="{{courseDetails.headTeacherInfo.contactType && courseDetails.headTeacherInfo.contact}}">
+            <button class="big-btn share-wx" bindtap="addToClipBoard" wx:if="{{courseDetails.headTeacherInfo.contactType && courseDetails.headTeacherInfo.contact}}">
                 <view wx:if="{{courseDetails.headTeacherInfo.contactType == 'wx'}}">复制班主任微信</view>
                 <view wx:if="{{courseDetails.headTeacherInfo.contactType == 'qq'}}">复制班主任QQ</view>
             </button>
@@ -119,19 +122,20 @@
                 <text>超值优惠！超值课程快分享给好友吧！</text>
             </view>
 
-            <button class="big-btn share-wx" open-type='share' title="测试分享">
+            <button class="big-btn copy-wx" open-type='share' title="测试分享">
                 分享到微信群
             </button>
         </view>
 
-        <view class="small-desc">班主任将主动联系您，请随时留意电话和短信。</view>
+        <!-- <view class="small-desc">班主任将主动联系您，请随时留意电话和短信。</view> -->
     </view>
 
 </scroll-view>
 
 
-<!-- 下载 --> 
-<xdh-download-bar isFringeScreen="{{isFringeScreen}}"></xdh-download-bar>
+<!-- 下载 -->
+<!-- 步骤为2 || 拼团最后一页 || 正常购买成功 -->
+<xdh-download-bar isFringeScreen="{{isFringeScreen}}" wx:if="{{currentStep > 1 || showTeacher || showGroupPurchase}}"></xdh-download-bar>
 
-<!-- 土司弹窗 -->
-<xdh-totast show="{{showErrorDialog}}" msg="{{errorDes}}"></xdh-totast>
+<!-- 错误弹窗 -->
+<xdh-toast show="{{showErrorDialog}}" msg="{{errorDes}}"></xdh-toast>

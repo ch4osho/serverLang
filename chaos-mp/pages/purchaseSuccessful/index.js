@@ -59,6 +59,8 @@ Page({
         showGroupPurchase: false,
         // 是否显示随材
         showWithMaterial: false,
+        // 可以提交
+        canSubmit: false
 
     },
     onLoad: function (options) {
@@ -85,7 +87,7 @@ Page({
         if(this.data.isGroupPurchase){
             return {
                 // title: `${res.userInfo.nickName}邀请你一起来拼团！19元5节名师精品课，物理高分锦囊等你来领！`,
-                title: `${app.globalData.xdhLoginUserInfo.customerName}邀请你一起来拼团！19元5节名师精品课，物理高分锦囊等你来领！`,
+                title: `我刚刚参与了学得慧的拼团购课活动！19元5节名师精品课，物理高分锦囊等你来领！`,
                 imageUrl: 'https://web.xuexiyuansu.com/images/webcommonimages/wxshare20200415-111546.png',
                 path: `pages/groupPurchase/index?c=${c}`
             }
@@ -125,6 +127,8 @@ Page({
                     ['userInfo.contactPhone']: res.telNumber ? res.telNumber : '',
                     ['userInfo.localAddress']: res.detailInfo ? res.detailInfo : ''
                 })
+
+                that.checkSubmit()
             },
             fail(err){
                 wx.showToast({
@@ -132,6 +136,28 @@ Page({
                     icon: 'none',
                     duration: 2000,
                 });
+            }
+        })
+    },
+
+    // 先判断用户是否有这个权限
+    getAuth(){
+        let that = this
+        wx.getSetting({
+            success(res) {
+                if (res.authSetting['scope.address'] === undefined || res.authSetting['scope.address'] === true) {
+                    that.getaddress()
+                } else {
+                    // 无权限则跳转开启权限
+                    wx.openSetting({
+                        success (res) {
+                          console.log(res.authSetting)
+                        }
+                    })
+                }
+            },
+            fail(err){
+                console.log('err',err)
             }
         })
     },
@@ -218,6 +244,16 @@ Page({
                 [e.currentTarget.dataset.type]: e.detail.value,
             }),
         });
+
+        this.checkSubmit()
+        
+    },
+
+    // 检查是否可以提交
+    checkSubmit(){
+        this.setData({
+            canSubmit: this.data.userInfo.contactName != '' && this.data.userInfo.contactPhone != '' && this.data.userInfo.userRegion.length > 0 && this.data.userInfo.localAddress != ''
+        })
     },
     // 数据检查
     checkBeforeSubmit() {

@@ -10,7 +10,18 @@
             <view class="remaining-tip">剩余支付时间</view>
         </view>
     </view>
-    <view class="section w90">
+    <view class="content {{isFringeScreen ? 'fringe-screen' : ''}}">
+        <view class="section w90">
+        <view class="grade-area" wx:if="{{gradeList.length > 0}}">
+            <view class="grades-title">
+                <text>为了更好地提供课程服务，请选择学院所在的年级</text>
+            </view>
+            <view class="grades">
+                <view class="grades-item {{currentGrade == item.grade ? 'active' : ''}}" wx:for="{{gradeList}}" wx:key="grade">
+                    {{item.grade}}
+                </view>
+            </view>
+        </view>
         <view class="title">课程信息</view>
         <view class="details">
             <view class="title">
@@ -23,8 +34,9 @@
     <view class="section w90 material" wx:if="{{courseDetail.materialDetailList.length > 0}}">
         <view class="title">
             教辅礼包
-            <text class="sub-title" wx:if="{{courseDetail.materialPrice}}">【价值{{courseDetail.materialPrice}}】</text>
+            <text class="sub-title" wx:if="{{courseDetail.materialPrice != '0元'}}">【价值{{courseDetail.materialPrice}}】</text>
         </view>
+        <view class="tool-tip">请在支付成功后填写收货地址</view>
         <scroll-view scroll-y="true" style="height: 35vh;">
             <view class="content-wrapper">
                 <view class="material-content" wx:for="{{courseDetail.materialDetailList}}" wx:key="index" wx:for-index="index" wx:for-item="item">
@@ -33,7 +45,7 @@
                 </view>
             </view>
         </scroll-view>
-        <view class="tool-tip">请在支付成功后填写收货地址</view>
+    </view>
     </view>
     <view class="bottom-bar {{isFringeScreen ? 'fringe-screen' : ''}}">
         <view class="left">
@@ -45,3 +57,5 @@
         </view>
     </view>
 </view>
+<!-- 错误弹窗 -->
+<xdh-toast show="{{showErrorDialog}}" msg="{{errorDes}}"></xdh-toast>

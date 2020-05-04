@@ -525,19 +525,36 @@
     margin-bottom: 20rpx;
 }
 
-.grade-select {
+/* .grade-select {
     margin-bottom: 40rpx;
-}
+} */
 
 .grade-wrapper {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: space-between;
+    padding: 20rpx 70rpx;
 }
 
-.grade-wrapper > button {
+.grade-wrapper .btn-container{
+    position: relative;
+    margin-bottom: 50rpx;
+    width: 33%;
+}
+
+.grade-wrapper .btn-container .label{
+    padding: 5rpx 15rpx;
+    border-radius: 20rpx;
+    position: absolute;
+    top: -20rpx;
+    right: -20rpx;
+    font-size: .8rem;
+    background: #666666;
+    color: white
+}
+
+.grade-wrapper .btn-container > button{
     border-radius: 60px;
     height: 80rpx;
     width: 140rpx;
@@ -547,6 +564,7 @@
     align-items: center;
     font-size: 0.7rem;
 }
+
 
 .course-selection button.selected {
     background: linear-gradient(
@@ -586,6 +604,7 @@
     font-family: 'Source Han Sans CN';
     font-weight: 400;
     font-size: 0.8rem;
+    line-height: 1.2rem;
 }
 
 .course-footer {

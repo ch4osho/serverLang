@@ -12,7 +12,7 @@ if (ENV == 'prod') {
     config = prod.config;
 }
 
-const VERSION = '1.4.0';
+const VERSION = '1.6.0';
 
 module.exports = {
     VERSION,

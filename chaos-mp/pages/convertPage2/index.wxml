@@ -1,9 +1,11 @@
 <!--pages/convertPage/index-->
 <view class="page {{isFringeScreen ? 'fringe-screen' : ''}}">
     <view class="body">
+
         <view class="head">
             <image src="{{courseInfo.headPicList[0]}}" mode="widthFix"></image>
         </view>
+
         <view class="info-basic">
             <view class="basic-left">
                 <view class="left-left">
@@ -17,14 +19,15 @@
                     <view class="left-right-price">{{courseInfo.salePrice}}</view>
                 </view>
             </view>
-            <view class="basic-right" wx:if="{{selectedGradeGoodsList[0].dateRange}}">
+            <view class="basic-right" wx:if="{{courseInfo.courseGradeList[0].courseList[0].dateRange}}">
                 <view class="right-top">上课日期</view>
-                <view class="right-bottom">{{selectedGradeGoodsList[0].dateRange}}</view>
+                <view class="right-bottom">{{courseInfo.courseGradeList[0].courseList[0].dateRange}}</view>
             </view>
             <view class="basic-right2" wx:else>
                 报名已结束
             </view>
         </view>
+
         <view class="info-details">
             <view class="info-details-row">
                 <view wx:for="{{courseTag}}" wx:key="index" wx:for-index="index" wx:for-item="tag" class="tag">
@@ -34,6 +37,7 @@
             </view>
             <view class="info-details-desc">{{courseInfo.packageDesc}}</view>
         </view>
+
         <view class="info-special" bindtap="showModal2">
             <view class="special-item">
                 <image src="{{checkedImage}}" mode="widthFix"></image>
@@ -53,6 +57,23 @@
             </view>
             <image src="https://web.xuexiyuansu.com/images/miniprogramimages/-1280236461_1583312774966.png" mode="widthFix"></image>
         </view>
+
+        <view class="course-selection">
+            <view class="grade-select">
+                <view class="select-title index">点击按钮 选择年级</view>
+                <view class="grade-wrapper" catchtap="clearCurrentGrade">
+                    <view class="btn-container" wx:for="{{courseInfo.courseGradeList}}" wx:key="index" wx:for-index="index" wx:for-item="grade">
+                        <button catchtap="selectGrade" data-grade="{{grade}}" class="{{grade.hasCourse && !grade.signEnd ? selectedGrade.grade === grade.grade ? 'selected' : 'active' : 'disabled'}}" disabled="{{!grade.hasCourse || grade.signEnd}}">
+                            {{grade.gradeName}}
+                        </button>
+                        <view class="label" wx:if="{{grade.signEnd || !grade.hasCourse}}">
+                            已报满
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+
         <view class="imgs">
             <image wx:for="{{courseInfo.courseDetailPicList}}" wx:key="index" wx:for-item="img" src="{{img}}" mode="widthFix" bindtap=""></image>
         </view>
@@ -77,36 +98,24 @@
         <image src="https://web.xuexiyuansu.com/images/miniprogramimages/-818825964_1583381458080.png" mode="widthFix" bindtap="hideModal"></image>
     </view>
     <scroll-view scroll-y="true" style="height: 64vh;">
-        <!-- 第一套：当前接口下的课程年级数量 > 1 -->
+
+        <!-- 获取年级列表-->
         <view class="course-selection" wx:if="{{courseInfo.courseGradeList.length > 1}}">
             <view class="grade-select">
-                <view class="select-title">1. 点击选择年级</view>
+                <view class="select-title">点击按钮 选择年级</view>
                 <view class="grade-wrapper">
-                    <button wx:for="{{courseInfo.courseGradeList}}" wx:key="index" wx:for-index="index" wx:for-item="grade" bindtap="selectGrade" data-grade="{{grade.grade}}" class="{{grade.hasCourse ? selectedGrade === grade.grade ? 'selected' : 'active' : 'disabled'}}" disabled="{{!grade.hasCourse}}">
-                        {{grade.gradeName}}
-                    </button>
-                </view>
-            </view>
-            <view class="course-select">
-                <view class="select-title">2. 点击选择课程</view>
-                <view class="course-wrapper">
-                    <button wx:for="{{selectedGradeGoodsList}}" wx:key="index" wx:for-index="index" wx:for-item="course" data-g="{{course.goodsId}}" disabled="{{!course.canUse}}" bindtap="selectGoods" class="{{course.canUse ? selectedGoods == course.goodsId ? 'selected' : 'active' : 'disabled'}}">
-                        {{course.goodsName}}({{course.dateRange}})
-                    </button>
+                    <view class="btn-container" wx:for="{{courseInfo.courseGradeList}}" wx:key="index" wx:for-index="index" wx:for-item="grade">
+                        <button bindtap="selectGrade" data-grade="{{grade}}" class="{{grade.hasCourse && !grade.signEnd ? selectedGrade.grade === grade.grade ? 'selected' : 'active' : 'disabled'}}" disabled="{{!grade.hasCourse || grade.signEnd}}">
+                            {{grade.gradeName}}
+                        </button>
+                        <view class="label" wx:if="{{grade.signEnd || !grade.hasCourse}}">
+                            已报满
+                        </view>
+                    </view>
                 </view>
             </view>
         </view>
-        <!-- 第二套：当前接口下的年级数量为1 -->
-        <view class="course-selection" wx:if="{{courseInfo.courseGradeList.length == 1}}">
-            <view class="course-select">
-                <view class="select-title">点击选择课程</view>
-                <view class="course-wrapper">
-                    <button wx:for="{{selectedGradeGoodsList}}" wx:key="index" wx:for-index="index" wx:for-item="course" data-g="{{course.goodsId}}" disabled="{{!course.canUse}}" bindtap="selectGoods" class="{{course.canUse ? selectedGoods == course.goodsId ? 'selected' : 'active' : 'disabled'}}">
-                        {{course.goodsName}}({{course.dateRange}})
-                    </button>
-                </view>
-            </view>
-        </view>
+
     </scroll-view>
     <view class="course-footer">
         <button bindtap="navigateToOrder" disabled="{{!selectedGoods}}">立即报名</button>

@@ -10,7 +10,7 @@
 
 1. wx-app-development-tool 支持 wxss 和 wxml 文件
 
-2. minapp 智能不全
+2. minapp 智能补全
 
 另外在 vsc 内新建 page 需要在 app.json 内配置好 index，如果想要偷懒可以直接在微信开发工具内 new page 会自动配置
 
@@ -69,5 +69,7 @@
         "iOS 有个在小程序更新期间、用户某些操作路径下代码包丢失的 bug，我们会在下个版本修复。"
 
 ```
+
+10、
 
 

@@ -24,9 +24,9 @@
 		}
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.10.4",
-	"appid": "wxe0dba7755e1d56d5",
-	"projectname": "chaos-mp",
+	"libVersion": "2.10.3",
+	"appid": "wxd8ed5bbc159d5385",
+	"projectname": "original-wx-mp",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},

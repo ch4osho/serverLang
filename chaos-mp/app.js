@@ -1,9 +1,9 @@
 // app.js
-const api = require("config/api.js");
-const http = require("utils/http.js");
-const util = require("utils/util.js");
+const api = require('config/api.js');
+const http = require('utils/http.js');
+const util = require('utils/util.js');
 App({
-    onLaunch: function() {
+    onLaunch: function () {
         wx.$apis = api.apiList;
         wx.$post = http.post;
         wx.$get = http.get;
@@ -12,45 +12,47 @@ App({
 
         // 登录
         wx.login({
-            success: res => {
+            success: (res) => {
                 // 发送 res.code 到后台换取 openId, sessionKey, unionId
                 wx.$post({
                     url: wx.$apis.login,
                     data: {
-                        "code": res.code
+                        code: res.code,
                     },
-                    success: info => {
+                    success: (info) => {
                         // console.log(info.data);
                         that.globalData.openid = info.data.data.openid;
+                        that.globalData.unionid = info.data.data.unionid;
                         // console.log(`app全局内容${that.globalData.openid}`)
                     },
-                    fail: err => {
-                        console.log(`---小程序用户登录失败---`)
+                    fail: (err) => {
+                        console.log(`---小程序用户登录失败---`);
                         console.log(err);
-                    }
-                })
-            }
-        })
+                    },
+                });
+            },
+        });
 
         // 获取用户信息
         wx.getSetting({
-            success: res => {
+            success: (res) => {
                 if (res.authSetting['scope.userInfo']) {
                     // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
                     wx.getUserInfo({
-                        success: res => {
+                        success: (res) => {
                             // 可以将 res 发送给后台解码出 unionId
-                            this.globalData.userInfo = res.userInfo
+                            console.log(res.userInfo);
+                            this.globalData.userInfo = res.userInfo;
                             // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
                             // 所以此处加入 callback 以防止这种情况
                             if (this.userInfoReadyCallback) {
-                                this.userInfoReadyCallback(res)
+                                this.userInfoReadyCallback(res);
                             }
-                        }
-                    })
+                        },
+                    });
                 }
-            }
-        })
+            },
+        });
 
         this.getSystemInfo();
     },
@@ -58,7 +60,7 @@ App({
     getSystemInfo() {
         let that = this;
         wx.getSystemInfo({
-            success: function(res) {
+            success: function (res) {
                 that.globalData.systemInfo = res;
                 that.globalData.windowHeight = res.windowHeight;
                 that.globalData.windowWidth = res.windowWidth;
@@ -68,20 +70,26 @@ App({
                     that.globalData.isIOS = false;
                 }
                 // 本地存储是否是刘海屏幕
-                wx.setStorageSync('isFringeScreen', that.isFringeScreen())
+                wx.setStorageSync('isFringeScreen', that.isFringeScreen());
             },
-        })
+        });
     },
     // 判断是不是刘海屏
-    isFringeScreen(){
+    isFringeScreen() {
         let isFringeScreen = false,
-            fringeScreenList = ['iPhone XS','iPhone X','iPhone XS Max', 'iPhone XR'];
+            fringeScreenList = [
+                'iPhone XS',
+                'iPhone X',
+                'iPhone XS Max',
+                'iPhone XR',
+            ];
 
-        fringeScreenList.forEach(item=>{
-            if(this.globalData.systemInfo.model.includes(item)) isFringeScreen = true
-        })
+        fringeScreenList.forEach((item) => {
+            if (this.globalData.systemInfo.model.includes(item))
+                isFringeScreen = true;
+        });
 
-        return isFringeScreen
+        return isFringeScreen;
     },
     globalData: {
         userInfo: null,
@@ -92,7 +100,8 @@ App({
         userSecrets: null,
         isLogin: false,
         openid: null,
+        unionid: null,
         token: null,
         xdhLoginUserInfo: null,
-    }
-})
+    },
+});

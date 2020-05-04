@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "xdh-download-bar": "../../components/xdh-download-bar/index"
+    "xdh-download-bar": "../../components/xdh-download-bar/index",
+    "xdh-toast": "../../components/xdh-totast/index"
   }
 }

@@ -104,9 +104,6 @@ page{
     border: 1rpx solid var(--theme);
 }
 
-
 button::after{
     border: none;
 }
-
-

@@ -13,12 +13,13 @@
         "pages/purchaseSuccessful/index",
         "pages/order/index",
         "pages/groupPurchase/index",
-        "pages/middlePage/index"
+        "pages/middlePage/index",
+        "pages/convertPage2/index"
     ],
     "window": {
         "backgroundTextStyle": "light",
         "navigationBarBackgroundColor": "#fff",
-        "navigationBarTitleText": "学得慧-测试版",
+        "navigationBarTitleText": "学得慧",
         "navigationBarTextStyle": "black"
     },
     "sitemapLocation": "sitemap.json"
