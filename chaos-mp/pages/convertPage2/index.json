@@ -1,6 +1,0 @@
-{
-  "navigationBarTitleText": "课程详情",
-  "usingComponents": {
-      "xdh-toast": "../../components/xdh-totast/index"
-  }
-}

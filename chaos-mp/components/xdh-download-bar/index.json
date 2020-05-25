@@ -1,6 +1,0 @@
-{
-    "component": true,
-    "usingComponents": {
-        "xdh-contact-dialog": "../xdh-contact-dialog/index"
-    }
-}

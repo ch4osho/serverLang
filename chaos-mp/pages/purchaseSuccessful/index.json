@@ -1,8 +1,0 @@
-{
-  "navigationBarTitleText": "购课成功",
-  "usingComponents": {
-    "xdh-progress-bar": "../../components/xdh-progress-bar/index",
-    "xdh-toast": "../../components/xdh-totast/index",
-    "xdh-download-bar": "../../components/xdh-download-bar/index"
-  }
-}
